@@ -486,7 +486,7 @@ LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_singlecontainer(
 // lb:1, ub:65535
 typedef struct{
   uint32_t                                                     len;
-  LIBLTE_X2AP_PROTOCOLiE_FIELD_STRUCT                    buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+  LIBLTE_X2AP_PROTOCOLIE_FIELD_STRUCT                    buffer[32]; //WARNING: Artificial limit to reduce memory footprint
 }LIBLTE_X2AP_PROTOCOLIE_CONTAINER_STRUCT;
 
 LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolie_container(
