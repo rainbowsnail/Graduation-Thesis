@@ -465,10 +465,42 @@ LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_field(
   LIBLTE_X2AP_PROTOCOLIE_FIELD_STRUCT                          *ie);
 
 /*******************************************************************************
+/* ProtocolIE ProtocolIE_SingleContainer SEQUENCE
+********************************************************************************/
+typedef struct{
+  LIBLTE_X2AP_PROTOCOLIE_ID_STRUCT                             id;
+  LIBLTE_X2AP_CRITICALITY_ENUM                                 criticality;
+  LIBLTE_ASN1_OPEN_TYPE_STRUCT                                 value;
+}LIBLTE_X2AP_PROTOCOLIE_SINGLECONTAINER_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolie_singlecontainer(
+  LIBLTE_X2AP_PROTOCOLIE_SINGLECONTAINER_STRUCT                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_singlecontainer(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PROTOCOLIE_SINGLECONTAINER_STRUCT                *ie);
+
+/*******************************************************************************
+/* ProtocolIE ProtocolIE_Container DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:65535
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_PROTOCOLiE_FIELD_STRUCT                    buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_PROTOCOLIE_CONTAINER_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolie_container(
+  LIBLTE_X2AP_PROTOCOLIE_CONTAINER_STRUCT                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_container(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PROTOCOLIE_CONTAINER_STRUCT                *ie);
+  
+/*******************************************************************************
 /* ProtocolIE ProtocolExtensionField SEQUENCE
 ********************************************************************************/
 typedef struct{
-  LIBLTE_X2AP_PROTOCOLEXTENSIONID_STRUCT                       id;
+  LIBLTE_X2AP_PROTOCOLIE_ID_STRUCT                             id; // changed by WT
   LIBLTE_X2AP_CRITICALITY_ENUM                                 criticality;
   LIBLTE_ASN1_OPEN_TYPE_STRUCT                                 extensionValue;
 }LIBLTE_X2AP_PROTOCOLEXTENSIONFIELD_STRUCT;
@@ -479,6 +511,22 @@ LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolextensionfield(
 LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolextensionfield(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_PROTOCOLEXTENSIONFIELD_STRUCT                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE ProtocolExtensionContainer DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:65535
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONFIELD_STRUCT                    buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolextensioncontainer(
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolextensioncontainer(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                *ie);
 
 /*******************************************************************************
 /* ProtocolIE ProtocolIE_FieldPair SEQUENCE
@@ -499,22 +547,6 @@ LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_fieldpair(
   LIBLTE_X2AP_PROTOCOLIE_FIELDPAIR_STRUCT                      *ie);
 
 /*******************************************************************************
-/* ProtocolIE ProtocolExtensionContainer DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:65535
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONFIELD_STRUCT                    buffer[32]; //WARNING: Artificial limit to reduce memory footprint
-}LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolextensioncontainer(
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolextensioncontainer(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                *ie);
-
-/*******************************************************************************
 /* ProtocolIE ProtocolIE_ContainerPair DYNAMIC SEQUENCE OF
 ********************************************************************************/
 // lb:0, ub:65535
@@ -529,6 +561,22 @@ LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolie_containerpair(
 LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_containerpair(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_PROTOCOLIE_CONTAINERPAIR_STRUCT                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE ProtocolIE_ContainerList DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:None, ub:None
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_PROTOCOLIE_CONTAINER_STRUCT                  buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_PROTOCOLIE_CONTAINERLIST_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolie_containerlist(
+  LIBLTE_X2AP_PROTOCOLIE_CONTAINERLIST_STRUCT              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_containerlist(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PROTOCOLIE_CONTAINERLIST_STRUCT              *ie);
 
 /*******************************************************************************
 /* ProtocolIE ProtocolIE_ContainerPairList DYNAMIC SEQUENCE OF
@@ -561,22 +609,6 @@ LIBLTE_ERROR_ENUM liblte_X2AP_pack_privateie_field(
 LIBLTE_ERROR_ENUM liblte_X2AP_unpack_privateie_field(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_PRIVATEIE_FIELD_STRUCT                           *ie);
-
-/*******************************************************************************
-/* ProtocolIE ProtocolIE_SingleContainer SEQUENCE
-********************************************************************************/
-typedef struct{
-  LIBLTE_X2AP_PROTOCOLIE_ID_STRUCT                             id;
-  LIBLTE_X2AP_CRITICALITY_ENUM                                 criticality;
-  LIBLTE_ASN1_OPEN_TYPE_STRUCT                                 value;
-}LIBLTE_X2AP_PROTOCOLIE_SINGLECONTAINER_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_X2AP_pack_protocolie_singlecontainer(
-  LIBLTE_X2AP_PROTOCOLIE_SINGLECONTAINER_STRUCT                *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_X2AP_unpack_protocolie_singlecontainer(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PROTOCOLIE_SINGLECONTAINER_STRUCT                *ie);
 
 /*******************************************************************************
 /* ProtocolIE PrivateIE_Container DYNAMIC SEQUENCE OF
