@@ -90,5 +90,5 @@ srsue/test/upper/CMakeFiles/rrc_reconfig_test.dir/rrc_reconfig_test.cc.o
  ../lib/include/srslte/phy/utils/ringbuffer.h
  ../lib/include/srslte/phy/utils/vector.h
  ../lib/include/srslte/srslte.h
- /home/wantong/srsLTE/srsue/test/upper/rrc_reconfig_test.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/rrc_reconfig_test.cc
  lib/include/srslte/version.h

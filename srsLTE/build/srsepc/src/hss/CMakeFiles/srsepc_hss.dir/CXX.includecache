@@ -1214,7 +1214,7 @@ fstream
 map
 -
 
-/home/wantong/srsLTE/srsepc/src/hss/hss.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/hss/hss.cc
 stdlib.h
 -
 time.h
@@ -1228,9 +1228,9 @@ iomanip
 boost/thread/mutex.hpp
 -
 hss/hss.h
-/home/wantong/srsLTE/srsepc/src/hss/hss/hss.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/hss/hss/hss.h
 srslte/common/security.h
-/home/wantong/srsLTE/srsepc/src/hss/srslte/common/security.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/hss/srslte/common/security.h
 
 lib/include/srslte/version.h
 srslte/config.h

@@ -1162,17 +1162,17 @@ srslte/phy/sync/cfo.h
 srslte/phy/sync/cp.h
 ../lib/include/srslte/srslte/phy/sync/cp.h
 
-/home/wantong/srsLTE/srsue/test/upper/rrc_reconfig_test.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/rrc_reconfig_test.cc
 iostream
 -
 srslte/srslte.h
 -
 srslte/common/log_filter.h
-/home/wantong/srsLTE/srsue/test/upper/srslte/common/log_filter.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/srslte/common/log_filter.h
 srslte/asn1/liblte_rrc.h
-/home/wantong/srsLTE/srsue/test/upper/srslte/asn1/liblte_rrc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/srslte/asn1/liblte_rrc.h
 srslte/asn1/liblte_mme.h
-/home/wantong/srsLTE/srsue/test/upper/srslte/asn1/liblte_mme.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/srslte/asn1/liblte_mme.h
 
 lib/include/srslte/version.h
 srslte/config.h

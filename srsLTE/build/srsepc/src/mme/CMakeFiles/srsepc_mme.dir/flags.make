@@ -6,5 +6,5 @@ CXX_FLAGS =  -march=native -Wall -Wno-comment -Wno-reorder -Wno-unused-but-set-v
 
 CXX_DEFINES = -DHAVE_MBEDTLS
 
-CXX_INCLUDES = -I/home/wantong/srsLTE/build/lib/include -I/home/wantong/srsLTE/lib/include -I/home/wantong/srsLTE/srsepc/hdr 
+CXX_INCLUDES = -I/home/wantong/Graduation-Thesis/srsLTE/build/lib/include -I/home/wantong/Graduation-Thesis/srsLTE/lib/include -I/home/wantong/Graduation-Thesis/srsLTE/srsepc/hdr 
 

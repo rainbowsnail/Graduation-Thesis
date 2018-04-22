@@ -1108,7 +1108,7 @@ srslte/phy/sync/cfo.h
 srslte/phy/sync/cp.h
 ../lib/include/srslte/srslte/phy/sync/cp.h
 
-/home/wantong/srsLTE/lib/src/phy/ue/ue_cell_search.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/ue_cell_search.c
 stdlib.h
 -
 string.h
@@ -1122,21 +1122,21 @@ unistd.h
 srslte/srslte.h
 -
 srslte/phy/ue/ue_cell_search.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_cell_search.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_cell_search.h
 srslte/phy/utils/debug.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/utils/debug.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/utils/debug.h
 srslte/phy/utils/vector.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/utils/vector.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/utils/vector.h
 
-/home/wantong/srsLTE/lib/src/phy/ue/ue_dl.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/ue_dl.c
 srslte/phy/ue/ue_dl.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_dl.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_dl.h
 string.h
 -
 srslte/srslte.h
 -
 
-/home/wantong/srsLTE/lib/src/phy/ue/ue_mib.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/ue_mib.c
 stdlib.h
 -
 string.h
@@ -1148,13 +1148,13 @@ assert.h
 unistd.h
 -
 srslte/phy/ue/ue_mib.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_mib.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_mib.h
 srslte/phy/utils/debug.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/utils/debug.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/utils/debug.h
 srslte/phy/utils/vector.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/utils/vector.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/utils/vector.h
 
-/home/wantong/srsLTE/lib/src/phy/ue/ue_sync.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/ue_sync.c
 stdlib.h
 -
 string.h
@@ -1166,17 +1166,17 @@ assert.h
 unistd.h
 -
 srslte/srslte.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/srslte.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/srslte.h
 srslte/phy/ue/ue_sync.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_sync.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_sync.h
 srslte/phy/io/filesource.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/io/filesource.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/io/filesource.h
 srslte/phy/utils/debug.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/utils/debug.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/utils/debug.h
 srslte/phy/utils/vector.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/utils/vector.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/utils/vector.h
 
-/home/wantong/srsLTE/lib/src/phy/ue/ue_ul.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/ue_ul.c
 complex.h
 -
 math.h
@@ -1184,7 +1184,7 @@ math.h
 string.h
 -
 srslte/phy/ue/ue_ul.h
-/home/wantong/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_ul.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/ue/srslte/phy/ue/ue_ul.h
 
 lib/include/srslte/version.h
 srslte/config.h

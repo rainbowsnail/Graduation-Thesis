@@ -24,11 +24,11 @@ liblte_common.h
 stdint.h
 -
 
-/home/wantong/srsLTE/srsenb/test/upper/plmn_test.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/test/upper/plmn_test.cc
 assert.h
 -
 upper/common_enb.h
-/home/wantong/srsLTE/srsenb/test/upper/upper/common_enb.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/test/upper/upper/common_enb.h
 srslte/asn1/liblte_rrc.h
-/home/wantong/srsLTE/srsenb/test/upper/srslte/asn1/liblte_rrc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/test/upper/srslte/asn1/liblte_rrc.h
 

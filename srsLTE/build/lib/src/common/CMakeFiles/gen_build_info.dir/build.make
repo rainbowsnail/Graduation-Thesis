@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wantong/srsLTE
+CMAKE_SOURCE_DIR = /home/wantong/Graduation-Thesis/srsLTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wantong/srsLTE/build
+CMAKE_BINARY_DIR = /home/wantong/Graduation-Thesis/srsLTE/build
 
 # Utility rule file for gen_build_info.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/wantong/srsLTE/build
 include lib/src/common/CMakeFiles/gen_build_info.dir/progress.make
 
 lib/src/common/CMakeFiles/gen_build_info:
-	cd /home/wantong/srsLTE/build/lib/src/common && cmake -P /home/wantong/srsLTE/build/SRSLTEbuildinfo.cmake
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/common && cmake -P /home/wantong/Graduation-Thesis/srsLTE/build/SRSLTEbuildinfo.cmake
 
 gen_build_info: lib/src/common/CMakeFiles/gen_build_info
 gen_build_info: lib/src/common/CMakeFiles/gen_build_info.dir/build.make
@@ -67,10 +67,10 @@ lib/src/common/CMakeFiles/gen_build_info.dir/build: gen_build_info
 .PHONY : lib/src/common/CMakeFiles/gen_build_info.dir/build
 
 lib/src/common/CMakeFiles/gen_build_info.dir/clean:
-	cd /home/wantong/srsLTE/build/lib/src/common && $(CMAKE_COMMAND) -P CMakeFiles/gen_build_info.dir/cmake_clean.cmake
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/common && $(CMAKE_COMMAND) -P CMakeFiles/gen_build_info.dir/cmake_clean.cmake
 .PHONY : lib/src/common/CMakeFiles/gen_build_info.dir/clean
 
 lib/src/common/CMakeFiles/gen_build_info.dir/depend:
-	cd /home/wantong/srsLTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wantong/srsLTE /home/wantong/srsLTE/lib/src/common /home/wantong/srsLTE/build /home/wantong/srsLTE/build/lib/src/common /home/wantong/srsLTE/build/lib/src/common/CMakeFiles/gen_build_info.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wantong/Graduation-Thesis/srsLTE /home/wantong/Graduation-Thesis/srsLTE/lib/src/common /home/wantong/Graduation-Thesis/srsLTE/build /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/common /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/common/CMakeFiles/gen_build_info.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lib/src/common/CMakeFiles/gen_build_info.dir/depend
 

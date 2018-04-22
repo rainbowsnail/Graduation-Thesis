@@ -54,7 +54,7 @@ stdint.h
 srslte/config.h
 ../lib/include/srslte/phy/utils/srslte/config.h
 
-/home/wantong/srsLTE/lib/src/phy/agc/agc.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/agc/agc.c
 string.h
 -
 strings.h
@@ -66,11 +66,11 @@ math.h
 complex.h
 -
 srslte/phy/utils/debug.h
-/home/wantong/srsLTE/lib/src/phy/agc/srslte/phy/utils/debug.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/agc/srslte/phy/utils/debug.h
 srslte/phy/agc/agc.h
-/home/wantong/srsLTE/lib/src/phy/agc/srslte/phy/agc/agc.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/agc/srslte/phy/agc/agc.h
 srslte/phy/utils/vector.h
-/home/wantong/srsLTE/lib/src/phy/agc/srslte/phy/utils/vector.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/agc/srslte/phy/utils/vector.h
 srslte/phy/utils/debug.h
-/home/wantong/srsLTE/lib/src/phy/agc/srslte/phy/utils/debug.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/agc/srslte/phy/utils/debug.h
 

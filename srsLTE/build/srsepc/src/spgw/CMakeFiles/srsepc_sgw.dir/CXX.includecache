@@ -1272,7 +1272,7 @@ srslte/common/threads.h
 srslte/asn1/gtpc.h
 ../srsepc/hdr/spgw/srslte/asn1/gtpc.h
 
-/home/wantong/srsLTE/srsepc/src/spgw/spgw.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/spgw/spgw.cc
 iostream
 -
 algorithm
@@ -1294,11 +1294,11 @@ linux/if_tun.h
 linux/ip.h
 -
 spgw/spgw.h
-/home/wantong/srsLTE/srsepc/src/spgw/spgw/spgw.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/spgw/spgw/spgw.h
 mme/mme_gtpc.h
-/home/wantong/srsLTE/srsepc/src/spgw/mme/mme_gtpc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/spgw/mme/mme_gtpc.h
 srslte/upper/gtpu.h
-/home/wantong/srsLTE/srsepc/src/spgw/srslte/upper/gtpu.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/spgw/srslte/upper/gtpu.h
 
 lib/include/srslte/version.h
 srslte/config.h

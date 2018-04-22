@@ -84,5 +84,5 @@ lib/examples/CMakeFiles/usrp_capture_sync.dir/usrp_capture_sync.c.o
  ../lib/include/srslte/phy/utils/ringbuffer.h
  ../lib/include/srslte/phy/utils/vector.h
  ../lib/include/srslte/srslte.h
- /home/wantong/srsLTE/lib/examples/usrp_capture_sync.c
+ /home/wantong/Graduation-Thesis/srsLTE/lib/examples/usrp_capture_sync.c
  lib/include/srslte/version.h

@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/wantong/srsLTE/lib/src/phy/enb/enb_dl.c" "/home/wantong/srsLTE/build/lib/src/phy/enb/CMakeFiles/srslte_enb.dir/enb_dl.c.o"
-  "/home/wantong/srsLTE/lib/src/phy/enb/enb_ul.c" "/home/wantong/srsLTE/build/lib/src/phy/enb/CMakeFiles/srslte_enb.dir/enb_ul.c.o"
+  "/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/enb/enb_dl.c" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/enb/CMakeFiles/srslte_enb.dir/enb_dl.c.o"
+  "/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/enb/enb_ul.c" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/enb/CMakeFiles/srslte_enb.dir/enb_ul.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

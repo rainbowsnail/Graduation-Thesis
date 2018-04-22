@@ -1488,9 +1488,17 @@ s1ap_metrics.h
 
 ../srsenb/hdr/upper/s1ap_metrics.h
 
-/home/wantong/srsLTE/srsenb/src/upper/gtpu.cc
+../srsenb/hdr/upper/x2ap.h
+srslte/asn1/liblte_x2ap.h
+../srsenb/hdr/upper/srslte/asn1/liblte_x2ap.h
+srslte/common/threads.h
+../srsenb/hdr/upper/srslte/common/threads.h
+srslte/interfaces/enb_interfaces.h
+../srsenb/hdr/upper/srslte/interfaces/enb_interfaces.h
+
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/gtpu.cc
 upper/gtpu.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/gtpu.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/gtpu.h
 unistd.h
 -
 sys/socket.h
@@ -1500,37 +1508,37 @@ fcntl.h
 errno.h
 -
 
-/home/wantong/srsLTE/srsenb/src/upper/pdcp.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/pdcp.cc
 upper/pdcp.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/pdcp.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/pdcp.h
 upper/common_enb.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/common_enb.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/common_enb.h
 
-/home/wantong/srsLTE/srsenb/src/upper/rlc.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/rlc.cc
 upper/rlc.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/rlc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/rlc.h
 upper/common_enb.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/common_enb.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/common_enb.h
 
-/home/wantong/srsLTE/srsenb/src/upper/rrc.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/rrc.cc
 srslte/interfaces/sched_interface.h
-/home/wantong/srsLTE/srsenb/src/upper/srslte/interfaces/sched_interface.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/srslte/interfaces/sched_interface.h
 srslte/asn1/liblte_rrc.h
-/home/wantong/srsLTE/srsenb/src/upper/srslte/asn1/liblte_rrc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/srslte/asn1/liblte_rrc.h
 upper/rrc.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/rrc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/rrc.h
 srslte/srslte.h
-/home/wantong/srsLTE/srsenb/src/upper/srslte/srslte.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/srslte/srslte.h
 srslte/asn1/liblte_mme.h
-/home/wantong/srsLTE/srsenb/src/upper/srslte/asn1/liblte_mme.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/srslte/asn1/liblte_mme.h
 upper/rrc.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/rrc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/rrc.h
 
-/home/wantong/srsLTE/srsenb/src/upper/s1ap.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/s1ap.cc
 upper/s1ap.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/s1ap.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/s1ap.h
 upper/common_enb.h
-/home/wantong/srsLTE/srsenb/src/upper/upper/common_enb.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/common_enb.h
 stdio.h
 -
 string.h
@@ -1547,6 +1555,10 @@ netinet/sctp.h
 -
 arpa/inet.h
 -
+
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/x2ap.cc
+upper/x2ap.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/x2ap.h
 
 lib/include/srslte/version.h
 srslte/config.h

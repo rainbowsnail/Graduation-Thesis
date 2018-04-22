@@ -4,7 +4,7 @@
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o
  ../lib/include/srslte/config.h
  ../lib/include/srslte/phy/channel/ch_awgn.h
- /home/wantong/srsLTE/lib/src/phy/channel/ch_awgn.c
- /home/wantong/srsLTE/lib/src/phy/channel/gauss.h
+ /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/ch_awgn.c
+ /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/gauss.h
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o
- /home/wantong/srsLTE/lib/src/phy/channel/gauss.c
+ /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/gauss.c

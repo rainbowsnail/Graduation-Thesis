@@ -14,7 +14,7 @@ stdbool.h
 srslte/config.h
 ../lib/include/srslte/phy/dft/srslte/config.h
 
-/home/wantong/srsLTE/lib/src/phy/utils/test/dft_test.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/utils/test/dft_test.c
 stdio.h
 -
 stdlib.h
@@ -30,5 +30,5 @@ time.h
 complex.h
 -
 srslte/phy/dft/dft.h
-/home/wantong/srsLTE/lib/src/phy/utils/test/srslte/phy/dft/dft.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/utils/test/srslte/phy/dft/dft.h
 

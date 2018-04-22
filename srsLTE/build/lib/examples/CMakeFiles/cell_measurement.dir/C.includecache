@@ -1126,7 +1126,7 @@ srslte/phy/sync/cfo.h
 srslte/phy/sync/cp.h
 ../lib/include/srslte/srslte/phy/sync/cp.h
 
-/home/wantong/srsLTE/lib/examples/cell_measurement.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/examples/cell_measurement.c
 stdio.h
 -
 stdlib.h
@@ -1148,11 +1148,11 @@ assert.h
 signal.h
 -
 srslte/srslte.h
-/home/wantong/srsLTE/lib/examples/srslte/srslte.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/examples/srslte/srslte.h
 srslte/phy/rf/rf.h
-/home/wantong/srsLTE/lib/examples/srslte/phy/rf/rf.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/examples/srslte/phy/rf/rf.h
 srslte/phy/rf/rf_utils.h
-/home/wantong/srsLTE/lib/examples/srslte/phy/rf/rf_utils.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/examples/srslte/phy/rf/rf_utils.h
 
 lib/include/srslte/version.h
 srslte/config.h

@@ -85,5 +85,5 @@ lib/examples/CMakeFiles/cell_search.dir/cell_search.c.o
  ../lib/include/srslte/phy/utils/ringbuffer.h
  ../lib/include/srslte/phy/utils/vector.h
  ../lib/include/srslte/srslte.h
- /home/wantong/srsLTE/lib/examples/cell_search.c
+ /home/wantong/Graduation-Thesis/srsLTE/lib/examples/cell_search.c
  lib/include/srslte/version.h

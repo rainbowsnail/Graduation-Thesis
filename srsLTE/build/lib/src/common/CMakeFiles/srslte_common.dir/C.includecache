@@ -20,7 +20,7 @@ stdio.h
 
 ../lib/include/srslte/config.h
 
-/home/wantong/srsLTE/lib/src/common/threads.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/common/threads.c
 errno.h
 -
 pthread.h
@@ -34,11 +34,11 @@ string.h
 sys/types.h
 -
 srslte/common/threads.h
-/home/wantong/srsLTE/lib/src/common/srslte/common/threads.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/common/srslte/common/threads.h
 
-/home/wantong/srsLTE/lib/src/common/version.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/common/version.c
 srslte/version.h
-/home/wantong/srsLTE/lib/src/common/srslte/version.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/common/srslte/version.h
 
 lib/include/srslte/version.h
 srslte/config.h

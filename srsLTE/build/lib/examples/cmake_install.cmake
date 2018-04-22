@@ -1,4 +1,4 @@
-# Install script for directory: /home/wantong/srsLTE/lib/examples
+# Install script for directory: /home/wantong/Graduation-Thesis/srsLTE/lib/examples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

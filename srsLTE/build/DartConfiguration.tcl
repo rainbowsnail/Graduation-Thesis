@@ -4,8 +4,8 @@
 
 
 # Configuration directories and files
-SourceDirectory: /home/wantong/srsLTE
-BuildDirectory: /home/wantong/srsLTE/build
+SourceDirectory: /home/wantong/Graduation-Thesis/srsLTE
+BuildDirectory: /home/wantong/Graduation-Thesis/srsLTE/build
 
 # Where to place the cost data store
 CostDataFile: 
@@ -33,7 +33,7 @@ ScpCommand: /usr/bin/scp
 NightlyStartTime: 00:00:00 GMT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/usr/bin/cmake" "/home/wantong/srsLTE"
+ConfigureCommand: "/usr/bin/cmake" "/home/wantong/Graduation-Thesis/srsLTE"
 MakeCommand: /usr/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}" -- -i
 DefaultCTestConfigurationType: Release
 
@@ -63,9 +63,9 @@ P4UpdateOptions:
 P4UpdateCustom: 
 
 # Generic update command
-UpdateCommand: /usr/bin/git
+UpdateCommand: 
 UpdateOptions: 
-UpdateType: git
+UpdateType: 
 
 # Compiler info
 Compiler: /usr/bin/c++

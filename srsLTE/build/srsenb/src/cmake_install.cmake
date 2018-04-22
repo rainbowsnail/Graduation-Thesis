@@ -1,4 +1,4 @@
-# Install script for directory: /home/wantong/srsLTE/srsenb/src
+# Install script for directory: /home/wantong/Graduation-Thesis/srsLTE/srsenb/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,12 +39,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/wantong/srsLTE/build/srsenb/src/srsenb")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/wantong/Graduation-Thesis/srsLTE/build/srsenb/src/srsenb")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb"
-         OLD_RPATH "/home/wantong/srsLTE/build/lib/src/phy/rf:"
+         OLD_RPATH "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/rf:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb")
@@ -59,12 +59,12 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/wantong/srsLTE/build/srsenb/src/srsenb")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/wantong/Graduation-Thesis/srsLTE/build/srsenb/src/srsenb")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb")
     file(RPATH_CHANGE
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb"
-         OLD_RPATH "/home/wantong/srsLTE/build/lib/src/phy/rf:"
+         OLD_RPATH "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/rf:"
          NEW_RPATH "")
     if(CMAKE_INSTALL_DO_STRIP)
       execute_process(COMMAND "/usr/bin/strip" "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/srsenb")
@@ -74,9 +74,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/wantong/srsLTE/build/srsenb/src/phy/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/srsenb/src/mac/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/srsenb/src/upper/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/srsenb/src/phy/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/srsenb/src/mac/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/srsenb/src/upper/cmake_install.cmake")
 
 endif()
 

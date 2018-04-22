@@ -20,7 +20,7 @@ string.h
 srslte/asn1/liblte_common.h
 ../lib/include/srslte/common/srslte/asn1/liblte_common.h
 
-/home/wantong/srsLTE/lib/test/common/test_f12345.cc
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/common/test_f12345.cc
 stdlib.h
 -
 stdio.h
@@ -28,5 +28,5 @@ stdio.h
 assert.h
 -
 srslte/common/liblte_security.h
-/home/wantong/srsLTE/lib/test/common/srslte/common/liblte_security.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/common/srslte/common/liblte_security.h
 

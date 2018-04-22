@@ -8,5 +8,5 @@ lib/src/phy/mimo/test/CMakeFiles/pmi_select_test.dir/pmi_select_test.c.o
  ../lib/include/srslte/phy/mimo/precoding.h
  ../lib/include/srslte/phy/utils/debug.h
  ../lib/include/srslte/phy/utils/vector.h
- /home/wantong/srsLTE/lib/src/phy/mimo/test/pmi_select_test.c
- /home/wantong/srsLTE/lib/src/phy/mimo/test/pmi_select_test.h
+ /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/mimo/test/pmi_select_test.c
+ /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/mimo/test/pmi_select_test.h

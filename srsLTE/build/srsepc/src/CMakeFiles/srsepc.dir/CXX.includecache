@@ -1398,7 +1398,7 @@ srslte/common/threads.h
 srslte/asn1/gtpc.h
 ../srsepc/hdr/spgw/srslte/asn1/gtpc.h
 
-/home/wantong/srsLTE/srsepc/src/main.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/main.cc
 iostream
 -
 fstream
@@ -1412,13 +1412,13 @@ boost/program_options.hpp
 boost/algorithm/string.hpp
 -
 srslte/common/bcd_helpers.h
-/home/wantong/srsLTE/srsepc/src/srslte/common/bcd_helpers.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/srslte/common/bcd_helpers.h
 mme/mme.h
-/home/wantong/srsLTE/srsepc/src/mme/mme.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/mme/mme.h
 hss/hss.h
-/home/wantong/srsLTE/srsepc/src/hss/hss.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/hss/hss.h
 spgw/spgw.h
-/home/wantong/srsLTE/srsepc/src/spgw/spgw.h
+/home/wantong/Graduation-Thesis/srsLTE/srsepc/src/spgw/spgw.h
 
 lib/include/srslte/version.h
 srslte/config.h

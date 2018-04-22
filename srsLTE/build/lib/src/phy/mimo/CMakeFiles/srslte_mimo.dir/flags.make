@@ -6,5 +6,5 @@ C_FLAGS =  -march=native -Wall -Wno-comment -Wno-write-strings -Wno-format-extra
 
 C_DEFINES = -DHAVE_MBEDTLS
 
-C_INCLUDES = -I/home/wantong/srsLTE/build/lib/include -I/home/wantong/srsLTE/lib/include 
+C_INCLUDES = -I/home/wantong/Graduation-Thesis/srsLTE/build/lib/include -I/home/wantong/Graduation-Thesis/srsLTE/lib/include 
 

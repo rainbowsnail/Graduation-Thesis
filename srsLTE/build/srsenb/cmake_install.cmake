@@ -1,4 +1,4 @@
-# Install script for directory: /home/wantong/srsLTE/srsenb
+# Install script for directory: /home/wantong/Graduation-Thesis/srsLTE/srsenb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,8 +34,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/wantong/srsLTE/build/srsenb/src/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/srsenb/test/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/srsenb/src/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/srsenb/test/cmake_install.cmake")
 
 endif()
 

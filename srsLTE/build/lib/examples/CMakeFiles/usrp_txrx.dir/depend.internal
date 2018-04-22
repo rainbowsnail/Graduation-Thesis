@@ -84,5 +84,5 @@ lib/examples/CMakeFiles/usrp_txrx.dir/usrp_txrx.c.o
  ../lib/include/srslte/phy/utils/ringbuffer.h
  ../lib/include/srslte/phy/utils/vector.h
  ../lib/include/srslte/srslte.h
- /home/wantong/srsLTE/lib/examples/usrp_txrx.c
+ /home/wantong/Graduation-Thesis/srsLTE/lib/examples/usrp_txrx.c
  lib/include/srslte/version.h

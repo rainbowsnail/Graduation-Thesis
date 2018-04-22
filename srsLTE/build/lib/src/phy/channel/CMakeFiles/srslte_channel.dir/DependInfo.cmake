@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/wantong/srsLTE/lib/src/phy/channel/ch_awgn.c" "/home/wantong/srsLTE/build/lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o"
-  "/home/wantong/srsLTE/lib/src/phy/channel/gauss.c" "/home/wantong/srsLTE/build/lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o"
+  "/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/ch_awgn.c" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o"
+  "/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/gauss.c" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

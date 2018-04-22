@@ -74,11 +74,11 @@ stdint.h
 srslte/config.h
 ../lib/include/srslte/phy/common/srslte/config.h
 
-/home/wantong/srsLTE/lib/test/common/log_filter_test.cc
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/common/log_filter_test.cc
 stdio.h
 -
 srslte/common/log_filter.h
-/home/wantong/srsLTE/lib/test/common/srslte/common/log_filter.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/common/srslte/common/log_filter.h
 srslte/common/logger_file.h
-/home/wantong/srsLTE/lib/test/common/srslte/common/logger_file.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/common/srslte/common/logger_file.h
 

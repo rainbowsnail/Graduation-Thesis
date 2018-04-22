@@ -84,5 +84,5 @@ lib/examples/CMakeFiles/pdsch_enodeb.dir/pdsch_enodeb.c.o
  ../lib/include/srslte/phy/utils/ringbuffer.h
  ../lib/include/srslte/phy/utils/vector.h
  ../lib/include/srslte/srslte.h
- /home/wantong/srsLTE/lib/examples/pdsch_enodeb.c
+ /home/wantong/Graduation-Thesis/srsLTE/lib/examples/pdsch_enodeb.c
  lib/include/srslte/version.h

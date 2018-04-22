@@ -1,4 +1,4 @@
-# Install script for directory: /home/wantong/srsLTE/lib/src/phy/resampling
+# Install script for directory: /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/resampling
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/wantong/srsLTE/build/lib/src/phy/resampling/test/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/resampling/test/cmake_install.cmake")
 
 endif()
 

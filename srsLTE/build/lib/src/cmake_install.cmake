@@ -1,4 +1,4 @@
-# Install script for directory: /home/wantong/srsLTE/lib/src
+# Install script for directory: /home/wantong/Graduation-Thesis/srsLTE/lib/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,11 +34,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/wantong/srsLTE/build/lib/src/asn1/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/lib/src/common/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/lib/src/phy/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/lib/src/radio/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/lib/src/upper/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/common/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/radio/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/upper/cmake_install.cmake")
 
 endif()
 

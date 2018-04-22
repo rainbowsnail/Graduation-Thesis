@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wantong/srsLTE
+CMAKE_SOURCE_DIR = /home/wantong/Graduation-Thesis/srsLTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wantong/srsLTE/build
+CMAKE_BINARY_DIR = /home/wantong/Graduation-Thesis/srsLTE/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -70,7 +70,7 @@ test/fast: test
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/wantong/srsLTE/build && /usr/bin/cpack --config ./CPackConfig.cmake
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && /usr/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -92,7 +92,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/wantong/srsLTE/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/wantong/srsLTE/build/CPackSourceConfig.cmake
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && /usr/bin/cpack --config ./CPackSourceConfig.cmake /home/wantong/Graduation-Thesis/srsLTE/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -157,14 +157,14 @@ install/local/fast: install/local
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/wantong/srsLTE/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/srsLTE/build/CMakeFiles /home/wantong/srsLTE/build/lib/src/phy/scrambling/CMakeFiles/progress.marks
-	cd /home/wantong/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/srsLTE/build/CMakeFiles 0
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/scrambling/CMakeFiles/progress.marks
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/wantong/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/clean
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/clean
 .PHONY : clean
 
 # The main clean target
@@ -174,22 +174,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/wantong/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/preinstall
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/wantong/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/preinstall
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/wantong/srsLTE/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/rule:
-	cd /home/wantong/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/rule
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f CMakeFiles/Makefile2 lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/rule
 .PHONY : lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/rule
 
 # Convenience name for target.
@@ -199,7 +199,7 @@ srslte_scrambling: lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/rule
 
 # fast build rule for target.
 srslte_scrambling/fast:
-	cd /home/wantong/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build
 .PHONY : srslte_scrambling/fast
 
 scrambling.o: scrambling.c.o
@@ -208,7 +208,7 @@ scrambling.o: scrambling.c.o
 
 # target to build an object file
 scrambling.c.o:
-	cd /home/wantong/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/scrambling.c.o
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/scrambling.c.o
 .PHONY : scrambling.c.o
 
 scrambling.i: scrambling.c.i
@@ -217,7 +217,7 @@ scrambling.i: scrambling.c.i
 
 # target to preprocess a source file
 scrambling.c.i:
-	cd /home/wantong/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/scrambling.c.i
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/scrambling.c.i
 .PHONY : scrambling.c.i
 
 scrambling.s: scrambling.c.s
@@ -226,7 +226,7 @@ scrambling.s: scrambling.c.s
 
 # target to generate assembly for a file
 scrambling.c.s:
-	cd /home/wantong/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/scrambling.c.s
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/build.make lib/src/phy/scrambling/CMakeFiles/srslte_scrambling.dir/scrambling.c.s
 .PHONY : scrambling.c.s
 
 # Help Target
@@ -259,6 +259,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/wantong/srsLTE/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -1,4 +1,4 @@
-# Install script for directory: /home/wantong/srsLTE/lib
+# Install script for directory: /home/wantong/Graduation-Thesis/srsLTE/lib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,15 +33,15 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 endif()
 
 if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/wantong/srsLTE/lib/include/" FILES_MATCHING REGEX "/[^/]*\\.h$")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/wantong/Graduation-Thesis/srsLTE/lib/include/" FILES_MATCHING REGEX "/[^/]*\\.h$")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/wantong/srsLTE/build/lib/src/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/lib/include/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/lib/examples/cmake_install.cmake")
-  include("/home/wantong/srsLTE/build/lib/test/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/include/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/examples/cmake_install.cmake")
+  include("/home/wantong/Graduation-Thesis/srsLTE/build/lib/test/cmake_install.cmake")
 
 endif()
 

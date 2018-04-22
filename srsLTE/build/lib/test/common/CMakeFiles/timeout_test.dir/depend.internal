@@ -84,5 +84,5 @@ lib/test/common/CMakeFiles/timeout_test.dir/timeout_test.cc.o
  ../lib/include/srslte/phy/utils/ringbuffer.h
  ../lib/include/srslte/phy/utils/vector.h
  ../lib/include/srslte/srslte.h
- /home/wantong/srsLTE/lib/test/common/timeout_test.cc
+ /home/wantong/Graduation-Thesis/srsLTE/lib/test/common/timeout_test.cc
  lib/include/srslte/version.h

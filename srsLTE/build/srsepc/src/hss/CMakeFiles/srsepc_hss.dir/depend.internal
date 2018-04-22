@@ -94,5 +94,5 @@ srsepc/src/hss/CMakeFiles/srsepc_hss.dir/hss.cc.o
  ../lib/include/srslte/phy/utils/vector.h
  ../lib/include/srslte/srslte.h
  ../srsepc/hdr/hss/hss.h
- /home/wantong/srsLTE/srsepc/src/hss/hss.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/hss/hss.cc
  lib/include/srslte/version.h

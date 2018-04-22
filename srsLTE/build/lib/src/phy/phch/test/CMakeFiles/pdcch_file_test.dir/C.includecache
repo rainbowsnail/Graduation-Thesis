@@ -1108,7 +1108,7 @@ srslte/phy/sync/cfo.h
 srslte/phy/sync/cp.h
 ../lib/include/srslte/srslte/phy/sync/cp.h
 
-/home/wantong/srsLTE/lib/src/phy/phch/test/pdcch_file_test.c
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/phch/test/pdcch_file_test.c
 stdio.h
 -
 stdlib.h
@@ -1120,7 +1120,7 @@ strings.h
 unistd.h
 -
 srslte/srslte.h
-/home/wantong/srsLTE/lib/src/phy/phch/test/srslte/srslte.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/phch/test/srslte/srslte.h
 
 lib/include/srslte/version.h
 srslte/config.h

@@ -107,7 +107,7 @@ srsepc/src/mme/CMakeFiles/srsepc_mme.dir/mme.cc.o
  ../srsepc/hdr/mme/s1ap_ctx_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_nas_transport.h
- /home/wantong/srsLTE/srsepc/src/mme/mme.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/mme/mme.cc
  lib/include/srslte/version.h
 srsepc/src/mme/CMakeFiles/srsepc_mme.dir/mme_gtpc.cc.o
  ../lib/include/srslte/asn1/gtpc.h
@@ -215,7 +215,7 @@ srsepc/src/mme/CMakeFiles/srsepc_mme.dir/mme_gtpc.cc.o
  ../srsepc/hdr/mme/s1ap_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_nas_transport.h
  ../srsepc/hdr/spgw/spgw.h
- /home/wantong/srsLTE/srsepc/src/mme/mme_gtpc.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/mme/mme_gtpc.cc
  lib/include/srslte/version.h
 srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap.cc.o
  ../lib/include/srslte/asn1/gtpc.h
@@ -325,7 +325,7 @@ srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap.cc.o
  ../srsepc/hdr/mme/s1ap_ctx_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_nas_transport.h
- /home/wantong/srsLTE/srsepc/src/mme/s1ap.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/mme/s1ap.cc
  lib/include/srslte/version.h
 srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap_ctx_mngmt_proc.cc.o
  ../lib/include/srslte/asn1/gtpc.h
@@ -435,7 +435,7 @@ srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap_ctx_mngmt_proc.cc.o
  ../srsepc/hdr/mme/s1ap_ctx_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_nas_transport.h
- /home/wantong/srsLTE/srsepc/src/mme/s1ap_ctx_mngmt_proc.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/mme/s1ap_ctx_mngmt_proc.cc
  lib/include/srslte/version.h
 srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap_mngmt_proc.cc.o
  ../lib/include/srslte/asn1/gtpc.h
@@ -544,7 +544,7 @@ srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap_mngmt_proc.cc.o
  ../srsepc/hdr/mme/s1ap_ctx_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_nas_transport.h
- /home/wantong/srsLTE/srsepc/src/mme/s1ap_mngmt_proc.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/mme/s1ap_mngmt_proc.cc
  lib/include/srslte/version.h
 srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap_nas_transport.cc.o
  ../lib/include/srslte/asn1/gtpc.h
@@ -651,5 +651,5 @@ srsepc/src/mme/CMakeFiles/srsepc_mme.dir/s1ap_nas_transport.cc.o
  ../srsepc/hdr/mme/s1ap_ctx_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_nas_transport.h
- /home/wantong/srsLTE/srsepc/src/mme/s1ap_nas_transport.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/mme/s1ap_nas_transport.cc
  lib/include/srslte/version.h

@@ -131,5 +131,5 @@ srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o
  ../srsenb/hdr/upper/rrc_metrics.h
  ../srsenb/hdr/upper/s1ap_metrics.h
  ../srsue/hdr/upper/gw_metrics.h
- /home/wantong/srsLTE/srsenb/test/mac/scheduler_test.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsenb/test/mac/scheduler_test.cc
  lib/include/srslte/version.h

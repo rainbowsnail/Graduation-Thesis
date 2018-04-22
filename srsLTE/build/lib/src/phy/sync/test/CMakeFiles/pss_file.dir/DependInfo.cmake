@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/wantong/srsLTE/lib/src/phy/sync/test/pss_file.c" "/home/wantong/srsLTE/build/lib/src/phy/sync/test/CMakeFiles/pss_file.dir/pss_file.c.o"
+  "/home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/sync/test/pss_file.c" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/sync/test/CMakeFiles/pss_file.dir/pss_file.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -22,7 +22,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/wantong/srsLTE/build/lib/src/phy/CMakeFiles/srslte_phy.dir/DependInfo.cmake"
+  "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/CMakeFiles/srslte_phy.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

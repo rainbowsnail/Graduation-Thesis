@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/srsenb_upper.dir/rrc.cc.o"
   "CMakeFiles/srsenb_upper.dir/gtpu.cc.o"
   "CMakeFiles/srsenb_upper.dir/pdcp.cc.o"
+  "CMakeFiles/srsenb_upper.dir/x2ap.cc.o"
   "CMakeFiles/srsenb_upper.dir/s1ap.cc.o"
   "libsrsenb_upper.pdb"
   "libsrsenb_upper.a"

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wantong/srsLTE
+CMAKE_SOURCE_DIR = /home/wantong/Graduation-Thesis/srsLTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wantong/srsLTE/build
+CMAKE_BINARY_DIR = /home/wantong/Graduation-Thesis/srsLTE/build
 
 # Include any dependencies generated for this target.
 include lib/src/phy/channel/CMakeFiles/srslte_channel.dir/depend.make
@@ -59,16 +59,16 @@ include lib/src/phy/channel/CMakeFiles/srslte_channel.dir/flags.make
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o: lib/src/phy/channel/CMakeFiles/srslte_channel.dir/flags.make
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o: ../lib/src/phy/channel/gauss.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wantong/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o"
-	cd /home/wantong/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/srslte_channel.dir/gauss.c.o   -c /home/wantong/srsLTE/lib/src/phy/channel/gauss.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o"
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/srslte_channel.dir/gauss.c.o   -c /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/gauss.c
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/srslte_channel.dir/gauss.c.i"
-	cd /home/wantong/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wantong/srsLTE/lib/src/phy/channel/gauss.c > CMakeFiles/srslte_channel.dir/gauss.c.i
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/gauss.c > CMakeFiles/srslte_channel.dir/gauss.c.i
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/srslte_channel.dir/gauss.c.s"
-	cd /home/wantong/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wantong/srsLTE/lib/src/phy/channel/gauss.c -o CMakeFiles/srslte_channel.dir/gauss.c.s
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/gauss.c -o CMakeFiles/srslte_channel.dir/gauss.c.s
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o.requires:
 
@@ -83,16 +83,16 @@ lib/src/phy/channel/CMakeFiles/srslte_channel.dir/gauss.c.o.provides.build: lib/
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o: lib/src/phy/channel/CMakeFiles/srslte_channel.dir/flags.make
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o: ../lib/src/phy/channel/ch_awgn.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wantong/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o"
-	cd /home/wantong/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/srslte_channel.dir/ch_awgn.c.o   -c /home/wantong/srsLTE/lib/src/phy/channel/ch_awgn.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o"
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/srslte_channel.dir/ch_awgn.c.o   -c /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/ch_awgn.c
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/srslte_channel.dir/ch_awgn.c.i"
-	cd /home/wantong/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wantong/srsLTE/lib/src/phy/channel/ch_awgn.c > CMakeFiles/srslte_channel.dir/ch_awgn.c.i
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/ch_awgn.c > CMakeFiles/srslte_channel.dir/ch_awgn.c.i
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/srslte_channel.dir/ch_awgn.c.s"
-	cd /home/wantong/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wantong/srsLTE/lib/src/phy/channel/ch_awgn.c -o CMakeFiles/srslte_channel.dir/ch_awgn.c.s
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel && /usr/bin/cc  $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel/ch_awgn.c -o CMakeFiles/srslte_channel.dir/ch_awgn.c.s
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/ch_awgn.c.o.requires:
 
@@ -122,10 +122,10 @@ lib/src/phy/channel/CMakeFiles/srslte_channel.dir/requires: lib/src/phy/channel/
 .PHONY : lib/src/phy/channel/CMakeFiles/srslte_channel.dir/requires
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/clean:
-	cd /home/wantong/srsLTE/build/lib/src/phy/channel && $(CMAKE_COMMAND) -P CMakeFiles/srslte_channel.dir/cmake_clean.cmake
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel && $(CMAKE_COMMAND) -P CMakeFiles/srslte_channel.dir/cmake_clean.cmake
 .PHONY : lib/src/phy/channel/CMakeFiles/srslte_channel.dir/clean
 
 lib/src/phy/channel/CMakeFiles/srslte_channel.dir/depend:
-	cd /home/wantong/srsLTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wantong/srsLTE /home/wantong/srsLTE/lib/src/phy/channel /home/wantong/srsLTE/build /home/wantong/srsLTE/build/lib/src/phy/channel /home/wantong/srsLTE/build/lib/src/phy/channel/CMakeFiles/srslte_channel.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/wantong/Graduation-Thesis/srsLTE /home/wantong/Graduation-Thesis/srsLTE/lib/src/phy/channel /home/wantong/Graduation-Thesis/srsLTE/build /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/phy/channel/CMakeFiles/srslte_channel.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : lib/src/phy/channel/CMakeFiles/srslte_channel.dir/depend
 

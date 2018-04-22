@@ -134,5 +134,5 @@ srsue/test/upper/CMakeFiles/nas_test.dir/nas_test.cc.o
  ../srsue/hdr/upper/rrc.h
  ../srsue/hdr/upper/rrc_common.h
  ../srsue/hdr/upper/usim.h
- /home/wantong/srsLTE/srsue/test/upper/nas_test.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/nas_test.cc
  lib/include/srslte/version.h

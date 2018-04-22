@@ -1,4 +1,4 @@
-# Install script for directory: /home/wantong/srsLTE/srsue/test/upper
+# Install script for directory: /home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

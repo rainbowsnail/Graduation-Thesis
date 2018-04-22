@@ -96,5 +96,5 @@ srsue/test/upper/CMakeFiles/usim_test.dir/usim_test.cc.o
  ../lib/include/srslte/srslte.h
  ../lib/include/srslte/upper/rlc_interface.h
  ../srsue/hdr/upper/usim.h
- /home/wantong/srsLTE/srsue/test/upper/usim_test.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/usim_test.cc
  lib/include/srslte/version.h

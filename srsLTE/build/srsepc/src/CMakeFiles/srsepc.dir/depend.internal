@@ -110,5 +110,5 @@ srsepc/src/CMakeFiles/srsepc.dir/main.cc.o
  ../srsepc/hdr/mme/s1ap_mngmt_proc.h
  ../srsepc/hdr/mme/s1ap_nas_transport.h
  ../srsepc/hdr/spgw/spgw.h
- /home/wantong/srsLTE/srsepc/src/main.cc
+ /home/wantong/Graduation-Thesis/srsLTE/srsepc/src/main.cc
  lib/include/srslte/version.h

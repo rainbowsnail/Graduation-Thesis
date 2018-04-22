@@ -1598,25 +1598,25 @@ srslte/common/log.h
 srslte/interfaces/ue_interfaces.h
 ../srsue/hdr/phy/srslte/interfaces/ue_interfaces.h
 
-/home/wantong/srsLTE/srsue/test/mac/mac_test.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/mac_test.cc
 unistd.h
 -
 signal.h
 -
 srslte/asn1/liblte_rrc.h
-/home/wantong/srsLTE/srsue/test/mac/srslte/asn1/liblte_rrc.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/srslte/asn1/liblte_rrc.h
 srslte/radio/radio_multi.h
-/home/wantong/srsLTE/srsue/test/mac/srslte/radio/radio_multi.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/srslte/radio/radio_multi.h
 phy/phy.h
-/home/wantong/srsLTE/srsue/test/mac/phy/phy.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/phy/phy.h
 srslte/interfaces/ue_interfaces.h
-/home/wantong/srsLTE/srsue/test/mac/srslte/interfaces/ue_interfaces.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/srslte/interfaces/ue_interfaces.h
 srslte/common/log_filter.h
-/home/wantong/srsLTE/srsue/test/mac/srslte/common/log_filter.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/srslte/common/log_filter.h
 mac/mac.h
-/home/wantong/srsLTE/srsue/test/mac/mac/mac.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/mac/mac.h
 srslte/common/mac_pcap.h
-/home/wantong/srsLTE/srsue/test/mac/srslte/common/mac_pcap.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/mac/srslte/common/mac_pcap.h
 
 lib/include/srslte/version.h
 srslte/config.h

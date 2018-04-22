@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/wantong/srsLTE
+CMAKE_SOURCE_DIR = /home/wantong/Graduation-Thesis/srsLTE
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/wantong/srsLTE/build
+CMAKE_BINARY_DIR = /home/wantong/Graduation-Thesis/srsLTE/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -136,7 +136,7 @@ install/local/fast: install/local
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/wantong/srsLTE/build/CPackSourceConfig.cmake
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/wantong/Graduation-Thesis/srsLTE/build/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -157,9 +157,9 @@ test/fast: test
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/srsLTE/build/CMakeFiles /home/wantong/srsLTE/build/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles /home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/srsLTE/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

@@ -1218,13 +1218,13 @@ srslte/interfaces/ue_interfaces.h
 srslte/common/security.h
 ../srsue/hdr/upper/srslte/common/security.h
 
-/home/wantong/srsLTE/srsue/test/upper/usim_test.cc
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/usim_test.cc
 iostream
 -
 upper/usim.h
-/home/wantong/srsLTE/srsue/test/upper/upper/usim.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/upper/usim.h
 srslte/common/log_filter.h
-/home/wantong/srsLTE/srsue/test/upper/srslte/common/log_filter.h
+/home/wantong/Graduation-Thesis/srsLTE/srsue/test/upper/srslte/common/log_filter.h
 assert.h
 -
 

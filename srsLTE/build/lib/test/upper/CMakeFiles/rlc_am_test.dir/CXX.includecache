@@ -1262,15 +1262,15 @@ srslte/upper/rlc_interface.h
 srslte/asn1/liblte_rrc.h
 ../lib/include/srslte/upper/srslte/asn1/liblte_rrc.h
 
-/home/wantong/srsLTE/lib/test/upper/rlc_am_test.cc
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/upper/rlc_am_test.cc
 iostream
 -
 srslte/common/log_filter.h
-/home/wantong/srsLTE/lib/test/upper/srslte/common/log_filter.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/upper/srslte/common/log_filter.h
 srslte/common/logger_stdout.h
-/home/wantong/srsLTE/lib/test/upper/srslte/common/logger_stdout.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/upper/srslte/common/logger_stdout.h
 srslte/upper/rlc_am.h
-/home/wantong/srsLTE/lib/test/upper/srslte/upper/rlc_am.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/test/upper/srslte/upper/rlc_am.h
 assert.h
 -
 
