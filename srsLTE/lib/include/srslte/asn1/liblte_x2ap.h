@@ -675,7 +675,7 @@ typedef struct{
 }LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT;
 
 LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationtdd(
-  LIBLTE_X2AP_ABSINFORMATIONFTDD_STRUCT            *ie,
+  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT            *ie,
   uint8_t                                                     **ptr);
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationtdd(
   uint8_t                                                     **ptr,
@@ -827,7 +827,7 @@ typedef enum{
 static const char liblte_x2ap_additionalspecialsubframepatterns_text[LIBLTE_X2AP_ADDITAIONALSPECIALSUBFRAMEPATTERNS_N_ITEMS][80] = {
   "ssp0",
   "ssp1",
-  "ssp2".
+  "ssp2",
   "ssp3",
   "ssp4",
   "ssp5",
@@ -3658,7 +3658,7 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_nexthopchainingcount(
 typedef enum{
   LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN1,
   LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN2,
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN4
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN4,
   LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_N_ITEMS,
 }LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM;
 static const char liblte_x2ap_number_of_antennaports_text[LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_N_ITEMS][80] = {
@@ -4167,7 +4167,7 @@ typedef enum{
   LIBLTE_X2AP_RNTP_THRESHOLD_ZERO,
   LIBLTE_X2AP_RNTP_THRESHOLD_ONE,
   LIBLTE_X2AP_RNTP_THRESHOLD_TWO,
-  LIBLTE_X2AP_RNTP_THRESHOLD_THREE
+  LIBLTE_X2AP_RNTP_THRESHOLD_THREE,
   LIBLTE_X2AP_RNTP_THRESHOLD_N_ITEMS,
 }LIBLTE_X2AP_RNTP_THRESHOLD_ENUM;
 static const char liblte_x2ap_rntp_threshold_text[LIBLTE_X2AP_RNTP_THRESHOLD_N_ITEMS][80] = {
@@ -4248,7 +4248,7 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rrcronnreestabindicator(
 /* ProtocolIE RRCConnSetupIndicator ENUMERATED
 ********************************************************************************/
 typedef enum{
-  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_RRCCONNSETUP 
+  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_RRCCONNSETUP,
   LIBLTE_X2AP_RRCCONNSETUPINDICATOR_N_ITEMS,
 }LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM;
 static const char liblte_x2ap_rrcconnsetupindicator_text[LIBLTE_X2AP_RRCCONNSETUPINDICATOR_N_ITEMS][80] = {
@@ -5185,8 +5185,8 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_interferenceoverloadindication(
 ********************************************************************************/
 typedef enum{
   LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_HIGH_INTERFERENCE,
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_MEDIUM_INTERFERENCE
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_LOW_INTERFERENCE
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_MEDIUM_INTERFERENCE,
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_LOW_INTERFERENCE,
   LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_N_ITEMS,
 }LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM;
 static const char liblte_x2ap_ul_interferenceoverloadindication_item_text[LIBLTE_X2AP_RELAYNODE_INDICATOR_N_ITEMS][80] = {
