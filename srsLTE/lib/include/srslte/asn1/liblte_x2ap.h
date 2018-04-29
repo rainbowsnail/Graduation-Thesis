@@ -630,40 +630,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_privateie_container(
 /* A */
 
 /*******************************************************************************
-/* ProtocolIE ABSInformation CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_FDD,
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_TDD,
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ABS_INACTIVE,
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM;
-static const char liblte_x2ap_absinformation_choice_text[LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS][50] = {
-  "fdd",
-  "tdd",
-  "abs_inactive",
-};
-
-typedef union{
-  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT                         fdd;
-  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT                         tdd;
-  //TODO: NULL                                                 abs_inactive;
-}LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION choice;
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_ABSINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformation(
-  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie);
-  
-/*******************************************************************************
 /* ProtocolIE ABSInformationFDD SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -729,6 +695,40 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationtdd_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_ABSINFORMATIONTDD_EXT_STRUCT *ie);
 
+/*******************************************************************************
+/* ProtocolIE ABSInformation CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_FDD,
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_TDD,
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ABS_INACTIVE,
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM;
+static const char liblte_x2ap_absinformation_choice_text[LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS][50] = {
+  "fdd",
+  "tdd",
+  "abs_inactive",
+};
+
+typedef union{
+  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT                         fdd;
+  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT                         tdd;
+  //TODO: NULL                                                 abs_inactive;
+}LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION;
+
+typedef struct{
+  bool                            ext;
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION choice;
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_ABSINFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformation(
+  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie);
+  
 /*******************************************************************************
 /* ProtocolIE ABS_Status SEQUENCE
 ********************************************************************************/
