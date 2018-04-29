@@ -627,139 +627,8 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_privateie_container(
   LIBLTE_X2AP_PRIVATEIE_CONTAINER_STRUCT                       *ie);
 
 /* X2AP-IEs.asn */
-/* A */
 
-/*******************************************************************************
-/* ProtocolIE ABSInformationFDD SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  uint8_t abs_pattern_info[40]; // BIT STRING
-  enum numberofCellSpecificAntennaPorts {one, two, four};
-  uint8_t measurement_subset[40]; // BIT STRING
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
-  bool iE_Extensions_present;
-}LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationfdd(
-  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationfdd(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT            *ie);
-
-/*******************************************************************************
-/* Protocol Message ABSInformationFDD_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_ABSINFORMATIONFDD_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationfdd_ext(
-  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONFDD_EXT_STRUCT *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationfdd_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONFDD_EXT_STRUCT *ie);
-
-/*******************************************************************************
-/* ProtocolIE ABSInformationTDD SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  uint8_t abs_pattern_info[70]; // BIT STRING
-  enum numberofCellSpecificAntennaPorts {one, two, four};
-  uint8_t measurement_subset[70]; // BIT STRING
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
-  bool iE_Extensions_present;
-}LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationtdd(
-  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationtdd(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT            *ie);
-
-/*******************************************************************************
-/* Protocol Message ABSInformationTDD_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_ABSINFORMATIONTDD_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationtdd_ext(
-  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONTDD_EXT_STRUCT *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationtdd_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONTDD_EXT_STRUCT *ie);
-
-/*******************************************************************************
-/* ProtocolIE ABSInformation CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_FDD,
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_TDD,
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ABS_INACTIVE,
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM;
-static const char liblte_x2ap_absinformation_choice_text[LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS][50] = {
-  "fdd",
-  "tdd",
-  "abs_inactive",
-};
-
-typedef union{
-  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT                         fdd;
-  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT                         tdd;
-  //TODO: NULL                                                 abs_inactive;
-}LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION choice;
-  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_ABSINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformation(
-  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie);
-  
-/*******************************************************************************
-/* ProtocolIE ABS_Status SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBTLTE_X2AP_DL_ABS_STATUS_STRUCT dL_ABS_status;
-  LITLTE_X2AP_USABLEABSINFORMATION_STRUCT usableABSInformation;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
-  bool iE_Extensions_present;
-}LIBLTE_X2AP_ABS_STATUS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_abs_status(
-  LIBLTE_X2AP_ABS_STATUS_STRUCT            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_abs_status(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ABS_STATUS_STRUCT            *ie);
-
-/*******************************************************************************
-/* Protocol Message ABS_Status_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_ABS_STATUS_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_abs_status_ext(
-  LIBLTE_X2AP_MESSAGE_ABS_STATUS_EXT_STRUCT *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_abs_status_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_ABS_STATUS_EXT_STRUCT *ie);
+/* Integer */
 
 /*******************************************************************************
 /* ProtocolIE DL_ABS_status INTEGER
@@ -776,37 +645,940 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_abs_status(
   LIBLTE_X2AP_DL_ABS_STATUS_STRUCT                                   *ie);
 
 /*******************************************************************************
-/* ProtocolIE AdditionalSpecialSubframe_Info SEQUENCE
+/* ProtocolIE BitRate INTEGER
 ********************************************************************************/
 typedef struct{
-  bool                                                         ext;
-  LIBTLTE_X2AP_ADDITIONALSPECIALSUBFRAMEPATTERNS_ENUM_EXT additionalspecialSubframePatterns;
-  LITLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT cyclicPrefixDL;
-  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT cyclicPrefixUL;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
-  bool iE_Extensions_present;
-}LIBLTE_X2AP_ADDITIONALSPECIALSUBFRAME_INFO_STRUCT;
+uint64_t BitRate;
+}LIBLTE_X2AP_BITRATE_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_additionalspecialsubframe_info(
-  LIBLTE_X2AP_ADDITIONALSPECIALSUBFRAME_INFO_STRUCT            *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_bitrate(
+  LIBLTE_X2AP_BITRATE_STRUCT                                   *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_additionalspecialsubframe_info(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_bitrate(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ADDITIONALSPECIALSUBFRAME_INFO_STRUCT            *ie);
+  LIBLTE_X2AP_BITRATE_STRUCT                                   *ie);
 
 /*******************************************************************************
-/* Protocol Message AdditionalSpecialSubframe_Info_Ext STRUCT
+/* ProtocolIE CapacityValue INTEGER
 ********************************************************************************/
 typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_ADDITIONALSPECIALSUBFRAME_INFO_EXT_STRUCT;
+uint32_t CapacityValue;
+}LIBLTE_X2AP_CAPACITYVALUE_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_additionalspecialsubframe_info_ext(
-  LIBLTE_X2AP_MESSAGE_ADDITIONALSPECIALSUBFRAME_INFO_EXT_STRUCT *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_capacityvalue(
+  LIBLTE_X2AP_CAPACITYVALUE_STRUCT                                   *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_additionalspecialsubframe_info_ext(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_capacityvalue(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_ADDITIONALSPECIALSUBFRAME_INFO_EXT_STRUCT *ie);
+  LIBLTE_X2AP_CAPACITYVALUE_STRUCT                                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE CellCapacityClassValue INTEGER
+********************************************************************************/
+typedef struct{
+uint32_t CellCapacityClassValue;
+}LIBLTE_X2AP_CELLCAPACITYCLASSVALUE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellcapacityclassvalue(
+  LIBLTE_X2AP_CELLCAPACITYCLASSVALUE_STRUCT                                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellcapacityclassvalue(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CELLCAPACITYCLASSVALUE_STRUCT                                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE DL_GBR_PRB_usage INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t DL_GBR_PRB_usage;
+}LIBLTE_X2AP_DL_GBR_PRB_USAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_gbr_prb_usage(
+  LIBLTE_X2AP_DL_GBR_PRB_USAGE_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_gbr_prb_usage(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_DL_GBR_PRB_USAGE_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE DL_non_GBR_PRB_usage INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t DL_non_GBR_PRB_usage;
+}LIBLTE_X2AP_DL_NON_GBR_PRB_USAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_non_gbr_prb_usage(
+  LIBLTE_X2AP_DL_NON_GBR_PRB_USAGE_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_non_gbr_prb_usage(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_DL_NON_GBR_PRB_USAGE_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE DL_Total_PRB_usage INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t DL_Total_PRB_usage;
+}LIBLTE_X2AP_DL_TOTAL_PRB_USAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_total_prb_usage(
+  LIBLTE_X2AP_DL_TOTAL_PRB_USAGE_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_total_prb_usage(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_DL_TOTAL_PRB_USAGE_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE EARFCN INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t EARFCN;
+}LIBLTE_X2AP_EARFCN_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_earfcn(
+  LIBLTE_X2AP_EARFCN_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_earfcn(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_EARFCN_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE EARFCNExtension INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t EARFCNExtension;
+}LIBLTE_X2AP_EARFCNEXTENSION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_earfcnextension(
+  LIBLTE_X2AP_EARFCNEXTENSION_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_earfcnextension(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_EARFCNEXTENSION_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE E_RAB_ID INTEGER
+********************************************************************************/
+typedef struct{
+  bool     ext;
+uint8_t E_RAB_ID;
+}LIBLTE_X2AP_E_RAB_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_e_rab_id(
+  LIBLTE_X2AP_E_RAB_ID_STRUCT                                  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_e_rab_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_E_RAB_ID_STRUCT                                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE FreqBandIndicator INTEGER
+********************************************************************************/
+typedef struct{
+uint32_t FreqBandIndicator;
+}LIBLTE_X2AP_FREQBANDINDICATOR_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_freqbandindicator(
+  LIBLTE_X2AP_FREQBANDINDICATOR_STRUCT                                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_freqbandindicator(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_FREQBANDINDICATOR_STRUCT                                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE HFN INTEGER
+********************************************************************************/
+typedef struct{
+uint32_t HFN;
+}LIBLTE_X2AP_HFN_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_hfn(
+  LIBLTE_X2AP_HFN_STRUCT                                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_hfn(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_HFN_STRUCT                                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE HFNModified INTEGER
+********************************************************************************/
+typedef struct{
+uint32_t HFNModified;
+}LIBLTE_X2AP_HFNMODIFIED_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_hfnmodified(
+  LIBLTE_X2AP_HFNMODIFIED_STRUCT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_hfnmodified(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_HFNMODIFIED_STRUCT                               *ie);
+
+/*******************************************************************************
+/* ProtocolIE Measurement_ID INTEGER
+********************************************************************************/
+typedef struct{
+uint32_t Measurement_ID;
+}LIBLTE_X2AP_MEASUREMENT_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_measurement_id(
+  LIBLTE_X2AP_MEASUREMENT_ID_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_measurement_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MEASUREMENT_ID_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE NextHopChainingCount INTEGER
+********************************************************************************/
+typedef struct{
+uint32_t NextHopChainingCount;
+}LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_nexthopchainingcount(
+  LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_nexthopchainingcount(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE PDCP_SN INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t PDCP_SN;
+}LIBLTE_X2AP_PDCP_SN_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_pdcp_sn(
+  LIBLTE_X2AP_PDCP_SN_STRUCT                                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pdcp_sn(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PDCP_SN_STRUCT                                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE PDCP_SNExtended INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t PDCP_SNExtended;
+}LIBLTE_X2AP_PDCP_SNEXTENDED_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_pdcp_snextended(
+  LIBLTE_X2AP_PDCP_SNEXTENDED_STRUCT                           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pdcp_snextended(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PDCP_SNEXTENDED_STRUCT                           *ie);
+
+/*******************************************************************************
+/* ProtocolIE PCI INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t PCI;
+}LIBLTE_X2AP_PCI_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_pci(
+  LIBLTE_X2AP_PCI_STRUCT                                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pci(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PCI_STRUCT                                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE PriorityLevel INTEGER
+********************************************************************************/
+typedef struct{
+uint8_t PriorityLevel;
+}LIBLTE_X2AP_PRIORITYLEVEL_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_prioritylevel(
+  LIBLTE_X2AP_PRIORITYLEVEL_STRUCT                             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_prioritylevel(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PRIORITYLEVEL_STRUCT                             *ie);
+
+/*******************************************************************************
+/* ProtocolIE QCI INTEGER
+********************************************************************************/
+typedef struct{
+uint8_t QCI;
+}LIBLTE_X2AP_QCI_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_qci(
+  LIBLTE_X2AP_QCI_STRUCT                                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_qci(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_QCI_STRUCT                                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE RadioframeAllocationOffset INTEGER
+********************************************************************************/
+typedef struct{
+uint8_t RadioframeAllocationOffset;
+}LIBLTE_X2AP_RADIOFRAMEALLOCATIONOFFSET_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_radioframeallocationoffset(
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONOFFSET_STRUCT                                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_radioframeallocationoffset(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONOFFSET_STRUCT                                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE subscriberProfileIDforRFP INTEGER
+********************************************************************************/
+typedef struct{
+uint8_t SubscribeProfileIDforRFP;
+}LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_subscribeprofileidforrfp(
+  LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_subscribeprofileidforrfp(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE Threshold_RSRP INTEGER
+********************************************************************************/
+typedef struct{
+uint8_t Threshold_RSRP;
+}LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_threshold_rsrp(
+  LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_threshold_rsrp(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE Threshold_RSRQ INTEGER
+********************************************************************************/
+typedef struct{
+uint8_t Threshold_RSRQ;
+}LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_threshold_rsrq(
+  LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_threshold_rsrq(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE Time_UE_StayedInCell INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t Time_UE_StayedInCell;
+}LIBLTE_X2AP_TIME_UE_STAYEDINCELL_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_time_ue_stayedincell(
+  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_STRUCT                      *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_time_ue_stayedincell(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_STRUCT                      *ie);
+
+/*******************************************************************************
+/* ProtocolIE Time_UE_StayedInCell_EnhancedGranularity INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t Time_UE_StayedInCell_EnhancedGranularity;
+}LIBLTE_X2AP_TIME_UE_STAYEDINCELL_ENHANCEDGRANULARITY_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_time_ue_stayedincell_enhancedgranularity(
+  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_ENHANCEDGRANULARITY_STRUCT  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_time_ue_stayedincell_enhancedgranularity(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_ENHANCEDGRANULARITY_STRUCT  *ie);
+
+/*******************************************************************************
+/* ProtocolIE UE_S1AP_ID INTEGER
+********************************************************************************/
+typedef struct{
+uint64_t UE_S1AP_ID;
+}LIBLTE_X2AP_UE_S1AP_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_s1ap_id(
+  LIBLTE_X2AP_UE_S1AP_ID_STRUCT                  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_s1ap_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UE_S1AP_ID_STRUCT                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE UE_X2AP_ID INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t UE_X2AP_ID;
+}LIBLTE_X2AP_UE_X2AP_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_x2ap_id(
+  LIBLTE_X2AP_UE_X2AP_ID_STRUCT                  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_x2ap_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UE_X2AP_ID_STRUCT                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE UL_GBR_PRB_usage INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t UL_GBR_PRB_usage;
+}LIBLTE_X2AP_UL_GBR_PRB_USAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_gbr_prb_usage(
+  LIBLTE_X2AP_UL_GBR_PRB_USAGE_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_gbr_prb_usage(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UL_GBR_PRB_USAGE_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE UL_non_GBR_PRB_usage INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t UL_non_GBR_PRB_usage;
+}LIBLTE_X2AP_UL_NON_GBR_PRB_USAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_non_gbr_prb_usage(
+  LIBLTE_X2AP_UL_NON_GBR_PRB_USAGE_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_non_gbr_prb_usage(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UL_NON_GBR_PRB_USAGE_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE UL_Total_PRB_usage INTEGER
+********************************************************************************/
+typedef struct{
+uint16_t UL_Total_PRB_usage;
+}LIBLTE_X2AP_UL_TOTAL_PRB_USAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_total_prb_usage(
+  LIBLTE_X2AP_UL_TOTAL_PRB_USAGE_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_total_prb_usage(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UL_TOTAL_PRB_USAGE_STRUCT                            *ie);
+
+/* BIT STRING */
+
+/*******************************************************************************
+/* ProtocolIE CRNTI STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_CRNTI_BIT_STRING_LEN 16
+typedef struct{
+  uint8_t  buffer[16];
+}LIBLTE_X2AP_CRNTI_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_crnti(
+  LIBLTE_X2AP_CRNTI_STRUCT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_crnti(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CRNTI_STRUCT                               *ie);
+
+/*******************************************************************************
+/* ProtocolIE CSG_Id STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_CSG_ID_BIT_STRING_LEN 27
+typedef struct{
+  uint8_t  buffer[27];
+}LIBLTE_X2AP_CSG_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_csg_id(
+  LIBLTE_X2AP_CSG_ID_STRUCT                                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_csg_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CSG_ID_STRUCT                                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE macroENB_ID STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_MACROENB_ID_BIT_STRING_LEN 20
+typedef struct{
+  uint8_t  buffer[20];
+}LIBLTE_X2AP_MACROENB_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_macroenb_id(
+  LIBLTE_X2AP_MACROENB_ID_STRUCT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_macroenb_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MACROENB_ID_STRUCT                               *ie);
+
+/*******************************************************************************
+/* ProtocolIE homeENB_ID STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_HOMEENB_ID_BIT_STRING_LEN 28
+typedef struct{
+  uint8_t  buffer[28];
+}LIBLTE_X2AP_HOMEENB_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_homeenb_id(
+  LIBLTE_X2AP_HOMEENB_ID_STRUCT                                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_homeenb_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_HOMEENB_ID_STRUCT                                *ie);
+
+/*******************************************************************************
+/* ProtocolIE EncryptionAlgorithms STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_ENCRYPTIONALGORITHMS_BIT_STRING_LEN 16
+typedef struct{
+  bool     ext;
+  uint8_t  buffer[16];
+}LIBLTE_X2AP_ENCRYPTIONALGORITHMS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_encryptionalgorithms(
+  LIBLTE_X2AP_ENCRYPTIONALGORITHMS_STRUCT                      *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_encryptionalgorithms(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ENCRYPTIONALGORITHMS_STRUCT                      *ie);
+
+/*******************************************************************************
+/* ProtocolIE EUTRANCellIdentifier STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_EUTRANCELLIDENTIFIER_BIT_STRING_LEN 28
+typedef struct{
+  uint8_t  buffer[28];
+}LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_eutrancellidentifier(
+  LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eutrancellidentifier(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT                               *ie);
+
+/*******************************************************************************
+/* ProtocolIE Fourframes STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_FOURFRAMES_BIT_STRING_LEN 24
+typedef struct{
+  uint8_t  buffer[24];
+}LIBLTE_X2AP_FOURFRAMES_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_fourframes(
+  LIBLTE_X2AP_FOURFRAMES_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_fourframes(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_FOURFRAMES_STRUCT                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE IntegrityProtectionAlgorithms STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_BIT_STRING_LEN 16
+typedef struct{
+  bool     ext;
+  uint8_t  buffer[16];
+}LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_integrityprotectionalgorithms(
+  LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_STRUCT             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_integrityprotectionalgorithms(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_STRUCT             *ie);
+
+/*******************************************************************************
+/* ProtocolIE InterfacesToTrace STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_INTERFACESTOTRACE_BIT_STRING_LEN 8
+typedef struct{
+  uint8_t  buffer[8];
+}LIBLTE_X2AP_INTERFACESTOTRACE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_interfacestotrace(
+  LIBLTE_X2AP_INTERFACESTOTRACE_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_interfacestotrace(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_INTERFACESTOTRACE_STRUCT                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE Key_eNodeB_Star STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_KEY_ENODEB_STAR_BIT_STRING_LEN 256
+typedef struct{
+  uint8_t  buffer[256];
+}LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_key_enodeb_star(
+  LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_key_enodeb_star(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT 
+
+/*******************************************************************************
+/* ProtocolIE MDT_Location_Info STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_MDT_LOCATION_INFO_BIT_STRING_LEN 8
+typedef struct{
+  uint8_t  buffer[8];
+}LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_location_info(
+  LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_location_info(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE MeasurementsToActivate STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_BIT_STRING_LEN 8
+typedef struct{
+  uint8_t  buffer[8];
+}LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_measurementstoactivate(
+  LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_measurementstoactivate(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_STRUCT                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE Oneframe STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_ONEFRAME_BIT_STRING_LEN 6
+typedef struct{
+  uint8_t  buffer[6];
+}LIBLTE_X2AP_ONEFRAME_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_oneframe(
+  LIBLTE_X2AP_ONEFRAME_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_oneframe(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ONEFRAME_STRUCT                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE ReceiveStatusofULPDCPSDUs STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_BIT_STRING_LEN 4096
+typedef struct{
+  uint8_t  buffer[4096];
+}LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_receivestatusofulpdcpsdus(
+  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_STRUCT                 *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_receivestatusofulpdcpsdus(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_STRUCT                 *ie);
+
+/*******************************************************************************
+/* ProtocolIE ReceiveStatusOfULPDCPSDUsExtended DYNAMIC BIT STRING
+********************************************************************************/
+// lb:1, ub:16384
+typedef struct{
+  uint32_t n_bits;
+  uint8_t  buffer[16384];
+}LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUSEXTENDED_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_receivestatusofulpdcpsdusextended(
+  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUSEXTENDED_STRUCT         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_receivestatusofulpdcpsdusextended(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUSEXTENDED_STRUCT         *ie);
+
+/*******************************************************************************
+/* ProtocolIE ReportCharateristics STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_REPORTCHARATERISTICS_BIT_STRING_LEN 32
+typedef struct{
+  uint8_t  buffer[32];
+}LIBLTE_X2AP_REPORTCHARACTERISTICS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportcharacteristics(
+  LIBLTE_X2AP_REPORTCHARACTERISTICS_STRUCT                     *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportcharacteristics(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_REPORTCHARACTERISTICS_STRUCT                     *ie);
+
+/*******************************************************************************
+/* ProtocolIE ShortMAC_I STATIC BIT STRING
+********************************************************************************/
+#define LIBLTE_X2AP_SHORTMAC_I_BIT_STRING_LEN 16
+typedef struct{
+  uint8_t  buffer[16];
+}LIBLTE_X2AP_SHORTMAC_I_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_shortmac_i(
+  LIBLTE_X2AP_SHORTMAC_I_STRUCT                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_shortmac_i(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SHORTMAC_I_STRUCT                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE TraceCollectionEntityIPAddress DYNAMIC BIT STRING
+********************************************************************************/
+// lb:1, ub:160
+typedef struct{
+  bool     ext;
+  uint32_t n_bits;
+  uint8_t  buffer[160];
+}LIBLTE_X2AP_TRACECOLLECTIONENTITYIPADDRESS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_tracecollectionentityipaddress(
+  LIBLTE_X2AP_TRACECOLLECTIONENTITYIPADDRESS_STRUCT                     *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tracecollectionentityipaddress(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TRACECOLLECTIONENTITYIPADDRESS_STRUCT                     *ie);
+
+/*******************************************************************************
+/* ProtocolIE TransportLayerAddress DYNAMIC BIT STRING
+********************************************************************************/
+// lb:1, ub:160
+typedef struct{
+  bool     ext;
+  uint32_t n_bits;
+  uint8_t  buffer[160];
+}LIBLTE_X2AP_TRANSPORTLAYERADDRESS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_transportlayeraddress(
+  LIBLTE_X2AP_TRANSPORTLAYERADDRESS_STRUCT                     *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_transportlayeraddress(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TRANSPORTLAYERADDRESS_STRUCT                     *ie);
+
+/*******************************************************************************
+/* ProtocolIE UL_HighInterferenceIndication DYNAMIC BIT STRING
+********************************************************************************/
+// lb:1, ub:120
+typedef struct{
+  bool     ext;
+  uint32_t n_bits;
+  uint8_t  buffer[120];
+}LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_highinterferenceindication(
+  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATION_STRUCT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_highinterferenceindication(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATION_STRUCT                               *ie);
+
+/* Octet String */
+
+/*******************************************************************************
+/* ProtocolIE EUTRANTraceID STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_EUTRANTRACEID_OCTET_STRING_LEN 8
+typedef struct{
+  uint8_t  buffer[8];
+}LIBLTE_X2AP_EUTRANTRACEID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_eutrantraceid(
+  LIBLTE_X2AP_EUTRANTRACEID_STRUCT                           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eutrantraceid(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_EUTRANTRACEID_STRUCT                           *ie);
+
+/*******************************************************************************
+/* ProtocolIE GTP_TEI STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_GTP_TEI_OCTET_STRING_LEN 4
+typedef struct{
+  uint8_t  buffer[4];
+}LIBLTE_X2AP_GTP_TEI_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_gtp_tei(
+  LIBLTE_X2AP_GTP_TEI_STRUCT                                  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gtp_tei(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_GTP_TEI_STRUCT                                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE LAC STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_LAC_OCTET_STRING_LEN 2
+typedef struct{
+  uint8_t  buffer[2];
+}LIBLTE_X2AP_LAC_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_lac(
+  LIBLTE_X2AP_LAC_STRUCT                                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lac(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_LAC_STRUCT                                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE LastVisitedUTRANCellInformation DYNAMIC OCTET STRING
+********************************************************************************/
+// lb:0, ub:16318
+typedef struct{
+  uint32_t n_octets;
+  uint8_t  buffer[16318];
+}LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_lastvisitedutrancellinformation(
+  LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lastvisitedutrancellinformation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT           *ie);
+
+/*******************************************************************************
+/* ProtocolIE MME_Group_ID STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_MME_GROUP_ID_OCTET_STRING_LEN 2
+typedef struct{
+  uint8_t  buffer[2];
+}LIBLTE_X2AP_MME_GROUP_ID_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mme_group_id(
+  LIBLTE_X2AP_MME_GROUP_ID_STRUCT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mme_group_id(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MME_GROUP_ID_STRUCT                              *ie);
+
+/*******************************************************************************
+/* ProtocolIE MME_Code STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_MME_CODE_OCTET_STRING_LEN 1
+typedef struct{
+  uint8_t  buffer[1];
+}LIBLTE_X2AP_MME_CODE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mme_code(
+  LIBLTE_X2AP_MME_CODE_STRUCT                                  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mme_code(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MME_CODE_STRUCT                                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE MBMS_Service_Area_Identity STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_OCTET_STRING_LEN 2
+typedef struct{
+  uint8_t  buffer[2];
+}LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mbms_service_area_identity(
+  LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_STRUCT                                  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mbms_service_area_identity(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_STRUCT                                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE PLMN_identity STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_PLMN_IDENTITY_OCTET_STRING_LEN 3
+typedef struct{
+  uint8_t  buffer[3];
+}LIBLTE_X2AP_PLMN_IDENTITY_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_plmn_identity(
+  LIBLTE_X2AP_PLMN_IDENTITY_STRUCT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_plmn_identity(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PLMN_IDENTITY_STRUCT                              *ie);
+
+/*******************************************************************************
+/* ProtocolIE RRC_Context DYNAMIC OCTET STRING
+********************************************************************************/
+// lb:0, ub:16318
+typedef struct{
+  uint32_t n_octets;
+  uint8_t  buffer[16318];
+}LIBLTE_X2AP_RRC_CONTEXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_rrc_context(
+  LIBLTE_X2AP_RRC_CONTEXT_STRUCT                             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rrc_context(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RRC_CONTEXT_STRUCT                             *ie);
+
+/*******************************************************************************
+/* ProtocolIE TAC STATIC OCTET STRING
+********************************************************************************/
+#define LIBLTE_X2AP_TAC_OCTET_STRING_LEN 2
+typedef struct{
+  uint8_t  buffer[2];
+}LIBLTE_X2AP_TAC_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_tac(
+  LIBLTE_X2AP_TAC_STRUCT                                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tac(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TAC_STRUCT                                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE TargetCellInUTRAN DYNAMIC OCTET STRING
+********************************************************************************/
+// lb:0, ub:16318
+typedef struct{
+  uint32_t n_octets;
+  uint8_t  buffer[16318];
+}LIBLTE_X2AP_TARGETCELLINUTRAN_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_targetcellinutran(
+  LIBLTE_X2AP_TARGETCELLINUTRAN_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_targetcellinutran(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TARGETCELLINUTRAN_STRUCT                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE TargeteNBtoSource_eNBTransparentContainer DYNAMIC OCTET STRING
+********************************************************************************/
+// lb:0, ub:16318
+typedef struct{
+  uint32_t n_octets;
+  uint8_t  buffer[16318];
+}LIBLTE_X2AP_TARGETENBTOSOURCE_ENBTRANSPARENTCONTAINER_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_targetenbtosource_enbtransparentcontainer(
+  LIBLTE_X2AP_TARGETENBTOSOURCE_ENBTRANSPARENTCONTAINER_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_targetenbtosource_enbtransparentcontainer(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TARGETENBTOSOURCE_ENBTRANSPARENTCONTAINER_STRUCT                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE UL_RLF_Report_Container DYNAMIC OCTET STRING
+********************************************************************************/
+// lb:0, ub:16318
+typedef struct{
+  uint32_t n_octets;
+  uint8_t  buffer[16318];
+}LIBLTE_X2AP_UE_RLF_REPORT_CONTAINER_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_rlf_report_container(
+  LIBLTE_X2AP_UE_RLF_REPORT_CONTAINER_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_rlf_report_container(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UE_RLF_REPORT_CONTAINER_STRUCT                         *ie);
+
+/* ENUMERATED */
 
 /*******************************************************************************
 /* ProtocolIE AdditionalSpecialSubframePatterns ENUMERATED
@@ -848,205 +1620,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_additionalspecialsubframepatterns(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_additionalspecialsubframepatterns(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_ADDITIONALSPECIALSUBFRAMEPATTERNS_ENUM_EXT                               *ie);
-
-/*******************************************************************************
-/* ProtocolIE AS_SecurityInformation SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT key_eNodeB_star;
-  LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT nextHopChainingCount;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
-  bool iE_Extensions_present;
-}LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_as_securityinformation(
-  LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_as_securityinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT            *ie);
-
-/*******************************************************************************
-/* Protocol Message AS_SecurityInformation_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_AS_SECURITYINFORMATION_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_as_securityinformation_ext(
-  LIBLTE_X2AP_MESSAGE_AS_SECURITYINFORMATION_EXT_STRUCT *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_as_securityinformation_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_AS_SECURITYINFORMATION_EXT_STRUCT *ie);
-
-/*******************************************************************************
-/* ProtocolIE AllocationAndRetentionPriority SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_PRIORITYLEVEL_STRUCT priorityLevel;
-  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM pre_emptioncapability;
-  LIBTLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM pre_emptionVulnerability;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
-  bool iE_Extensions_present;
-}LIBLTE_X2AP_ALLOCATIONANDRETENTIONPRIORITY_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_allocationandretentionpriority(
-  LIBLTE_X2AP_ALLOCATIONANDRETENTIONPRIORITY_STRUCT            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_allocationandretentionpriority(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ALLOCATIONANDRETENTIONPRIORITY_STRUCT            *ie);
-
-/*******************************************************************************
-/* Protocol Message AllocationAndRetentionPriority_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_ALLOCATIONANDRETENTIONPRIORITY_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_allocationandretentionpriority_ext(
-  LIBLTE_X2AP_MESSAGE_ALLOCATIONANDRETENTIONPRIORITY_EXT_STRUCT *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_allocationandretentionpriority_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_ALLOCATIONANDRETENTIONPRIORITY_EXT_STRUCT *ie);
-
-/*******************************************************************************
-/* ProtocolIE AreaScopeOfMDT CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_CELLBASED,
-  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_TABASED,
-  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_PLMNWIDE,
-  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_TAIBASED,
-  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_ENUM;
-static const char liblte_x2ap_areascopeofmdt_choice_text[LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_N_ITEMS][50] = {
-  "cellBased",
-  "tABased",
-  "pLMNWide",
-  "tAIBased",
-};
-
-typedef union{
-  LIBLTE_X2AP_CELLBASEDMDT_STRUCT                              cellBased;
-  LIBLTE_X2AP_TABASEDMDT_STRUCT                                tABased;
-  //TODO: NULL                                                 pLMNWide;
-  LIBLTE_X2AP_TAIBASEDMDT_STRUCT                               tAIBased;
-}LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_UNION choice;
-  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_areascopeofmdt(
-  LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_areascopeofmdt(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT                            *ie);
-
-/* B */
-/*******************************************************************************
-/* ProtocolIE BitRate INTEGER
-********************************************************************************/
-typedef struct{
-uint64_t BitRate;
-}LIBLTE_X2AP_BITRATE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_bitrate(
-  LIBLTE_X2AP_BITRATE_STRUCT                                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_bitrate(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_BITRATE_STRUCT                                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE BroadcastPLMNs_Item DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:6
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_TBCD_STRING_STRUCT                               buffer[6];
-}LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_broadcastplmns_item(
-  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_broadcastplmns_item(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                                    *ie);
-
-/* C */
-/*******************************************************************************
-/* ProtocolIE CapacityValue INTEGER
-********************************************************************************/
-typedef struct{
-uint32_t CapacityValue;
-}LIBLTE_X2AP_CAPACITYVALUE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_capacityvalue(
-  LIBLTE_X2AP_CAPACITYVALUE_STRUCT                                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_capacityvalue(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CAPACITYVALUE_STRUCT                                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE CellCapacityClassValue INTEGER
-********************************************************************************/
-typedef struct{
-uint32_t CellCapacityClassValue;
-}LIBLTE_X2AP_CELLCAPACITYCLASSVALUE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellcapacityclassvalue(
-  LIBLTE_X2AP_CELLCAPACITYCLASSVALUE_STRUCT                                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellcapacityclassvalue(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CELLCAPACITYCLASSVALUE_STRUCT                                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE Cause CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_CAUSE_CHOICE_RADIONETWORK,
-  LIBLTE_X2AP_CAUSE_CHOICE_TRANSPORT,
-  LIBLTE_X2AP_CAUSE_CHOICE_PROTOCOL,
-  LIBLTE_X2AP_CAUSE_CHOICE_MISC,
-  LIBLTE_X2AP_CAUSE_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_CAUSE_CHOICE_ENUM;
-static const char liblte_x2ap_cause_choice_text[LIBLTE_X2AP_CAUSE_CHOICE_N_ITEMS][50] = {
-  "radioNetwork",
-  "transport",
-  "protocol",
-  "misc",
-};
-
-typedef union{
-  LIBLTE_X2AP_CAUSERADIONETWORK_ENUM_EXT                       radioNetwork;
-  LIBLTE_X2AP_CAUSETRANSPORT_ENUM_EXT                          transport;
-  LIBLTE_X2AP_CAUSEPROTOCOL_ENUM_EXT                           protocol;
-  LIBLTE_X2AP_CAUSEMISC_ENUM_EXT                               misc;
-}LIBLTE_X2AP_CAUSE_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_CAUSE_CHOICE_UNION choice;
-  LIBLTE_X2AP_CAUSE_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_CAUSE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_cause(
-  LIBLTE_X2AP_CAUSE_STRUCT                                     *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cause(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CAUSE_STRUCT                                     *ie);
 
 /*******************************************************************************
 /* ProtocolIE CauseMisc ENUMERATED
@@ -1219,6 +1792,1480 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_causetransport(
   LIBLTE_X2AP_CAUSETRANSPORT_ENUM_EXT                          *ie);
 
 /*******************************************************************************
+/* ProtocolIE Cell_Size ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_CELL_SIZE_VERYSMALL,
+  LIBLTE_X2AP_CELL_SIZE_SMALL,
+  LIBLTE_X2AP_CELL_SIZE_MEDIUM,
+  LIBLTE_X2AP_CELL_SIZE_LARGE,
+  LIBLTE_X2AP_CELL_SIZE_N_ITEMS,
+}LIBLTE_X2AP_CELL_SIZE_ENUM;
+static const char liblte_x2ap_cell_size_text[LIBLTE_X2AP_CELL_SIZE_N_ITEMS][80] = {
+  "verysmall",
+  "small",
+  "medium",
+  "large",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_CELL_SIZE_ENUM e;
+}LIBLTE_X2AP_CELL_SIZE_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cell_size(
+  LIBLTE_X2AP_CELL_SIZE_ENUM_EXT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cell_size(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CELL_SIZE_ENUM_EXT                               *ie);
+
+/*******************************************************************************
+/* ProtocolIE CSGMembershipStatus ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_MEMBER,
+  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_NOT_MEMBER,
+  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_N_ITEMS,
+}LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_ENUM;
+static const char liblte_x2ap_csgmembershipstatus_text[LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_N_ITEMS][80] = {
+  "member",
+  "not-member",
+};
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_csgmembershipstatus(
+  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_ENUM                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_csgmembershipstatus(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_ENUM                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE CyclicPrefixDL ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_CYCLICPREFIXDL_NORMAL,
+  LIBLTE_X2AP_CYCLICPREFIXDL_EXTENDED,
+  LIBLTE_X2AP_CYCLICPREFIXDL_N_ITEMS,
+}LIBLTE_X2AP_CYCLICPREFIXDL_ENUM;
+static const char liblte_x2ap_cyclicprefixdl_text[LIBLTE_X2AP_CYCLICPREFIXDL_N_ITEMS][80] = {
+  "normal",
+  "extended",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM e;
+}LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cyclicprefixdl(
+  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT                                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cyclicprefixdl(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT                                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE CyclicPrefixUL ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_CYCLICPREFIXUL_NORMAL,
+  LIBLTE_X2AP_CYCLICPREFIXUL_EXTENDED,
+  LIBLTE_X2AP_CYCLICPREFIXUL_N_ITEMS,
+}LIBLTE_X2AP_CYCLICPREFIXUL_ENUM;
+static const char liblte_x2ap_cyclicprefixul_text[LIBLTE_X2AP_CYCLICPREFIXUL_N_ITEMS][80] = {
+  "normal",
+  "extended",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM e;
+}LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cyclicprefixul(
+  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT                                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cyclicprefixul(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT                                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE DL_Forwarding ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_DL_FORWARDING_DL_FORWARDING_PROPOSED,
+  LIBLTE_X2AP_DL_FORWARDING_N_ITEMS,
+}LIBLTE_X2AP_DL_FORWARDING_ENUM;
+static const char liblte_x2ap_dl_forwarding_text[LIBLTE_X2AP_DL_FORWARDING_N_ITEMS][80] = {
+  "dL-Forwarding-proposed",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_DL_FORWARDING_ENUM e;
+}LIBLTE_X2AP_DL_FORWARDING_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_forwarding(
+  LIBLTE_X2AP_DL_FORWARDING_ENUM_EXT                           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_forwarding(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_DL_FORWARDING_ENUM_EXT                           *ie);
+
+/*******************************************************************************
+/* ProtocolIE DeactivationIndication ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_DEACTIVATIONINDICATION_DEACTIVATED,
+  LIBLTE_X2AP_DEACTIVATIONINDICATION_N_ITEMS,
+}LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM;
+static const char liblte_x2ap_deactivationindication_text[LIBLTE_X2AP_DEACTIVATIONINDICATION_N_ITEMS][80] = {
+  "deactivated",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM e;
+}LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_deactivationindication(
+  LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM_EXT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_deactivationindication(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM_EXT            *ie);
+
+/*******************************************************************************
+/* ProtocolIE EventType ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_EVENTTYPE_CHANGE_OF_SERVING_CELL,
+  LIBLTE_X2AP_EVENTTYPE_N_ITEMS,
+}LIBLTE_X2AP_EVENTTYPE_ENUM;
+static const char liblte_x2ap_eventtype_text[LIBLTE_X2AP_EVENTTYPE_N_ITEMS][80] = {
+  "change-of-serving-cell",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_EVENTTYPE_ENUM e;
+}LIBLTE_X2AP_EVENTTYPE_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_eventtype(
+  LIBLTE_X2AP_EVENTTYPE_ENUM_EXT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eventtype(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_EVENTTYPE_ENUM_EXT                               *ie);
+
+/*******************************************************************************
+/* ProtocolIE ForbiddenInterRATs ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_FORBIDDENINTERRATS_ALL,
+  LIBLTE_X2AP_FORBIDDENINTERRATS_GERAN,
+  LIBLTE_X2AP_FORBIDDENINTERRATS_UTRAN,
+  LIBLTE_X2AP_FORBIDDENINTERRATS_CDMA2000,
+  LIBLTE_X2AP_FORBIDDENINTERRATS_GERANANDUTRAN,
+  LIBLTE_X2AP_FORBIDDENINTERRATS_CDMA2000ANDUTRAN,
+  LIBLTE_X2AP_FORBIDDENINTERRATS_N_ITEMS,
+}LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM;
+static const char liblte_x2ap_forbiddeninterrats_text[LIBLTE_X2AP_FORBIDDENINTERRATS_N_ITEMS][80] = {
+  "all",
+  "geran",
+  "utran",
+  "cdma2000",
+  "geranandutran",
+  "cdma2000andutran",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM e;
+}LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_forbiddeninterrats(
+  LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM_EXT                      *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddeninterrats(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM_EXT                      *ie);
+
+/*******************************************************************************
+/* ProtocolIE HandoverReportType ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_HANDOVERREPORTTYPE_HOTOOEARLY,
+  LIBLTE_X2AP_HANDOVERREPORTTYPE_HOTOWRONGCELL,
+  LIBLTE_X2AP_HANDOVERREPORTTYPE_INTERRATPINGPONG,
+  LIBLTE_X2AP_HANDOVERREPORTTYPE_N_ITEMS,
+}LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM;
+static const char liblte_x2ap_handoverreporttype_text[LIBLTE_X2AP_HANDOVERREPORTTYPE_N_ITEMS][80] = {
+  "hoTooEarly",
+  "hoToWrongCell",
+  "interRATpingpong",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM e;
+}LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_handoverreporttype(
+  LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM_EXT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_handoverreporttype(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM_EXT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE InvokeIndication ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_INVOKEINDICATION_ABS_INFORMATION,
+  LIBLTE_X2AP_INVOKEINDICATION_N_ITEMS,
+}LIBLTE_X2AP_INVOKEINDICATION_ENUM;
+static const char liblte_x2ap_invokeindication_text[LIBLTE_X2AP_INVOKEINDICATION_N_ITEMS][80] = {
+  "abs-information",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_INVOKEINDICATION_ENUM e;
+}LIBLTE_X2AP_INVOKEINDICATION_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_invokeindication(
+  LIBLTE_X2AP_INVOKEINDICATION_ENUM_EXT                          *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_invokeindication(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_INVOKEINDICATION_ENUM_EXT                          *ie);
+  
+/*******************************************************************************
+/* ProtocolIE Links_to_log ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_LINKS_TO_LOG_UPLINK,
+  LIBLTE_X2AP_LINKS_TO_LOG_DOWNLINK,
+  LIBLTE_X2AP_LINKS_TO_LOG_BOTH_UPLINK_AND_DOWNLINK,
+  LIBLTE_X2AP_LINKS_TO_LOG_N_ITEMS,
+}LIBLTE_X2AP_LINKS_TO_LOG_ENUM;
+static const char liblte_x2ap_links_to_log_text[LIBLTE_X2AP_LINKS_TO_LOG_N_ITEMS][80] = {
+  "uplink",
+  "downlink",
+  "both-uplink-and-downlink",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_LINKS_TO_LOG_ENUM e;
+}LIBLTE_X2AP_LINKS_TO_LOG_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_links_to_log(
+  LIBLTE_X2AP_LINKS_TO_LOG_ENUM_EXT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_links_to_log(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_LINKS_TO_LOG_ENUM_EXT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE LoadIndicator ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_LOADINDICATOR_LOWLOAD,
+  LIBLTE_X2AP_LOADINDICATOR_MEDIUMLOAD,
+  LIBLTE_X2AP_LOADINDICATOR_HIGHLOAD,
+  LIBLTE_X2AP_LOADINDICATOR_OVERLOAD,
+  LIBLTE_X2AP_LOADINDICATOR_N_ITEMS,
+}LIBLTE_X2AP_LOADINDICATOR_ENUM;
+static const char liblte_x2ap_loadindicator_text[LIBLTE_X2AP_LOADINDICATOR_N_ITEMS][80] = {
+  "lowLoad",
+  "mediumLoad",
+  "highLoad",
+  "overLoad",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_LOADINDICATOR_ENUM e;
+}LIBLTE_X2AP_LOADINDICATOR_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_loadindicator(
+  LIBLTE_X2AP_LOADINDICATOR_ENUM_EXT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_loadindicator(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_LOADINDICATOR_ENUM_EXT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE M1ReportingTrigger ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_PERIODIC,
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_A2EVENTTRIGGERED,
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_A2EVENTTRIGGERED_PERIODIC,
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_N_ITEMS,
+}LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM;
+static const char liblte_x2ap_m1reportingtrigger_text[LIBLTE_X2AP_M1REPORTINGTRIGGER_N_ITEMS][80] = {
+  "periodic",
+  "a2eventtriggered",
+  "a2eventtriggered-periodic",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM e;
+}LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_m1reportingtrigger(
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT                      *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m1reportingtrigger(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT                      *ie);
+
+/*******************************************************************************
+/* ProtocolIE M3period ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_M3PERIOD_MS100,
+  LIBLTE_X2AP_M3PERIOD_MS1000,
+  LIBLTE_X2AP_M3PERIOD_MS10000,
+  LIBLTE_X2AP_M3PERIOD_N_ITEMS,
+}LIBLTE_X2AP_M3PERIOD_ENUM;
+static const char liblte_x2ap_m3period_text[LIBLTE_X2AP_M3PERIOD_N_ITEMS][80] = {
+  "ms100",
+  "ms1000",
+  "ms10000",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_M3PERIOD_ENUM e;
+}LIBLTE_X2AP_M3PERIOD_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_m3period(
+  LIBLTE_X2AP_M3PERIOD_ENUM_EXT                                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m3period(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_M3PERIOD_ENUM_EXT                                *ie);
+
+/*******************************************************************************
+/* ProtocolIE M4period ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_M4PERIOD_MS1024,
+  LIBLTE_X2AP_M4PERIOD_MS2048,
+  LIBLTE_X2AP_M4PERIOD_MS5120,
+  LIBLTE_X2AP_M4PERIOD_MS10240,
+  LIBLTE_X2AP_M4PERIOD_MIN1,
+  LIBLTE_X2AP_M4PERIOD_N_ITEMS,
+}LIBLTE_X2AP_M4PERIOD_ENUM;
+static const char liblte_x2ap_m4period_text[LIBLTE_X2AP_M4PERIOD_N_ITEMS][80] = {
+  "ms1024",
+  "ms2048",
+  "ms5120",
+  "ms10240",
+  "min1",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_M4PERIOD_ENUM e;
+}LIBLTE_X2AP_M4PERIOD_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_m4period(
+  LIBLTE_X2AP_M4PERIOD_ENUM_EXT                                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m4period(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_M4PERIOD_ENUM_EXT                                *ie);
+
+/*******************************************************************************
+/* ProtocolIE M5period ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_M5PERIOD_MS1024,
+  LIBLTE_X2AP_M5PERIOD_MS2048,
+  LIBLTE_X2AP_M5PERIOD_MS5120,
+  LIBLTE_X2AP_M5PERIOD_MS10240,
+  LIBLTE_X2AP_M5PERIOD_MIN1,
+  LIBLTE_X2AP_M5PERIOD_N_ITEMS,
+}LIBLTE_X2AP_M5PERIOD_ENUM;
+static const char liblte_x2ap_m5period_text[LIBLTE_X2AP_M5PERIOD_N_ITEMS][80] = {
+  "ms1024",
+  "ms2048",
+  "ms5120",
+  "ms10240",
+  "min1",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_M5PERIOD_ENUM e;
+}LIBLTE_X2AP_M5PERIOD_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_m5period(
+  LIBLTE_X2AP_M5PERIOD_ENUM_EXT                                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m5period(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_M5PERIOD_ENUM_EXT                                *ie);
+
+/*******************************************************************************
+/* ProtocolIE MDT_Activation ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_MDT_ACTIVATION_IMMEDIATE_MDT_ONLY,
+  LIBLTE_X2AP_MDT_ACTIVATION_IMMEDIATE_MDT_AND_TRACE,
+  LIBLTE_X2AP_MDT_ACTIVATION_N_ITEMS,
+}LIBLTE_X2AP_MDT_ACTIVATION_ENUM;
+static const char liblte_x2ap_mdt_activation_text[LIBLTE_X2AP_MDT_ACTIVATION_N_ITEMS][80] = {
+  "immediate-MDT-only",
+  "immediate-MDT-and-Trace",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_MDT_ACTIVATION_ENUM e;
+}LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_activation(
+  LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT                          *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_activation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT                          *ie);
+
+/*******************************************************************************
+/* ProtocolIE ManagementBasedMDTAllowed ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ALLOWED,
+  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_N_ITEMS,
+}LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM;
+static const char liblte_x2ap_managementbasedmdtallowed_text[LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_N_ITEMS][80] = {
+  "allowed",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM e;
+}LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_managementbasedmdtallowed(
+  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_managementbasedmdtallowed(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT               *ie);
+
+/*******************************************************************************
+/* ProtocolIE Number_of_Antennaports ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN1,
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN2,
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN4,
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_N_ITEMS,
+}LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM;
+static const char liblte_x2ap_number_of_antennaports_text[LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_N_ITEMS][80] = {
+  "an1",
+  "an2",
+  "an4",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM e;
+}LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_number_of_antennaports(
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT                        *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_number_of_antennaports(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT                        *ie);
+
+/*******************************************************************************
+/* ProtocolIE Pre_emptionCapability ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_SHALL_NOT_TRIGGER_PRE_EMPTION,
+  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_MAY_TRIGGER_PRE_EMPTION,
+  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_N_ITEMS,
+}LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM;
+static const char liblte_x2ap_pre_emptioncapability_text[LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_N_ITEMS][80] = {
+  "shall-not-trigger-pre-emption",
+  "may-trigger-pre-emption",
+};
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_pre_emptioncapability(
+  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM                       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pre_emptioncapability(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM                       *ie);
+
+/*******************************************************************************
+/* ProtocolIE Pre_emptionVulnerability ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_NOT_PRE_EMPTABLE,
+  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_PRE_EMPTABLE,
+  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_N_ITEMS,
+}LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM;
+static const char liblte_x2ap_pre_emptionvulnerability_text[LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_N_ITEMS][80] = {
+  "not-pre-emptable",
+  "pre-emptable",
+};
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_pre_emptionvulnerability(
+  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pre_emptionvulnerability(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE RadioframeAllocationPeriod ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N1,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N2,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N4,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N8,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N16,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N32,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N_ITEMS,
+}LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM;
+static const char liblte_x2ap_radioframeallocationperiod_text[LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N_ITEMS][80] = {
+  "n1",
+  "n2",
+  "n4",
+  "n8",
+  "n16",
+  "n32",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM e;
+}LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_radioframeallocationperiod(
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_radioframeallocationperiod(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE Registration_Request ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_REGISTRATION_REQUEST_START,
+  LIBLTE_X2AP_REGISTRATION_REQUESST_STOP,
+  LIBLTE_X2AP_REGISTRATION_REQUEST_N_ITEMS,
+}LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM;
+static const char liblte_x2ap_registration_request_text[LIBLTE_X2AP_REGISTRATION_REQUEST_N_ITEMS][80] = {
+  "start",
+  "stop",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM e;
+}LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_registration_request(
+  LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM_EXT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_registration_request(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM_EXT                              *ie);
+
+/*******************************************************************************
+/* ProtocolIE ReportAmountMDT ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_REPORTAMOUNTMDT_R1,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_R2,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_R4,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_R8,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_R16,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_R32,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_R64,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_RINFINITY,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_N_ITEMS,
+}LIBLTE_X2AP_REPORTAMOUNTMDT_ENUM;
+static const char liblte_x2ap_reportamountmdt_text[LIBLTE_X2AP_REPORTAMOUNTMDT_N_ITEMS][80] = {
+  "r1",
+  "r2",
+  "r4",
+  "r8",
+  "r16",
+  "r32",
+  "r64",
+  "rinfinity",
+};
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportamountmdt(
+  LIBLTE_X2AP_REPORTAMOUNTMDT_ENUM                             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportamountmdt(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_REPORTAMOUNTMDT_ENUM                             *ie);
+
+/*******************************************************************************
+/* ProtocolIE ReportArea ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_REPORTAREA_ECGI,
+  LIBLTE_X2AP_REPORTAREA_N_ITEMS,
+}LIBLTE_X2AP_REPORTAREA_ENUM;
+static const char liblte_x2ap_reportarea_text[LIBLTE_X2AP_REPORTAREA_N_ITEMS][80] = {
+  "ecgi",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_REPORTAREA_ENUM e;
+}LIBLTE_X2AP_REPORTAREA_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportarea(
+  LIBLTE_X2AP_REPORTAREA_ENUM_EXT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportarea(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_REPORTAREA_ENUM_EXT                              *ie);
+
+/*******************************************************************************
+/* ProtocolIE ReportIntervalMDT ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS120,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS240,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS480,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS640,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS1024,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS2048,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS5120,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MS10240,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MIN1,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MIN6,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MIN12,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MIN30,
+  LIBLTE_X2AP_REPORTINTERVALMDT_MIN60,
+  LIBLTE_X2AP_REPORTINTERVALMDT_N_ITEMS,
+}LIBLTE_X2AP_REPORTINTERVALMDT_ENUM;
+static const char liblte_x2ap_reportintervalmdt_text[LIBLTE_X2AP_REPORTINTERVALMDT_N_ITEMS][80] = {
+  "ms120",
+  "ms240",
+  "ms480",
+  "ms640",
+  "ms1024",
+  "ms2048",
+  "ms5120",
+  "ms10240",
+  "min1",
+  "min6",
+  "min12",
+  "min30",
+  "min60",
+};
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportintervalmdt(
+  LIBLTE_X2AP_REPORTINTERVALMDT_ENUM_EXT                           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportintervalmdt(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_REPORTINTERVALMDT_ENUM_EXT                          *ie);
+
+
+/*******************************************************************************
+/* ProtocolIE RNTP_Threshold ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSINFINITY,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSELEVEN,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSTEN,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSNINE,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSEIGHT,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSSEVEN,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSSIX,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSFIVE,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSFOUR,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSTHREE,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSTWO,
+  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSONE,
+  LIBLTE_X2AP_RNTP_THRESHOLD_ZERO,
+  LIBLTE_X2AP_RNTP_THRESHOLD_ONE,
+  LIBLTE_X2AP_RNTP_THRESHOLD_TWO,
+  LIBLTE_X2AP_RNTP_THRESHOLD_THREE,
+  LIBLTE_X2AP_RNTP_THRESHOLD_N_ITEMS,
+}LIBLTE_X2AP_RNTP_THRESHOLD_ENUM;
+static const char liblte_x2ap_rntp_threshold_text[LIBLTE_X2AP_RNTP_THRESHOLD_N_ITEMS][80] = {
+  "minusInfinity",
+  "minusEleven",
+  "minusTen",
+  "minusNine",
+  "minusEight",
+  "minusSeven",
+  "minusSix",
+  "minusFive",
+  "minusFour",
+  "minusThree",
+  "minusTwo",
+  "minusOne",
+  "zero",
+  "one",
+  "two",
+  "three",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_RNTP_THRESHOLD_ENUM e;
+}LIBLTE_X2AP_RNTP_THRESHOLD_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_rntp_threshold(
+  LIBLTE_X2AP_RNTP_THRESHOLD_ENUM                           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rntp_threshold(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RNTP_THRESHOLD_ENUM                           *ie);
+
+
+/*******************************************************************************
+/* ProtocolIE RRCConnReestabIndicator ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_RECONFIGURATIONFAILURE,
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_HANDOVERFAILURE, 
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_OTHERFAILURE, 
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_N_ITEMS,
+}LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM;
+static const char liblte_x2ap_rrcconnreestabindicator_text[LIBLTE_X2AP_RRCCONNREESTABINDICATOR_N_ITEMS][80] = {
+  "reconfigurationFailure",
+  "handoverFailure",
+  "otherFailure",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM e;
+}LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_rrcconnreestabindicator(
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM_EXT                 *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rrcronnreestabindicator(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM_EXT                 *ie);
+
+/*******************************************************************************
+/* ProtocolIE RRCConnSetupIndicator ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_RRCCONNSETUP,
+  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_N_ITEMS,
+}LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM;
+static const char liblte_x2ap_rrcconnsetupindicator_text[LIBLTE_X2AP_RRCCONNSETUPINDICATOR_N_ITEMS][80] = {
+  "rrcConnSetup",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM e;
+}LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_rrcconnsetupindicator(
+  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM_EXT                 *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rrcronnsetupindicator(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM_EXT                 *ie);
+
+/*******************************************************************************
+/* ProtocolIE SRVCCOperationPossible ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_POSSIBLE,
+  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_N_ITEMS,
+}LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM;
+static const char liblte_x2ap_srvccoperationpossible_text[LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_N_ITEMS][80] = {
+  "possible",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM e;
+}LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_srvccoperationpossible(
+  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT                  *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_srvccoperationpossible(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT                  *ie);
+
+
+/*******************************************************************************
+/* ProtocolIE SubframeAssignment ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA0,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA1,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA2,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA3,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA4,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA5,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA6,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_N_ITEMS,
+}LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM;
+static const char liblte_x2ap_subframeassignment_text[LIBLTE_X2AP_SUBFRAMEASSIGNMENT_N_ITEMS][80] = {
+  "sa0",
+  "s21",
+  "sa2",
+  "sa3",
+  "sa4",
+  "sa5",
+  "sa6",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM e;
+}LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_subframeassignment(
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM_EXT                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_subframeassignment(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM_EXT                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE SpecialSubframePatterns ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP0,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP1,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP2,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP3,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP4,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP5,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP6,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP7,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP8,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_N_ITEMS,
+}LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM;
+static const char liblte_x2ap_specialsubframepatterns_text[LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_N_ITEMS][80] = {
+  "ssp0",
+  "ssp1",
+  "ssp2",
+  "ssp3",
+  "ssp4",
+  "ssp5",
+  "ssp6",
+  "ssp7",
+  "ssp8",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM e;
+}LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNST_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_specialsubframepatterns(
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM_EXT                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_specialsubframepatterns(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM_EXT                  *ie);
+
+/*******************************************************************************
+/* ProtocolIE TimeToWait ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_TIMETOWAIT_V1S,
+  LIBLTE_X2AP_TIMETOWAIT_V2S,
+  LIBLTE_X2AP_TIMETOWAIT_V5S,
+  LIBLTE_X2AP_TIMETOWAIT_V10S,
+  LIBLTE_X2AP_TIMETOWAIT_V20S,
+  LIBLTE_X2AP_TIMETOWAIT_V60S,
+  LIBLTE_X2AP_TIMETOWAIT_N_ITEMS,
+}LIBLTE_X2AP_TIMETOWAIT_ENUM;
+static const char liblte_x2ap_timetowait_text[LIBLTE_X2AP_TIMETOWAIT_N_ITEMS][80] = {
+  "v1s",
+  "v2s",
+  "v5s",
+  "v10s",
+  "v20s",
+  "v60s",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_TIMETOWAIT_ENUM e;
+}LIBLTE_X2AP_TIMETOWAIT_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_timetowait(
+  LIBLTE_X2AP_TIMETOWAIT_ENUM_EXT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_timetowait(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TIMETOWAIT_ENUM_EXT                              *ie);
+
+/*******************************************************************************
+/* ProtocolIE TraceDepth ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_TRACEDEPTH_MINIMUM,
+  LIBLTE_X2AP_TRACEDEPTH_MEDIUM,
+  LIBLTE_X2AP_TRACEDEPTH_MAXIMUM,
+  LIBLTE_X2AP_TRACEDEPTH_MINIMUMWITHOUTVENDORSPECIFICEXTENSION,
+  LIBLTE_X2AP_TRACEDEPTH_MEDIUMWITHOUTVENDORSPECIFICEXTENSION,
+  LIBLTE_X2AP_TRACEDEPTH_MAXIMUMWITHOUTVENDORSPECIFICEXTENSION,
+  LIBLTE_X2AP_TRACEDEPTH_N_ITEMS,
+}LIBLTE_X2AP_TRACEDEPTH_ENUM;
+static const char liblte_x2ap_tracedepth_text[LIBLTE_X2AP_TRACEDEPTH_N_ITEMS][80] = {
+  "minimum",
+  "medium",
+  "maximum",
+  "minimumWithoutVendorSpecificExtension",
+  "mediumWithoutVendorSpecificExtension",
+  "maximumWithoutVendorSpecificExtension",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_TRACEDEPTH_ENUM e;
+}LIBLTE_X2AP_TRACEDEPTH_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_tracedepth(
+  LIBLTE_X2AP_TRACEDEPTH_ENUM_EXT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tracedepth(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TRACEDEPTH_ENUM_EXT                              *ie);
+
+/*******************************************************************************
+/* ProtocolIE Transmission_Bandwidth ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW6,
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW15,
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW25,
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW50,
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW75,
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW100,
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_N_ITEMS,
+}LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM;
+static const char liblte_x2ap_transmission_bandwidth_text[LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_N_ITEMS][80] = {
+  "bw6",
+  "bw15",
+  "bw25",
+  "bw50",
+  "bw75",
+  "bw100",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM e;
+}LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_transmission_bandwidth(
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM_EXT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_transmission_bandwidth(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM_EXT                              *ie);
+
+
+/*******************************************************************************
+/* ProtocolIE TypeOfError ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_TYPEOFERROR_NOT_UNDERSTOOD,
+  LIBLTE_X2AP_TYPEOFERROR_MISSING,
+  LIBLTE_X2AP_TYPEOFERROR_N_ITEMS,
+}LIBLTE_X2AP_TYPEOFERROR_ENUM;
+static const char liblte_x2ap_typeoferror_text[LIBLTE_X2AP_TYPEOFERROR_N_ITEMS][80] = {
+  "not-understood",
+  "missing",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_TYPEOFERROR_ENUM e;
+}LIBLTE_X2AP_TYPEOFERROR_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_typeoferror(
+  LIBLTE_X2AP_TYPEOFERROR_ENUM_EXT                             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_typeoferror(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_TYPEOFERROR_ENUM_EXT                             *ie);
+
+/*******************************************************************************
+/* ProtocolIE UL_InterferenceOverloadIndication_Item ENUMERATED
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_HIGH_INTERFERENCE,
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_MEDIUM_INTERFERENCE,
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_LOW_INTERFERENCE,
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_N_ITEMS,
+}LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM;
+static const char liblte_x2ap_ul_interferenceoverloadindication_item_text[LIBLTE_X2AP_RELAYNODE_INDICATOR_N_ITEMS][80] = {
+  "high-interference",
+  "medium_interference",
+  "low_interference",
+};
+
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM e;
+}LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM_EXT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_interferenceoverloadindication_item(
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM_EXT                     *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_interferenceoverloadindication_item(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM_EXT                     *ie);
+
+/* SEQUENCE & CHOICE */
+
+/*******************************************************************************
+/* ProtocolIE ABSInformationFDD SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  uint8_t abs_pattern_info[40]; // BIT STRING
+  enum numberofCellSpecificAntennaPorts {one, two, four};
+  uint8_t measurement_subset[40]; // BIT STRING
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
+  bool iE_Extensions_present;
+}LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationfdd(
+  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationfdd(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT            *ie);
+
+/*******************************************************************************
+/* Protocol Message ABSInformationFDD_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_ABSINFORMATIONFDD_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationfdd_ext(
+  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONFDD_EXT_STRUCT *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationfdd_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONFDD_EXT_STRUCT *ie);
+
+/*******************************************************************************
+/* ProtocolIE ABSInformationTDD SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  uint8_t abs_pattern_info[70]; // BIT STRING
+  enum numberofCellSpecificAntennaPorts {one, two, four};
+  uint8_t measurement_subset[70]; // BIT STRING
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
+  bool iE_Extensions_present;
+}LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationtdd(
+  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationtdd(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT            *ie);
+
+/*******************************************************************************
+/* Protocol Message ABSInformationTDD_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_ABSINFORMATIONTDD_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformationtdd_ext(
+  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONTDD_EXT_STRUCT *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformationtdd_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_ABSINFORMATIONTDD_EXT_STRUCT *ie);
+
+/*******************************************************************************
+/* ProtocolIE ABSInformation CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_FDD,
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_TDD,
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ABS_INACTIVE,
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM;
+static const char liblte_x2ap_absinformation_choice_text[LIBLTE_X2AP_ABSINFORMATION_CHOICE_N_ITEMS][50] = {
+  "fdd",
+  "tdd",
+  "abs_inactive",
+};
+
+typedef union{
+  LIBLTE_X2AP_ABSINFORMATIONFDD_STRUCT                         fdd;
+  LIBLTE_X2AP_ABSINFORMATIONTDD_STRUCT                         tdd;
+  //TODO: NULL                                                 abs_inactive;
+}LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION;
+
+typedef struct{
+  bool                            ext;
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_UNION choice;
+  LIBLTE_X2AP_ABSINFORMATION_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_ABSINFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_absinformation(
+  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_absinformation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ABSINFORMATION_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE UsableABSInformationFDD SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  uint8_t usable_abs_pattern_info[40];
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationfdd(
+  LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationfdd(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT                               *ie);
+
+/*******************************************************************************
+/* Protocol Message UsableABSInformationFDD_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONFDD_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationfdd_ext(
+  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONFDD_EXT_STRUCT                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationfdd_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONFDD_EXT_STRUCT                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE UsableABSInformationTDD SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  uint8_t usable_abs_pattern_info[70];
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationtdd(
+  LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT                               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationtdd(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT                               *ie);
+
+/*******************************************************************************
+/* Protocol Message UsableABSInformationTDD_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONTDD_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationtdd_ext(
+  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONTDD_EXT_STRUCT                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationtdd_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONTDD_EXT_STRUCT                   *ie);
+
+/*******************************************************************************
+/* ProtocolIE UsableABSInformation CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_FDD,
+  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_TDD,
+  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_ENUM;
+static const char liblte_x2ap_overloadresponse_choice_text[LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_N_ITEMS][50] = {
+  "fdd",
+  "tdd",
+};
+
+typedef union{
+  LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT          fdd;
+  LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT          tdd;
+}LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_UNION;
+
+typedef struct{
+  bool                            ext;
+  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_UNION choice;
+  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_USABLEABSINFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformation(
+  LIBLTE_X2AP_USABLEABSINFORMATION_STRUCT                          *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_USABLEABSINFORMATION_STRUCT                          *ie);
+
+/*******************************************************************************
+/* ProtocolIE ABS_Status SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBTLTE_X2AP_DL_ABS_STATUS_STRUCT dL_ABS_status;
+  LITLTE_X2AP_USABLEABSINFORMATION_STRUCT usableABSInformation;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
+  bool iE_Extensions_present;
+}LIBLTE_X2AP_ABS_STATUS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_abs_status(
+  LIBLTE_X2AP_ABS_STATUS_STRUCT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_abs_status(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ABS_STATUS_STRUCT            *ie);
+
+/*******************************************************************************
+/* Protocol Message ABS_Status_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_ABS_STATUS_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_abs_status_ext(
+  LIBLTE_X2AP_MESSAGE_ABS_STATUS_EXT_STRUCT *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_abs_status_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_ABS_STATUS_EXT_STRUCT *ie);
+
+/*******************************************************************************
+/* ProtocolIE AdditionalSpecialSubframe_Info SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBTLTE_X2AP_ADDITIONALSPECIALSUBFRAMEPATTERNS_ENUM_EXT additionalspecialSubframePatterns;
+  LITLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT cyclicPrefixDL;
+  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT cyclicPrefixUL;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
+  bool iE_Extensions_present;
+}LIBLTE_X2AP_ADDITIONALSPECIALSUBFRAME_INFO_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_additionalspecialsubframe_info(
+  LIBLTE_X2AP_ADDITIONALSPECIALSUBFRAME_INFO_STRUCT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_additionalspecialsubframe_info(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ADDITIONALSPECIALSUBFRAME_INFO_STRUCT            *ie);
+
+/*******************************************************************************
+/* Protocol Message AdditionalSpecialSubframe_Info_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_ADDITIONALSPECIALSUBFRAME_INFO_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_additionalspecialsubframe_info_ext(
+  LIBLTE_X2AP_MESSAGE_ADDITIONALSPECIALSUBFRAME_INFO_EXT_STRUCT *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_additionalspecialsubframe_info_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_ADDITIONALSPECIALSUBFRAME_INFO_EXT_STRUCT *ie);
+
+/*******************************************************************************
+/* ProtocolIE AS_SecurityInformation SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT key_eNodeB_star;
+  LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT nextHopChainingCount;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
+  bool iE_Extensions_present;
+}LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_as_securityinformation(
+  LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_as_securityinformation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT            *ie);
+
+/*******************************************************************************
+/* Protocol Message AS_SecurityInformation_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_AS_SECURITYINFORMATION_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_as_securityinformation_ext(
+  LIBLTE_X2AP_MESSAGE_AS_SECURITYINFORMATION_EXT_STRUCT *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_as_securityinformation_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_AS_SECURITYINFORMATION_EXT_STRUCT *ie);
+
+/*******************************************************************************
+/* ProtocolIE AllocationAndRetentionPriority SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_PRIORITYLEVEL_STRUCT priorityLevel;
+  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM pre_emptioncapability;
+  LIBTLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM pre_emptionVulnerability;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT iE_Extensions;
+  bool iE_Extensions_present;
+}LIBLTE_X2AP_ALLOCATIONANDRETENTIONPRIORITY_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_allocationandretentionpriority(
+  LIBLTE_X2AP_ALLOCATIONANDRETENTIONPRIORITY_STRUCT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_allocationandretentionpriority(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ALLOCATIONANDRETENTIONPRIORITY_STRUCT            *ie);
+
+/*******************************************************************************
+/* Protocol Message AllocationAndRetentionPriority_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_ALLOCATIONANDRETENTIONPRIORITY_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_allocationandretentionpriority_ext(
+  LIBLTE_X2AP_MESSAGE_ALLOCATIONANDRETENTIONPRIORITY_EXT_STRUCT *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_allocationandretentionpriority_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_ALLOCATIONANDRETENTIONPRIORITY_EXT_STRUCT *ie);
+
+/*******************************************************************************
+/* ProtocolIE BroadcastPLMNs_Item DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:6
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_TBCD_STRING_STRUCT                               buffer[6];
+}LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_broadcastplmns_item(
+  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_broadcastplmns_item(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE Cause CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_CAUSE_CHOICE_RADIONETWORK,
+  LIBLTE_X2AP_CAUSE_CHOICE_TRANSPORT,
+  LIBLTE_X2AP_CAUSE_CHOICE_PROTOCOL,
+  LIBLTE_X2AP_CAUSE_CHOICE_MISC,
+  LIBLTE_X2AP_CAUSE_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_CAUSE_CHOICE_ENUM;
+static const char liblte_x2ap_cause_choice_text[LIBLTE_X2AP_CAUSE_CHOICE_N_ITEMS][50] = {
+  "radioNetwork",
+  "transport",
+  "protocol",
+  "misc",
+};
+
+typedef union{
+  LIBLTE_X2AP_CAUSERADIONETWORK_ENUM_EXT                       radioNetwork;
+  LIBLTE_X2AP_CAUSETRANSPORT_ENUM_EXT                          transport;
+  LIBLTE_X2AP_CAUSEPROTOCOL_ENUM_EXT                           protocol;
+  LIBLTE_X2AP_CAUSEMISC_ENUM_EXT                               misc;
+}LIBLTE_X2AP_CAUSE_CHOICE_UNION;
+
+typedef struct{
+  bool                            ext;
+  LIBLTE_X2AP_CAUSE_CHOICE_UNION choice;
+  LIBLTE_X2AP_CAUSE_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_CAUSE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cause(
+  LIBLTE_X2AP_CAUSE_STRUCT                                     *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cause(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CAUSE_STRUCT                                     *ie);
+
+/*******************************************************************************
+/* ProtocolIE ECGI SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_TBCD_STRING_STRUCT                               pLMN_Identity;
+  LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT                   eUTRANcellIdentifier;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_ECGI_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ecgi(
+  LIBLTE_X2AP_ECGI_STRUCT                                *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ecgi(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ECGI_STRUCT                                *ie);
+
+/*******************************************************************************
+/* Protocol Message ECGI_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_ECGI_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ecgi_ext(
+  LIBLTE_X2AP_MESSAGE_ECGI_EXT_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ecgi_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_ECGI_EXT_STRUCT                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE CellIdListforMDT DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:32
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_ECGI_STRUCT                                buffer[32];
+}LIBLTE_X2AP_CELLIDLISTFORMDT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellidlistformdt(
+  LIBLTE_X2AP_CELLIDLISTFORMDT_STRUCT                          *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellidlistformdt(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_CELLIDLISTFORMDT_STRUCT                          *ie);
+
+/*******************************************************************************
 /* ProtocolIE CellBasedMDT SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -1248,51 +3295,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellbasedmdt_ext(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellbasedmdt_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_CELLBASEDMDT_EXT_STRUCT *ie);
-
-/*******************************************************************************
-/* ProtocolIE CellIdListforMDT DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:32
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_ECGI_STRUCT                                buffer[32];
-}LIBLTE_X2AP_CELLIDLISTFORMDT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellidlistformdt(
-  LIBLTE_X2AP_CELLIDLISTFORMDT_STRUCT                          *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellidlistformdt(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CELLIDLISTFORMDT_STRUCT                          *ie);
-
-/*******************************************************************************
-/* ProtocolIE Cell_Size ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_CELL_SIZE_VERYSMALL,
-  LIBLTE_X2AP_CELL_SIZE_SMALL,
-  LIBLTE_X2AP_CELL_SIZE_MEDIUM,
-  LIBLTE_X2AP_CELL_SIZE_LARGE,
-  LIBLTE_X2AP_CELL_SIZE_N_ITEMS,
-}LIBLTE_X2AP_CELL_SIZE_ENUM;
-static const char liblte_x2ap_cell_size_text[LIBLTE_X2AP_CELL_SIZE_N_ITEMS][80] = {
-  "verysmall",
-  "small",
-  "medium",
-  "large",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_CELL_SIZE_ENUM e;
-}LIBLTE_X2AP_CELL_SIZE_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_cell_size(
-  LIBLTE_X2AP_CELL_SIZE_ENUM_EXT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cell_size(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CELL_SIZE_ENUM_EXT                               *ie);
 
 /*******************************************************************************
 /* ProtocolIE CellType SEQUENCE
@@ -1454,44 +3456,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_countvalueextended_ext(
   LIBLTE_X2AP_MESSAGE_COUNTVALUEEXTENDED_EXT_STRUCT            *ie);
 
 /*******************************************************************************
-/* ProtocolIE CriticalityDiagnostics SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_PROCEDURECODE_STRUCT                             procedureCode;
-  bool                                                         procedureCode_present;
-  LIBLTE_X2AP_TRIGGERINGMESSAGE_ENUM                           triggeringMessage;
-  bool                                                         triggeringMessage_present;
-  LIBLTE_X2AP_CRITICALITY_ENUM                                 procedureCriticality;
-  bool                                                         procedureCriticality_present;
-  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_IE_LIST_STRUCT            iEsCriticalityDiagnostics;
-  bool                                                         iEsCriticalityDiagnostics_present;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_criticalitydiagnostics(
-  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_criticalitydiagnostics(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    *ie);
-
-/*******************************************************************************
-/* Protocol Message CriticalityDiagnostics_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_CRITICALITYDIAGNOSTICS_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_criticalitydiagnostics_ext(
-  LIBLTE_X2AP_MESSAGE_CRITICALITYDIAGNOSTICS_EXT_STRUCT        *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_criticalitydiagnostics_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_CRITICALITYDIAGNOSTICS_EXT_STRUCT        *ie);
-
-/*******************************************************************************
 /* ProtocolIE CriticalityDiagnostics_IE_Item SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -1541,255 +3505,75 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_criticalitydiagnostics_ie_list_ext(
   LIBLTE_X2AP_MESSAGE_CRITICALITYDIAGNOSTICS_IE_LIST_EXT_STRUCT *ie);
 
 /*******************************************************************************
-/* ProtocolIE CRNTI STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_CRNTI_BIT_STRING_LEN 16
-typedef struct{
-  uint8_t  buffer[16];
-}LIBLTE_X2AP_CRNTI_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_crnti(
-  LIBLTE_X2AP_CRNTI_STRUCT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_crnti(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CRNTI_STRUCT                               *ie);
-
-/*******************************************************************************
-/* ProtocolIE CSG_Id STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_CSG_ID_BIT_STRING_LEN 27
-typedef struct{
-  uint8_t  buffer[27];
-}LIBLTE_X2AP_CSG_ID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_csg_id(
-  LIBLTE_X2AP_CSG_ID_STRUCT                                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_csg_id(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CSG_ID_STRUCT                                    *ie);
-
-/*******************************************************************************
-/* ProtocolIE CSGMembershipStatus ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_MEMBER,
-  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_NOT_MEMBER,
-  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_N_ITEMS,
-}LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_ENUM;
-static const char liblte_x2ap_csgmembershipstatus_text[LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_N_ITEMS][80] = {
-  "member",
-  "not-member",
-};
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_csgmembershipstatus(
-  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_ENUM                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_csgmembershipstatus(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_ENUM                         *ie);
-
-/*******************************************************************************
-/* ProtocolIE CyclicPrefixDL ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_CYCLICPREFIXDL_NORMAL,
-  LIBLTE_X2AP_CYCLICPREFIXDL_EXTENDED,
-  LIBLTE_X2AP_CYCLICPREFIXDL_N_ITEMS,
-}LIBLTE_X2AP_CYCLICPREFIXDL_ENUM;
-static const char liblte_x2ap_cyclicprefixdl_text[LIBLTE_X2AP_CYCLICPREFIXDL_N_ITEMS][80] = {
-  "normal",
-  "extended",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM e;
-}LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_cyclicprefixdl(
-  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT                                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cyclicprefixdl(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT                                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE CyclicPrefixUL ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_CYCLICPREFIXUL_NORMAL,
-  LIBLTE_X2AP_CYCLICPREFIXUL_EXTENDED,
-  LIBLTE_X2AP_CYCLICPREFIXUL_N_ITEMS,
-}LIBLTE_X2AP_CYCLICPREFIXUL_ENUM;
-static const char liblte_x2ap_cyclicprefixul_text[LIBLTE_X2AP_CYCLICPREFIXUL_N_ITEMS][80] = {
-  "normal",
-  "extended",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM e;
-}LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_cyclicprefixul(
-  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT                                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cyclicprefixul(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT                                   *ie);
-
-/* D */
-
-/*******************************************************************************
-/* ProtocolIE DL_Forwarding ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_DL_FORWARDING_DL_FORWARDING_PROPOSED,
-  LIBLTE_X2AP_DL_FORWARDING_N_ITEMS,
-}LIBLTE_X2AP_DL_FORWARDING_ENUM;
-static const char liblte_x2ap_dl_forwarding_text[LIBLTE_X2AP_DL_FORWARDING_N_ITEMS][80] = {
-  "dL-Forwarding-proposed",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_DL_FORWARDING_ENUM e;
-}LIBLTE_X2AP_DL_FORWARDING_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_forwarding(
-  LIBLTE_X2AP_DL_FORWARDING_ENUM_EXT                           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_forwarding(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_DL_FORWARDING_ENUM_EXT                           *ie);
-
-/*******************************************************************************
-/* ProtocolIE DeactivationIndication ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_DEACTIVATIONINDICATION_DEACTIVATED,
-  LIBLTE_X2AP_DEACTIVATIONINDICATION_N_ITEMS,
-}LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM;
-static const char liblte_x2ap_deactivationindication_text[LIBLTE_X2AP_DEACTIVATIONINDICATION_N_ITEMS][80] = {
-  "deactivated",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM e;
-}LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_deactivationindication(
-  LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM_EXT            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_deactivationindication(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_DECATIVATIONINDICATION_ENUM_EXT            *ie);
-
-/*******************************************************************************
-/* ProtocolIE DL_GBR_PRB_usage INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t DL_GBR_PRB_usage;
-}LIBLTE_X2AP_DL_GBR_PRB_USAGE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_gbr_prb_usage(
-  LIBLTE_X2AP_DL_GBR_PRB_USAGE_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_gbr_prb_usage(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_DL_GBR_PRB_USAGE_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE DL_non_GBR_PRB_usage INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t DL_non_GBR_PRB_usage;
-}LIBLTE_X2AP_DL_NON_GBR_PRB_USAGE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_non_gbr_prb_usage(
-  LIBLTE_X2AP_DL_NON_GBR_PRB_USAGE_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_non_gbr_prb_usage(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_DL_NON_GBR_PRB_USAGE_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE DL_Total_PRB_usage INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t DL_Total_PRB_usage;
-}LIBLTE_X2AP_DL_TOTAL_PRB_USAGE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_dl_total_prb_usage(
-  LIBLTE_X2AP_DL_TOTAL_PRB_USAGE_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_dl_total_prb_usage(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_DL_TOTAL_PRB_USAGE_STRUCT                            *ie);
-
-/* E */
-/*******************************************************************************
-/* ProtocolIE EARFCN INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t EARFCN;
-}LIBLTE_X2AP_EARFCN_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_earfcn(
-  LIBLTE_X2AP_EARFCN_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_earfcn(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_EARFCN_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE EARFCNExtension INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t EARFCNExtension;
-}LIBLTE_X2AP_EARFCNEXTENSION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_earfcnextension(
-  LIBLTE_X2AP_EARFCNEXTENSION_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_earfcnextension(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_EARFCNEXTENSION_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE ECGI SEQUENCE
+/* ProtocolIE CriticalityDiagnostics SEQUENCE
 ********************************************************************************/
 typedef struct{
   bool                                                         ext;
-  LIBLTE_X2AP_TBCD_STRING_STRUCT                               pLMN_Identity;
-  LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT                   eUTRANcellIdentifier;
+  LIBLTE_X2AP_PROCEDURECODE_STRUCT                             procedureCode;
+  bool                                                         procedureCode_present;
+  LIBLTE_X2AP_TRIGGERINGMESSAGE_ENUM                           triggeringMessage;
+  bool                                                         triggeringMessage_present;
+  LIBLTE_X2AP_CRITICALITY_ENUM                                 procedureCriticality;
+  bool                                                         procedureCriticality_present;
+  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_IE_LIST_STRUCT            iEsCriticalityDiagnostics;
+  bool                                                         iEsCriticalityDiagnostics_present;
   LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
   bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_ECGI_STRUCT;
+}LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ecgi(
-  LIBLTE_X2AP_ECGI_STRUCT                                *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_criticalitydiagnostics(
+  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ecgi(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_criticalitydiagnostics(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ECGI_STRUCT                                *ie);
+  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    *ie);
 
 /*******************************************************************************
-/* Protocol Message ECGI_Ext STRUCT
+/* Protocol Message CriticalityDiagnostics_Ext STRUCT
 ********************************************************************************/
 typedef struct{
   bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_ECGI_EXT_STRUCT;
+}LIBLTE_X2AP_MESSAGE_CRITICALITYDIAGNOSTICS_EXT_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ecgi_ext(
-  LIBLTE_X2AP_MESSAGE_ECGI_EXT_STRUCT                    *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_criticalitydiagnostics_ext(
+  LIBLTE_X2AP_MESSAGE_CRITICALITYDIAGNOSTICS_EXT_STRUCT        *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ecgi_ext(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_criticalitydiagnostics_ext(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_ECGI_EXT_STRUCT                    *ie);
+  LIBLTE_X2AP_MESSAGE_CRITICALITYDIAGNOSTICS_EXT_STRUCT        *ie);
+
+/*******************************************************************************
+/* ProtocolIE SpecialSubframe_Info SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM_EXT                 specialSubframePatterns;
+  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT                          cyclicPrefixDL;
+  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT                          cyclicPrefixUL;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_SPECIALSUBFRAME_INFO_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_specialsubframe_info(
+  LIBLTE_X2AP_SPECIALSUBFRAME_INFO_STRUCT                           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_specialsubframe_info(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SPECIALSUBFRAME_INFO_STRUCT                           *ie);
+
+/*******************************************************************************
+/* Protocol Message SpecialSubframe_Info_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_SPECIALSUBFRAME_INFO_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_specialsubframe_info_ext(
+  LIBLTE_X2AP_MESSAGE_SPECIALSUBFRAME_INFO_EXT_STRUCT               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_specialsubframe_info_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_SPECIALSUBFRAME_INFO_EXT_STRUCT               *ie);
 
 /*******************************************************************************
 /* ProtocolIE FDD_Info SEQUENCE
@@ -1899,36 +3683,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eutra_mode_info(
   LIBLTE_X2AP_EUTRA_MODE_INFO_STRUCT                                    *ie);
 
 /*******************************************************************************
-/* ProtocolIE macroENB_ID STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_MACROENB_ID_BIT_STRING_LEN 20
-typedef struct{
-  uint8_t  buffer[20];
-}LIBLTE_X2AP_MACROENB_ID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_macroenb_id(
-  LIBLTE_X2AP_MACROENB_ID_STRUCT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_macroenb_id(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MACROENB_ID_STRUCT                               *ie);
-
-/*******************************************************************************
-/* ProtocolIE homeENB_ID STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_HOMEENB_ID_BIT_STRING_LEN 28
-typedef struct{
-  uint8_t  buffer[28];
-}LIBLTE_X2AP_HOMEENB_ID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_homeenb_id(
-  LIBLTE_X2AP_HOMEENB_ID_STRUCT                                *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_homeenb_id(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_HOMEENB_ID_STRUCT                                *ie);
-
-/*******************************************************************************
 /* ProtocolIE ENB_ID CHOICE
 ********************************************************************************/
 typedef enum{
@@ -1960,22 +3714,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_enb_id(
   LIBLTE_X2AP_ENB_ID_STRUCT                                    *ie);
 
 /*******************************************************************************
-/* ProtocolIE EncryptionAlgorithms STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_ENCRYPTIONALGORITHMS_BIT_STRING_LEN 16
-typedef struct{
-  bool     ext;
-  uint8_t  buffer[16];
-}LIBLTE_X2AP_ENCRYPTIONALGORITHMS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_encryptionalgorithms(
-  LIBLTE_X2AP_ENCRYPTIONALGORITHMS_STRUCT                      *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_encryptionalgorithms(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ENCRYPTIONALGORITHMS_STRUCT                      *ie);
-
-/*******************************************************************************
 /* ProtocolIE EPLMNs DYNAMIC SEQUENCE OF
 ********************************************************************************/
 // lb:1, ub:15
@@ -1992,19 +3730,38 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eplmns(
   LIBLTE_X2AP_EPLMNS_STRUCT                                    *ie);
 
 /*******************************************************************************
-/* ProtocolIE E_RAB_ID INTEGER
+/* ProtocolIE GBR_QosInformation SEQUENCE
 ********************************************************************************/
 typedef struct{
-  bool     ext;
-uint8_t E_RAB_ID;
-}LIBLTE_X2AP_E_RAB_ID_STRUCT;
+  bool                                                         ext;
+  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_MaximumBitrateDL;
+  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_MaximumBitrateUL;
+  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_GuaranteedBitrateDL;
+  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_GuaranteedBitrateUL;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_GBR_QOSINFORMATION_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_e_rab_id(
-  LIBLTE_X2AP_E_RAB_ID_STRUCT                                  *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_gbr_qosinformation(
+  LIBLTE_X2AP_GBR_QOSINFORMATION_STRUCT                        *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_e_rab_id(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gbr_qosinformation(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_E_RAB_ID_STRUCT                                  *ie);
+  LIBLTE_X2AP_GBR_QOSINFORMATION_STRUCT                        *ie);
+
+/*******************************************************************************
+/* Protocol Message GBR_QosInformation_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_GBR_QOSINFORMATION_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_gbr_qosinformation_ext(
+  LIBLTE_X2AP_MESSAGE_GBR_QOSINFORMATION_EXT_STRUCT            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gbr_qosinformation_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_GBR_QOSINFORMATION_EXT_STRUCT            *ie);
 
 /*******************************************************************************
 /* ProtocolIE E_RAB_Level_QoS_Parameters SEQUENCE
@@ -2089,92 +3846,20 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_e_rab_list(
   LIBLTE_X2AP_E_RAB_LIST_STRUCT                                 *ie);
 
 /*******************************************************************************
-/* ProtocolIE EUTRANCellIdentifier STATIC BIT STRING
+/* ProtocolIE ForbiddenTACs DYNAMIC SEQUENCE OF
 ********************************************************************************/
-#define LIBLTE_X2AP_EUTRANCELLIDENTIFIER_BIT_STRING_LEN 28
+// lb:1, ub:4096
 typedef struct{
-  uint8_t  buffer[28];
-}LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT;
+  uint32_t                                                     len;
+  LIBLTE_X2AP_TAC_STRUCT                                       buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_FORBIDDENTACS_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_eutrancellidentifier(
-  LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT                               *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_forbiddentacs(
+  LIBLTE_X2AP_FORBIDDENTACS_STRUCT                             *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eutrancellidentifier(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddentacs(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_EUTRANCELLIDENTIFIER_STRUCT                               *ie);
-
-/*******************************************************************************
-/* ProtocolIE EUTRANTraceID STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_EUTRANTRACEID_OCTET_STRING_LEN 8
-typedef struct{
-  uint8_t  buffer[8];
-}LIBLTE_X2AP_EUTRANTRACEID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_eutrantraceid(
-  LIBLTE_X2AP_EUTRANTRACEID_STRUCT                           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eutrantraceid(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_EUTRANTRACEID_STRUCT                           *ie);
-
-/*******************************************************************************
-/* ProtocolIE EventType ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_EVENTTYPE_CHANGE_OF_SERVING_CELL,
-  LIBLTE_X2AP_EVENTTYPE_N_ITEMS,
-}LIBLTE_X2AP_EVENTTYPE_ENUM;
-static const char liblte_x2ap_eventtype_text[LIBLTE_X2AP_EVENTTYPE_N_ITEMS][80] = {
-  "change-of-serving-cell",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_EVENTTYPE_ENUM e;
-}LIBLTE_X2AP_EVENTTYPE_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_eventtype(
-  LIBLTE_X2AP_EVENTTYPE_ENUM_EXT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_eventtype(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_EVENTTYPE_ENUM_EXT                               *ie);
-
-/* F */
-
-/*******************************************************************************
-/* ProtocolIE ForbiddenInterRATs ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_FORBIDDENINTERRATS_ALL,
-  LIBLTE_X2AP_FORBIDDENINTERRATS_GERAN,
-  LIBLTE_X2AP_FORBIDDENINTERRATS_UTRAN,
-  LIBLTE_X2AP_FORBIDDENINTERRATS_CDMA2000,
-  LIBLTE_X2AP_FORBIDDENINTERRATS_GERANANDUTRAN,
-  LIBLTE_X2AP_FORBIDDENINTERRATS_CDMA2000ANDUTRAN,
-  LIBLTE_X2AP_FORBIDDENINTERRATS_N_ITEMS,
-}LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM;
-static const char liblte_x2ap_forbiddeninterrats_text[LIBLTE_X2AP_FORBIDDENINTERRATS_N_ITEMS][80] = {
-  "all",
-  "geran",
-  "utran",
-  "cdma2000",
-  "geranandutran",
-  "cdma2000andutran",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM e;
-}LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_forbiddeninterrats(
-  LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM_EXT                      *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddeninterrats(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_FORBIDDENINTERRATS_ENUM_EXT                      *ie);
+  LIBLTE_X2AP_FORBIDDENTACS_STRUCT                             *ie);
 
 /*******************************************************************************
 /* ProtocolIE ForbiddenTAs_Item SEQUENCE
@@ -2225,6 +3910,22 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddentas(
   LIBLTE_X2AP_FORBIDDENTAS_STRUCT                              *ie);
 
 /*******************************************************************************
+/* ProtocolIE ForbiddenLACs DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:4096
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_LAC_STRUCT                                       buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_FORBIDDENLACS_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_forbiddenlacs(
+  LIBLTE_X2AP_FORBIDDENLACS_STRUCT                             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddenlacs(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_FORBIDDENLACS_STRUCT                             *ie);
+
+/*******************************************************************************
 /* ProtocolIE ForbiddenLAs_Item SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -2271,102 +3972,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_forbiddenlas(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddenlas(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_FORBIDDENLAS_STRUCT                              *ie);
-
-/*******************************************************************************
-/* ProtocolIE ForbiddenTACs DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:4096
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_TAC_STRUCT                                       buffer[32]; //WARNING: Artificial limit to reduce memory footprint
-}LIBLTE_X2AP_FORBIDDENTACS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_forbiddentacs(
-  LIBLTE_X2AP_FORBIDDENTACS_STRUCT                             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddentacs(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_FORBIDDENTACS_STRUCT                             *ie);
-
-/*******************************************************************************
-/* ProtocolIE ForbiddenLACs DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:4096
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_LAC_STRUCT                                       buffer[32]; //WARNING: Artificial limit to reduce memory footprint
-}LIBLTE_X2AP_FORBIDDENLACS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_forbiddenlacs(
-  LIBLTE_X2AP_FORBIDDENLACS_STRUCT                             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_forbiddenlacs(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_FORBIDDENLACS_STRUCT                             *ie);
-
-/*******************************************************************************
-/* ProtocolIE Fourframes STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_FOURFRAMES_BIT_STRING_LEN 24
-typedef struct{
-  uint8_t  buffer[24];
-}LIBLTE_X2AP_FOURFRAMES_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_fourframes(
-  LIBLTE_X2AP_FOURFRAMES_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_fourframes(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_FOURFRAMES_STRUCT                         *ie);
-
-/*******************************************************************************
-/* ProtocolIE FreqBandIndicator INTEGER
-********************************************************************************/
-typedef struct{
-uint32_t FreqBandIndicator;
-}LIBLTE_X2AP_FREQBANDINDICATOR_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_freqbandindicator(
-  LIBLTE_X2AP_FREQBANDINDICATOR_STRUCT                                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_freqbandindicator(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_FREQBANDINDICATOR_STRUCT                                       *ie);
-
-/* G */
-/*******************************************************************************
-/* ProtocolIE GBR_QosInformation SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_MaximumBitrateDL;
-  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_MaximumBitrateUL;
-  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_GuaranteedBitrateDL;
-  LIBLTE_X2AP_BITRATE_STRUCT                                   e_RAB_GuaranteedBitrateUL;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_GBR_QOSINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_gbr_qosinformation(
-  LIBLTE_X2AP_GBR_QOSINFORMATION_STRUCT                        *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gbr_qosinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_GBR_QOSINFORMATION_STRUCT                        *ie);
-
-/*******************************************************************************
-/* Protocol Message GBR_QosInformation_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_GBR_QOSINFORMATION_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_gbr_qosinformation_ext(
-  LIBLTE_X2AP_MESSAGE_GBR_QOSINFORMATION_EXT_STRUCT            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gbr_qosinformation_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_GBR_QOSINFORMATION_EXT_STRUCT            *ie);
 
 /*******************************************************************************
 /* ProtocolIE GlobalENB_ID SEQUENCE
@@ -2433,21 +4038,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gtptunnelendpoint_ext(
   LIBLTE_X2AP_MESSAGE_GTPTUNNELENDPOINT_EXT_STRUCT            *ie);
 
 /*******************************************************************************
-/* ProtocolIE GTP_TEI STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_GTP_TEI_OCTET_STRING_LEN 4
-typedef struct{
-  uint8_t  buffer[4];
-}LIBLTE_X2AP_GTP_TEI_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_gtp_tei(
-  LIBLTE_X2AP_GTP_TEI_STRUCT                                  *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gtp_tei(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_GTP_TEI_STRUCT                                  *ie);
-
-/*******************************************************************************
 /* ProtocolIE GU_Group_ID SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -2511,35 +4101,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_gummei_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_GUMMEI_EXT_STRUCT                        *ie);
 
-/* H */
-
-/*******************************************************************************
-/* ProtocolIE HandoverReportType ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_HANDOVERREPORTTYPE_HOTOOEARLY,
-  LIBLTE_X2AP_HANDOVERREPORTTYPE_HOTOWRONGCELL,
-  LIBLTE_X2AP_HANDOVERREPORTTYPE_INTERRATPINGPONG,
-  LIBLTE_X2AP_HANDOVERREPORTTYPE_N_ITEMS,
-}LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM;
-static const char liblte_x2ap_handoverreporttype_text[LIBLTE_X2AP_HANDOVERREPORTTYPE_N_ITEMS][80] = {
-  "hoTooEarly",
-  "hoToWrongCell",
-  "interRATpingpong",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM e;
-}LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_handoverreporttype(
-  LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM_EXT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_handoverreporttype(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_HANDOVERREPORTTYPE_ENUM_EXT                            *ie);
-
 /*******************************************************************************
 /* ProtocolIE HandoverRestrictionList SEQUENCE
 ********************************************************************************/
@@ -2580,34 +4141,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_handoverrestrictionlist_ext(
   LIBLTE_X2AP_MESSAGE_HANDOVERRESTRICTIONLIST_EXT_STRUCT       *ie);
 
 /*******************************************************************************
-/* ProtocolIE HFN INTEGER
-********************************************************************************/
-typedef struct{
-uint32_t HFN;
-}LIBLTE_X2AP_HFN_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_hfn(
-  LIBLTE_X2AP_HFN_STRUCT                                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_hfn(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_HFN_STRUCT                                       *ie);
-
-/*******************************************************************************
-/* ProtocolIE HFNModified INTEGER
-********************************************************************************/
-typedef struct{
-uint32_t HFNModified;
-}LIBLTE_X2AP_HFNMODIFIED_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_hfnmodified(
-  LIBLTE_X2AP_HFNMODIFIED_STRUCT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_hfnmodified(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_HFNMODIFIED_STRUCT                               *ie);
-
-/*******************************************************************************
 /* ProtocolIE HWLoadIndicator SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -2638,130 +4171,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_hwloadindicator_ext(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_hwloadindicator_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_HWLOADINDICATOR_EXT_STRUCT                        *ie);
-
-/* I */
-
-/*******************************************************************************
-/* ProtocolIE InvokeIndication ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_INVOKEINDICATION_ABS_INFORMATION,
-  LIBLTE_X2AP_INVOKEINDICATION_N_ITEMS,
-}LIBLTE_X2AP_INVOKEINDICATION_ENUM;
-static const char liblte_x2ap_invokeindication_text[LIBLTE_X2AP_INVOKEINDICATION_N_ITEMS][80] = {
-  "abs-information",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_INVOKEINDICATION_ENUM e;
-}LIBLTE_X2AP_INVOKEINDICATION_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_invokeindication(
-  LIBLTE_X2AP_INVOKEINDICATION_ENUM_EXT                          *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_invokeindication(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_INVOKEINDICATION_ENUM_EXT                          *ie);
-
-/*******************************************************************************
-/* ProtocolIE IntegrityProtectionAlgorithms STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_BIT_STRING_LEN 16
-typedef struct{
-  bool     ext;
-  uint8_t  buffer[16];
-}LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_integrityprotectionalgorithms(
-  LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_STRUCT             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_integrityprotectionalgorithms(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_INTEGRITYPROTECTIONALGORITHMS_STRUCT             *ie);
-
-/*******************************************************************************
-/* ProtocolIE InterfacesToTrace STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_INTERFACESTOTRACE_BIT_STRING_LEN 8
-typedef struct{
-  uint8_t  buffer[8];
-}LIBLTE_X2AP_INTERFACESTOTRACE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_interfacestotrace(
-  LIBLTE_X2AP_INTERFACESTOTRACE_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_interfacestotrace(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_INTERFACESTOTRACE_STRUCT                         *ie);
-
-/* K */
-
-/*******************************************************************************
-/* ProtocolIE Key_eNodeB_Star STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_KEY_ENODEB_STAR_BIT_STRING_LEN 256
-typedef struct{
-  uint8_t  buffer[256];
-}LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_key_enodeb_star(
-  LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_key_enodeb_star(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_KEY_ENODEB_STAR_STRUCT 
-
-/* L */  
-
-/*******************************************************************************
-/* ProtocolIE LAC STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_LAC_OCTET_STRING_LEN 2
-typedef struct{
-  uint8_t  buffer[2];
-}LIBLTE_X2AP_LAC_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_lac(
-  LIBLTE_X2AP_LAC_STRUCT                                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lac(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_LAC_STRUCT                                       *ie);
-
-/*******************************************************************************
-/* ProtocolIE LastVisitedCell_Item CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_E_UTRAN_CELL,
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_UTRAN_CELL,
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_GERAN_CELL,
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_ENUM;
-static const char liblte_x2ap_lastvisitedcell_item_choice_text[LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_N_ITEMS][50] = {
-  "e_UTRAN_Cell",
-  "uTRAN_Cell",
-  "gERAN_Cell",
-};
-
-typedef union{
-  LIBLTE_X2AP_LASTVISITEDEUTRANCELLINFORMATION_STRUCT          e_UTRAN_Cell;
-  LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT           uTRAN_Cell;
-  LIBLTE_X2AP_LASTVISITEDGERANCELLINFORMATION_STRUCT           gERAN_Cell;
-}LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_UNION choice;
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_lastvisitedcell_item(
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT                      *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lastvisitedcell_item(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT                      *ie);
 
 /*******************************************************************************
 /* ProtocolIE LastVisitedEUTRANCellInformation SEQUENCE
@@ -2801,22 +4210,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lastvisitedeutrancellinformation_ext(
   LIBLTE_X2AP_MESSAGE_LASTVISITEDEUTRANCELLINFORMATION_EXT_STRUCT *ie);
 
 /*******************************************************************************
-/* ProtocolIE LastVisitedUTRANCellInformation DYNAMIC OCTET STRING
-********************************************************************************/
-// lb:0, ub:16318
-typedef struct{
-  uint32_t n_octets;
-  uint8_t  buffer[16318];
-}LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_lastvisitedutrancellinformation(
-  LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lastvisitedutrancellinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT           *ie);
-
-/*******************************************************************************
 /* ProtocolIE LastVisitedGERANCellInformation CHOICE
 ********************************************************************************/
 typedef enum{
@@ -2845,60 +4238,38 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lastvisitedgerancellinformation(
   LIBLTE_X2AP_LASTVISITEDGERANCELLINFORMATION_STRUCT           *ie);
 
 /*******************************************************************************
-/* ProtocolIE Links_to_log ENUMERATED
+/* ProtocolIE LastVisitedCell_Item CHOICE
 ********************************************************************************/
 typedef enum{
-  LIBLTE_X2AP_LINKS_TO_LOG_UPLINK,
-  LIBLTE_X2AP_LINKS_TO_LOG_DOWNLINK,
-  LIBLTE_X2AP_LINKS_TO_LOG_BOTH_UPLINK_AND_DOWNLINK,
-  LIBLTE_X2AP_LINKS_TO_LOG_N_ITEMS,
-}LIBLTE_X2AP_LINKS_TO_LOG_ENUM;
-static const char liblte_x2ap_links_to_log_text[LIBLTE_X2AP_LINKS_TO_LOG_N_ITEMS][80] = {
-  "uplink",
-  "downlink",
-  "both-uplink-and-downlink",
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_E_UTRAN_CELL,
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_UTRAN_CELL,
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_GERAN_CELL,
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_ENUM;
+static const char liblte_x2ap_lastvisitedcell_item_choice_text[LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_N_ITEMS][50] = {
+  "e_UTRAN_Cell",
+  "uTRAN_Cell",
+  "gERAN_Cell",
 };
 
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_LINKS_TO_LOG_ENUM e;
-}LIBLTE_X2AP_LINKS_TO_LOG_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_links_to_log(
-  LIBLTE_X2AP_LINKS_TO_LOG_ENUM_EXT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_links_to_log(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_LINKS_TO_LOG_ENUM_EXT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE LoadIndicator ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_LOADINDICATOR_LOWLOAD,
-  LIBLTE_X2AP_LOADINDICATOR_MEDIUMLOAD,
-  LIBLTE_X2AP_LOADINDICATOR_HIGHLOAD,
-  LIBLTE_X2AP_LOADINDICATOR_OVERLOAD,
-  LIBLTE_X2AP_LOADINDICATOR_N_ITEMS,
-}LIBLTE_X2AP_LOADINDICATOR_ENUM;
-static const char liblte_x2ap_loadindicator_text[LIBLTE_X2AP_LOADINDICATOR_N_ITEMS][80] = {
-  "lowLoad",
-  "mediumLoad",
-  "highLoad",
-  "overLoad",
-};
+typedef union{
+  LIBLTE_X2AP_LASTVISITEDEUTRANCELLINFORMATION_STRUCT          e_UTRAN_Cell;
+  LIBLTE_X2AP_LASTVISITEDUTRANCELLINFORMATION_STRUCT           uTRAN_Cell;
+  LIBLTE_X2AP_LASTVISITEDGERANCELLINFORMATION_STRUCT           gERAN_Cell;
+}LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_UNION;
 
 typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_LOADINDICATOR_ENUM e;
-}LIBLTE_X2AP_LOADINDICATOR_ENUM_EXT;
+  bool                            ext;
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_UNION choice;
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_loadindicator(
-  LIBLTE_X2AP_LOADINDICATOR_ENUM_EXT                            *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_lastvisitedcell_item(
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT                      *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_loadindicator(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_lastvisitedcell_item(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_LOADINDICATOR_ENUM_EXT                            *ie);
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT                      *ie);
 
 /*******************************************************************************
 /* ProtocolIE LocationReportingInformatin SEQUENCE
@@ -2932,34 +4303,36 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_locationreportinginformation_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_LOCATIONREPORTINGINFORMATION_EXT_STRUCT *ie);
 
-/* M */
-
 /*******************************************************************************
-/* ProtocolIE M1ReportingTrigger ENUMERATED
+/* ProtocolIE MeasurementThresholdA2 CHOICE
 ********************************************************************************/
 typedef enum{
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_PERIODIC,
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_A2EVENTTRIGGERED,
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_A2EVENTTRIGGERED_PERIODIC,
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_N_ITEMS,
-}LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM;
-static const char liblte_x2ap_m1reportingtrigger_text[LIBLTE_X2AP_M1REPORTINGTRIGGER_N_ITEMS][80] = {
-  "periodic",
-  "a2eventtriggered",
-  "a2eventtriggered-periodic",
+  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_THRESHOLD_RSRP,
+  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_THRESHOLD_RSRQ,
+  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_ENUM;
+static const char liblte_x2ap_measurementthresholda2_choice_text[LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_N_ITEMS][50] = {
+  "threshold_RSRP",
+  "threshold_RSRQ",
 };
 
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM e;
-}LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT;
+typedef union{
+  LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT                            threshold_RSRP;
+  LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT                            threshold_RSRQ;
+}LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_UNION;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_m1reportingtrigger(
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT                      *ie,
+typedef struct{
+  bool                            ext;
+  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_UNION choice;
+  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_measurementthresholda2(
+  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_STRUCT                    *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m1reportingtrigger(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_measurementthresholda2(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT                      *ie);
+  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_STRUCT                    *ie);
 
 /*******************************************************************************
 /* ProtocolIE M1ThresholdEventA2 SEQUENCE
@@ -3056,33 +4429,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m3configuration_ext(
   LIBLTE_X2AP_MESSAGE_M3CONFIGURATION_EXT_STRUCT               *ie);
 
 /*******************************************************************************
-/* ProtocolIE M3period ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_M3PERIOD_MS100,
-  LIBLTE_X2AP_M3PERIOD_MS1000,
-  LIBLTE_X2AP_M3PERIOD_MS10000,
-  LIBLTE_X2AP_M3PERIOD_N_ITEMS,
-}LIBLTE_X2AP_M3PERIOD_ENUM;
-static const char liblte_x2ap_m3period_text[LIBLTE_X2AP_M3PERIOD_N_ITEMS][80] = {
-  "ms100",
-  "ms1000",
-  "ms10000",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_M3PERIOD_ENUM e;
-}LIBLTE_X2AP_M3PERIOD_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_m3period(
-  LIBLTE_X2AP_M3PERIOD_ENUM_EXT                                *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m3period(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_M3PERIOD_ENUM_EXT                                *ie);
-
-/*******************************************************************************
 /* ProtocolIE M4Configuration SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -3113,37 +4459,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_m4configuration_ext(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m4configuration_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_M4CONFIGURATION_EXT_STRUCT               *ie);
-
-/*******************************************************************************
-/* ProtocolIE M4period ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_M4PERIOD_MS1024,
-  LIBLTE_X2AP_M4PERIOD_MS2048,
-  LIBLTE_X2AP_M4PERIOD_MS5120,
-  LIBLTE_X2AP_M4PERIOD_MS10240,
-  LIBLTE_X2AP_M4PERIOD_MIN1,
-  LIBLTE_X2AP_M4PERIOD_N_ITEMS,
-}LIBLTE_X2AP_M4PERIOD_ENUM;
-static const char liblte_x2ap_m4period_text[LIBLTE_X2AP_M4PERIOD_N_ITEMS][80] = {
-  "ms1024",
-  "ms2048",
-  "ms5120",
-  "ms10240",
-  "min1",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_M4PERIOD_ENUM e;
-}LIBLTE_X2AP_M4PERIOD_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_m4period(
-  LIBLTE_X2AP_M4PERIOD_ENUM_EXT                                *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m4period(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_M4PERIOD_ENUM_EXT                                *ie);
 
 /*******************************************************************************
 /* ProtocolIE M5Configuration SEQUENCE
@@ -3178,110 +4493,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m5configuration_ext(
   LIBLTE_X2AP_MESSAGE_M5CONFIGURATION_EXT_STRUCT               *ie);
 
 /*******************************************************************************
-/* ProtocolIE M5period ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_M5PERIOD_MS1024,
-  LIBLTE_X2AP_M5PERIOD_MS2048,
-  LIBLTE_X2AP_M5PERIOD_MS5120,
-  LIBLTE_X2AP_M5PERIOD_MS10240,
-  LIBLTE_X2AP_M5PERIOD_MIN1,
-  LIBLTE_X2AP_M5PERIOD_N_ITEMS,
-}LIBLTE_X2AP_M5PERIOD_ENUM;
-static const char liblte_x2ap_m5period_text[LIBLTE_X2AP_M5PERIOD_N_ITEMS][80] = {
-  "ms1024",
-  "ms2048",
-  "ms5120",
-  "ms10240",
-  "min1",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_M5PERIOD_ENUM e;
-}LIBLTE_X2AP_M5PERIOD_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_m5period(
-  LIBLTE_X2AP_M5PERIOD_ENUM_EXT                                *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_m5period(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_M5PERIOD_ENUM_EXT                                *ie);
-
-/*******************************************************************************
-/* ProtocolIE MDT_Activation ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_MDT_ACTIVATION_IMMEDIATE_MDT_ONLY,
-  LIBLTE_X2AP_MDT_ACTIVATION_IMMEDIATE_MDT_AND_TRACE,
-  LIBLTE_X2AP_MDT_ACTIVATION_N_ITEMS,
-}LIBLTE_X2AP_MDT_ACTIVATION_ENUM;
-static const char liblte_x2ap_mdt_activation_text[LIBLTE_X2AP_MDT_ACTIVATION_N_ITEMS][80] = {
-  "immediate-MDT-only",
-  "immediate-MDT-and-Trace",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_MDT_ACTIVATION_ENUM e;
-}LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_activation(
-  LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT                          *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_activation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT                          *ie);
-
-/*******************************************************************************
-/* ProtocolIE MDT_Configuration SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT                          mdt_Activation;
-  LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT                            areaScopeOfMDT;
-  LIBLTE_X2AP_MEASUREMENTATOACTIVATE_STRUCT                    measurementsToActivate;
-  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT                      m1reportingTrigger;
-  LIBLTE_X2AP_M1THRESHOLDEVENTA2_STRUCT                        m1thresholdeventA2;
-  bool                                                         m1thresholdeventA2_present;
-  LIBLTE_X2AP_M1PERIODICREPORTING_STRUCT                       m1periodicReporting;
-  bool                                                         m1periodicReporting_present;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_MDT_CONFIGURATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_configuration(
-  LIBLTE_X2AP_MDT_CONFIGURATION_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_configuration(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MDT_CONFIGURATION_STRUCT                         *ie);
-
-/*******************************************************************************
-/* Protocol Message MDT_Configuration_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_M3CONFIGURATION_STRUCT                           M3Configuration;
-  bool                                                         M3Configuration_present;
-  LIBLTE_X2AP_M4CONFIGURATION_STRUCT                           M4Configuration;
-  bool                                                         M4Configuration_present;
-  LIBLTE_X2AP_M5CONFIGURATION_STRUCT                           M5Configuration;
-  bool                                                         M5Configuration_present;
-  LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT                         MDT_Location_Info;
-  bool                                                         MDT_Location_Info_present;
-  LIBLTE_X2AP_MDTPLMNLIST_STRUCT                               SignallingBasedMDTPLMNList;
-  bool                                                         SignallingBasedMDTPLMNList_present;
-}LIBLTE_X2AP_MESSAGE_MDT_CONFIGURATION_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_configuration_ext(
-  LIBLTE_X2AP_MESSAGE_MDT_CONFIGURATION_EXT_STRUCT             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_configuration_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_MDT_CONFIGURATION_EXT_STRUCT             *ie);
-
-/*******************************************************************************
 /* ProtocolIE MDTPLMNList DYNAMIC SEQUENCE OF
 ********************************************************************************/
 // lb:1, ub:16
@@ -3298,126 +4509,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdtplmnlist(
   LIBLTE_X2AP_MDTPLMNLIST_STRUCT                               *ie);
 
 /*******************************************************************************
-/* ProtocolIE MDT_Location_Info STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_MDT_LOCATION_INFO_BIT_STRING_LEN 8
-typedef struct{
-  uint8_t  buffer[8];
-}LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_location_info(
-  LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_location_info(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT                         *ie);
-
-/*******************************************************************************
-/* ProtocolIE MeasurementsToActivate STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_BIT_STRING_LEN 8
-typedef struct{
-  uint8_t  buffer[8];
-}LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_measurementstoactivate(
-  LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_STRUCT                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_measurementstoactivate(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MEASUREMENTSTOACTIVATE_STRUCT                    *ie);
-
-/*******************************************************************************
-/* ProtocolIE MeasurementThresholdA2 CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_THRESHOLD_RSRP,
-  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_THRESHOLD_RSRQ,
-  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_ENUM;
-static const char liblte_x2ap_measurementthresholda2_choice_text[LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_N_ITEMS][50] = {
-  "threshold_RSRP",
-  "threshold_RSRQ",
-};
-
-typedef union{
-  LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT                            threshold_RSRP;
-  LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT                            threshold_RSRQ;
-}LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_UNION choice;
-  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_measurementthresholda2(
-  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_STRUCT                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_measurementthresholda2(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MEASUREMENTTHRESHOLDA2_STRUCT                    *ie);
-
-/*******************************************************************************
-/* ProtocolIE MME_Group_ID STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_MME_GROUP_ID_OCTET_STRING_LEN 2
-typedef struct{
-  uint8_t  buffer[2];
-}LIBLTE_X2AP_MME_GROUP_ID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_mme_group_id(
-  LIBLTE_X2AP_MME_GROUP_ID_STRUCT                              *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mme_group_id(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MME_GROUP_ID_STRUCT                              *ie);
-
-/*******************************************************************************
-/* ProtocolIE MME_Code STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_MME_CODE_OCTET_STRING_LEN 1
-typedef struct{
-  uint8_t  buffer[1];
-}LIBLTE_X2AP_MME_CODE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_mme_code(
-  LIBLTE_X2AP_MME_CODE_STRUCT                                  *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mme_code(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MME_CODE_STRUCT                                  *ie);
-
-/*******************************************************************************
-/* ProtocolIE Measurement_ID INTEGER
-********************************************************************************/
-typedef struct{
-uint32_t Measurement_ID;
-}LIBLTE_X2AP_MEASUREMENT_ID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_measurement_id(
-  LIBLTE_X2AP_MEASUREMENT_ID_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_measurement_id(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MEASUREMENT_ID_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE MBMS_Service_Area_Identity STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_OCTET_STRING_LEN 2
-typedef struct{
-  uint8_t  buffer[2];
-}LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_mbms_service_area_identity(
-  LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_STRUCT                                  *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mbms_service_area_identity(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_STRUCT                                  *ie);
-
-/*******************************************************************************
 /* ProtocolIE MBMS_Service_Area_Identity_List DYNAMIC SEQUENCE OF
 ********************************************************************************/
 // lb:1, ub:8
@@ -3432,6 +4523,37 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_mbms_service_area_identity_list(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mbms_service_area_identity_list(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_LIST_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE SubframeAllocation CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_ONEFRAME,
+  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_FOURFRAMES,
+  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_ENUM;
+static const char liblte_x2ap_subframeallocation_choice_text[LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_N_ITEMS][50] = {
+  "oneframe",
+  "fourframes",
+};
+
+typedef union{
+  LIBLTE_X2AP_ONEFRAME_STRUCT                          oneframe;
+  LIBLTE_X2AP_FOURFRAMES_STRUCT                        fourframes;
+}LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_UNION;
+
+typedef struct{
+  bool                            ext;
+  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_UNION choice;
+  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_SUBFRAMEALLOCATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_subframeallocation(
+  LIBLTE_X2AP_SUBFRAMEALLOCATION_STRUCT                          *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_subframeallocation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SUBFRAMEALLOCATION_STRUCT                          *ie);
 
 /*******************************************************************************
 /* ProtocolIE MBSFN_Subframe_Info SEQUENCE
@@ -3481,29 +4603,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_mbsfn_subframe_infolist(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mbsfn_subframe_infolist(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MBSFN_SUBFRAME_INFOLIST_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE ManagementBasedMDTAllowed ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ALLOWED,
-  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_N_ITEMS,
-}LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM;
-static const char liblte_x2ap_managementbasedmdtallowed_text[LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_N_ITEMS][80] = {
-  "allowed",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM e;
-}LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_managementbasedmdtallowed(
-  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_managementbasedmdtallowed(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT               *ie);
 
 /*******************************************************************************
 /* ProtocolIE MobilityParametersModificationRange SEQUENCE
@@ -3583,8 +4682,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_multibandinfolist(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MULTIBANDINFOLIST_STRUCT                            *ie);
 
-/* N */
-
 /*******************************************************************************
 /* ProtocolIE Neighbour_Information_Item SEQUENCE
 ********************************************************************************/
@@ -3639,123 +4736,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_neighbour_information_ext(
   LIBLTE_X2AP_MESSAGE_NEIGHBOUR_INFORMATION_EXT_STRUCT               *ie);
 
 /*******************************************************************************
-/* ProtocolIE NextHopChainingCount INTEGER
-********************************************************************************/
-typedef struct{
-uint32_t NextHopChainingCount;
-}LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_nexthopchainingcount(
-  LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_nexthopchainingcount(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_NEXTHOPCHAININGCOUNT_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE Number_of_Antennaports ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN1,
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN2,
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_AN4,
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_N_ITEMS,
-}LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM;
-static const char liblte_x2ap_number_of_antennaports_text[LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_N_ITEMS][80] = {
-  "an1",
-  "an2",
-  "an4",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM e;
-}LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_number_of_antennaports(
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT                        *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_number_of_antennaports(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT                        *ie);
-
-/* O */
-
-/*******************************************************************************
-/* ProtocolIE Oneframe STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_ONEFRAME_BIT_STRING_LEN 6
-typedef struct{
-  uint8_t  buffer[6];
-}LIBLTE_X2AP_ONEFRAME_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_oneframe(
-  LIBLTE_X2AP_ONEFRAME_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_oneframe(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_ONEFRAME_STRUCT                         *ie);
-
-/* P */
-
-/*******************************************************************************
-/* ProtocolIE PDCP_SN INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t PDCP_SN;
-}LIBLTE_X2AP_PDCP_SN_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_pdcp_sn(
-  LIBLTE_X2AP_PDCP_SN_STRUCT                                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pdcp_sn(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PDCP_SN_STRUCT                                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE PDCP_SNExtended INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t PDCP_SNExtended;
-}LIBLTE_X2AP_PDCP_SNEXTENDED_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_pdcp_snextended(
-  LIBLTE_X2AP_PDCP_SNEXTENDED_STRUCT                           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pdcp_snextended(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PDCP_SNEXTENDED_STRUCT                           *ie);
-
-/*******************************************************************************
-/* ProtocolIE PCI INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t PCI;
-}LIBLTE_X2AP_PCI_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_pci(
-  LIBLTE_X2AP_PCI_STRUCT                                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pci(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PCI_STRUCT                                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE PLMN_identity STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_PLMN_IDENTITY_OCTET_STRING_LEN 3
-typedef struct{
-  uint8_t  buffer[3];
-}LIBLTE_X2AP_PLMN_IDENTITY_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_plmn_identity(
-  LIBLTE_X2AP_PLMN_IDENTITY_STRUCT                              *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_plmn_identity(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PLMN_IDENTITY_STRUCT                              *ie);
-
-/*******************************************************************************
 /* ProtocolIE PRACH_Configuration SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -3790,125 +4770,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_prach_configuration_ext(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_prach_configuration_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_PRACH_CONFIGURATION_EXT_STRUCT               *ie);
-
-/*******************************************************************************
-/* ProtocolIE Pre_emptionCapability ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_SHALL_NOT_TRIGGER_PRE_EMPTION,
-  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_MAY_TRIGGER_PRE_EMPTION,
-  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_N_ITEMS,
-}LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM;
-static const char liblte_x2ap_pre_emptioncapability_text[LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_N_ITEMS][80] = {
-  "shall-not-trigger-pre-emption",
-  "may-trigger-pre-emption",
-};
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_pre_emptioncapability(
-  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pre_emptioncapability(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PRE_EMPTIONCAPABILITY_ENUM                       *ie);
-
-/*******************************************************************************
-/* ProtocolIE Pre_emptionVulnerability ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_NOT_PRE_EMPTABLE,
-  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_PRE_EMPTABLE,
-  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_N_ITEMS,
-}LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM;
-static const char liblte_x2ap_pre_emptionvulnerability_text[LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_N_ITEMS][80] = {
-  "not-pre-emptable",
-  "pre-emptable",
-};
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_pre_emptionvulnerability(
-  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_pre_emptionvulnerability(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PRE_EMPTIONVULNERABILITY_ENUM                    *ie);
-
-/*******************************************************************************
-/* ProtocolIE PriorityLevel INTEGER
-********************************************************************************/
-typedef struct{
-uint8_t PriorityLevel;
-}LIBLTE_X2AP_PRIORITYLEVEL_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_prioritylevel(
-  LIBLTE_X2AP_PRIORITYLEVEL_STRUCT                             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_prioritylevel(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_PRIORITYLEVEL_STRUCT                             *ie);
-
-/* Q */
-
-/*******************************************************************************
-/* ProtocolIE QCI INTEGER
-********************************************************************************/
-typedef struct{
-uint8_t QCI;
-}LIBLTE_X2AP_QCI_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_qci(
-  LIBLTE_X2AP_QCI_STRUCT                                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_qci(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_QCI_STRUCT                                       *ie);
-
-/* R */
-
-/*******************************************************************************
-/* ProtocolIE RadioframeAllocationOffset INTEGER
-********************************************************************************/
-typedef struct{
-uint8_t RadioframeAllocationOffset;
-}LIBLTE_X2AP_RADIOFRAMEALLOCATIONOFFSET_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_radioframeallocationoffset(
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONOFFSET_STRUCT                                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_radioframeallocationoffset(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONOFFSET_STRUCT                                       *ie);
-
-/*******************************************************************************
-/* ProtocolIE RadioframeAllocationPeriod ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N1,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N2,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N4,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N8,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N16,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N32,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N_ITEMS,
-}LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM;
-static const char liblte_x2ap_radioframeallocationperiod_text[LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_N_ITEMS][80] = {
-  "n1",
-  "n2",
-  "n4",
-  "n8",
-  "n16",
-  "n32",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM e;
-}LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_radioframeallocationperiod(
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_radioframeallocationperiod(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RADIOFRAMEALLOCATIONPERIOD_ENUM                    *ie);
 
 /*******************************************************************************
 /* ProtocolIE RadioResourceStatus SEQUENCE
@@ -3947,62 +4808,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_radioresourcestatus_ext(
   LIBLTE_X2AP_MESSAGE_RADIORESOURCESTATUS_EXT_STRUCT               *ie);
 
 /*******************************************************************************
-/* ProtocolIE ReceiveStatusofULPDCPSDUs STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_BIT_STRING_LEN 4096
-typedef struct{
-  uint8_t  buffer[4096];
-}LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_receivestatusofulpdcpsdus(
-  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_STRUCT                 *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_receivestatusofulpdcpsdus(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUS_STRUCT                 *ie);
-
-/*******************************************************************************
-/* ProtocolIE ReceiveStatusOfULPDCPSDUsExtended DYNAMIC BIT STRING
-********************************************************************************/
-// lb:1, ub:16384
-typedef struct{
-  uint32_t n_bits;
-  uint8_t  buffer[16384];
-}LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUSEXTENDED_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_receivestatusofulpdcpsdusextended(
-  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUSEXTENDED_STRUCT         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_receivestatusofulpdcpsdusextended(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RECEIVESTATUSOFULPDCPSDUSEXTENDED_STRUCT         *ie);
-
-/*******************************************************************************
-/* ProtocolIE Registration_Request ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_REGISTRATION_REQUEST_START,
-  LIBLTE_X2AP_REGISTRATION_REQUESST_STOP,
-  LIBLTE_X2AP_REGISTRATION_REQUEST_N_ITEMS,
-}LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM;
-static const char liblte_x2ap_registration_request_text[LIBLTE_X2AP_REGISTRATION_REQUEST_N_ITEMS][80] = {
-  "start",
-  "stop",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM e;
-}LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_registration_request(
-  LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM_EXT                              *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_registration_request(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_REGISTRATION_REQUEST_ENUM_EXT                              *ie);
-
-/*******************************************************************************
 /* ProtocolIE RelativeNarrowbandTxPower SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -4038,238 +4843,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_relativenarrowbandtxpower_ext(
   LIBLTE_X2AP_MESSAGE_RELATIVENARROWBANDRXPOWER_EXT_STRUCT               *ie);
 
 /*******************************************************************************
-/* ProtocolIE ReportAmountMDT ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_REPORTAMOUNTMDT_R1,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_R2,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_R4,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_R8,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_R16,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_R32,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_R64,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_RINFINITY,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_N_ITEMS,
-}LIBLTE_X2AP_REPORTAMOUNTMDT_ENUM;
-static const char liblte_x2ap_reportamountmdt_text[LIBLTE_X2AP_REPORTAMOUNTMDT_N_ITEMS][80] = {
-  "r1",
-  "r2",
-  "r4",
-  "r8",
-  "r16",
-  "r32",
-  "r64",
-  "rinfinity",
-};
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportamountmdt(
-  LIBLTE_X2AP_REPORTAMOUNTMDT_ENUM                             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportamountmdt(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_REPORTAMOUNTMDT_ENUM                             *ie);
-
-/*******************************************************************************
-/* ProtocolIE ReportArea ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_REPORTAREA_ECGI,
-  LIBLTE_X2AP_REPORTAREA_N_ITEMS,
-}LIBLTE_X2AP_REPORTAREA_ENUM;
-static const char liblte_x2ap_reportarea_text[LIBLTE_X2AP_REPORTAREA_N_ITEMS][80] = {
-  "ecgi",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_REPORTAREA_ENUM e;
-}LIBLTE_X2AP_REPORTAREA_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportarea(
-  LIBLTE_X2AP_REPORTAREA_ENUM_EXT                              *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportarea(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_REPORTAREA_ENUM_EXT                              *ie);
-
-/*******************************************************************************
-/* ProtocolIE ReportIntervalMDT ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS120,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS240,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS480,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS640,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS1024,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS2048,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS5120,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MS10240,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MIN1,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MIN6,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MIN12,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MIN30,
-  LIBLTE_X2AP_REPORTINTERVALMDT_MIN60,
-  LIBLTE_X2AP_REPORTINTERVALMDT_N_ITEMS,
-}LIBLTE_X2AP_REPORTINTERVALMDT_ENUM;
-static const char liblte_x2ap_reportintervalmdt_text[LIBLTE_X2AP_REPORTINTERVALMDT_N_ITEMS][80] = {
-  "ms120",
-  "ms240",
-  "ms480",
-  "ms640",
-  "ms1024",
-  "ms2048",
-  "ms5120",
-  "ms10240",
-  "min1",
-  "min6",
-  "min12",
-  "min30",
-  "min60",
-};
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportintervalmdt(
-  LIBLTE_X2AP_REPORTINTERVALMDT_ENUM_EXT                           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportintervalmdt(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_REPORTINTERVALMDT_ENUM_EXT                          *ie);
-
-/*******************************************************************************
-/* ProtocolIE ReportCharateristics BIT STRING
-********************************************************************************/
-typedef struct{
-  uint8_t  buffer[32];
-}LIBLTE_X2AP_REPORTCHARACTERISTICS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_reportcharacteristics(
-  LIBLTE_X2AP_REPORTCHARACTERISTICS_STRUCT                     *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_reportcharacteristics(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_REPORTCHARACTERISTICS_STRUCT                     *ie);
-
-/*******************************************************************************
-/* ProtocolIE RNTP_Threshold ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSINFINITY,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSELEVEN,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSTEN,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSNINE,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSEIGHT,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSSEVEN,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSSIX,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSFIVE,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSFOUR,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSTHREE,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSTWO,
-  LIBLTE_X2AP_RNTP_THRESHOLD_MINUSONE,
-  LIBLTE_X2AP_RNTP_THRESHOLD_ZERO,
-  LIBLTE_X2AP_RNTP_THRESHOLD_ONE,
-  LIBLTE_X2AP_RNTP_THRESHOLD_TWO,
-  LIBLTE_X2AP_RNTP_THRESHOLD_THREE,
-  LIBLTE_X2AP_RNTP_THRESHOLD_N_ITEMS,
-}LIBLTE_X2AP_RNTP_THRESHOLD_ENUM;
-static const char liblte_x2ap_rntp_threshold_text[LIBLTE_X2AP_RNTP_THRESHOLD_N_ITEMS][80] = {
-  "minusInfinity",
-  "minusEleven",
-  "minusTen",
-  "minusNine",
-  "minusEight",
-  "minusSeven",
-  "minusSix",
-  "minusFive",
-  "minusFour",
-  "minusThree",
-  "minusTwo",
-  "minusOne",
-  "zero",
-  "one",
-  "two",
-  "three",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_RNTP_THRESHOLD_ENUM e;
-}LIBLTE_X2AP_RNTP_THRESHOLD_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_rntp_threshold(
-  LIBLTE_X2AP_RNTP_THRESHOLD_ENUM                           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rntp_threshold(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RNTP_THRESHOLD_ENUM                           *ie);
-
-/*******************************************************************************
-/* ProtocolIE RRC_Context DYNAMIC OCTET STRING
-********************************************************************************/
-// lb:0, ub:16318
-typedef struct{
-  uint32_t n_octets;
-  uint8_t  buffer[16318];
-}LIBLTE_X2AP_RRC_CONTEXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_rrc_context(
-  LIBLTE_X2AP_RRC_CONTEXT_STRUCT                             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rrc_context(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RRC_CONTEXT_STRUCT                             *ie);
-
-/*******************************************************************************
-/* ProtocolIE RRCConnReestabIndicator ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_RECONFIGURATIONFAILURE,
-  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_HANDOVERFAILURE, 
-  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_OTHERFAILURE, 
-  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_N_ITEMS,
-}LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM;
-static const char liblte_x2ap_rrcconnreestabindicator_text[LIBLTE_X2AP_RRCCONNREESTABINDICATOR_N_ITEMS][80] = {
-  "reconfigurationFailure",
-  "handoverFailure",
-  "otherFailure",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM e;
-}LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_rrcconnreestabindicator(
-  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM_EXT                 *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rrcronnreestabindicator(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM_EXT                 *ie);
-
-/*******************************************************************************
-/* ProtocolIE RRCConnSetupIndicator ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_RRCCONNSETUP,
-  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_N_ITEMS,
-}LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM;
-static const char liblte_x2ap_rrcconnsetupindicator_text[LIBLTE_X2AP_RRCCONNSETUPINDICATOR_N_ITEMS][80] = {
-  "rrcConnSetup",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM e;
-}LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_rrcconnsetupindicator(
-  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM_EXT                 *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rrcronnsetupindicator(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM_EXT                 *ie);
-
-/* S */
-
-/*******************************************************************************
 /* ProtocolIE S1TNLLoadIndicator SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -4300,6 +4873,53 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_s1tnlloadindicator_ext(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_s1tnlloadindicator_ext(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_S1TNLLOADINDICATOR_EXT_STRUCT               *ie);
+
+/*******************************************************************************
+/* ProtocolIE ServedCell_Information SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_PCI_STRUCT                                       pCI;
+  LIBLTE_X2AP_ECGI_STRUCT                                      cellId;
+  LIBLTE_X2AP_TAC_STRUCT                                       tAC;
+  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                       broadcastPLMS;
+  LIBLTE_X2AP_EUTRA_MODE_INFO_STRUCT                           eUTRA_Mode_Info;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_SERVEDCELL_INFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_servedCell(
+  LIBLTE_X2AP_SERVEDCELL_INFORMATION_STRUCT                           *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcell(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SERVEDCELL_INFORMATION_STRUCT                           *ie);
+
+/*******************************************************************************
+/* Protocol Message ServedCell_Information_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT                  number_of_antennaports;
+  bool                                                         number_of_antennaports_present;
+  LIBLTE_X2AP_PRACH_CONFIGURATION_STRUCT                       PRACH_Configuration;
+  bool                                                         PRACH_Configuration_present;
+  LIBLTE_X2AP_MBSFN_SUBFRAME_INFOLIST_STRUCT                   MBSFN_Subframe_Info;
+  bool                                                         MBSFN_Subframe_Info_present;
+  LIBLTE_X2AP_CSG_ID_STRUCT                                    CSG_Id;
+  bool                                                         CSG_Id_presnet;
+  LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_LIST_STRUCT           MBMS_Service_Area_List;
+  bool                                                         MBMS_Service_Area_List_present;
+  LIBLTE_X2AP_MULTIBANDINFOLIST_STRUCT                         MultibandInfoList;
+  bool                                                         MultibandInfolist_present;
+}LIBLTE_X2AP_MESSAGE_SERVEDCELL_INFORMATION_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_servedcell_information_ext(
+  LIBLTE_X2AP_MESSAGE_SERVEDCELL_INFORMATION_EXT_STRUCT               *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcell_information_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_SERVEDCELL_INFORMATION_EXT_STRUCT               *ie);
 
 /*******************************************************************************
 /* ProtocolIE ServedCell SEQUENCE
@@ -4351,260 +4971,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcell_ext(
   LIBLTE_X2AP_MESSAGE_SERVEDCELL_EXT_STRUCT               *ie);
 
 /*******************************************************************************
-/* ProtocolIE ServedCell_Information SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_PCI_STRUCT                                       pCI;
-  LIBLTE_X2AP_ECGI_STRUCT                                      cellId;
-  LIBLTE_X2AP_TAC_STRUCT                                       tAC;
-  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                       broadcastPLMS;
-  LIBLTE_X2AP_EUTRA_MODE_INFO_STRUCT                           eUTRA_Mode_Info;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_SERVEDCELL_INFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_servedCell(
-  LIBLTE_X2AP_SERVEDCELL_INFORMATION_STRUCT                           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcell(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SERVEDCELL_INFORMATION_STRUCT                           *ie);
-
-/*******************************************************************************
-/* Protocol Message ServedCell_Information_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_NUMBER_OF_ANTENNAPORTS_ENUM_EXT                  number_of_antennaports;
-  bool                                                         number_of_antennaports_present;
-  LIBLTE_X2AP_PRACH_CONFIGURATION_STRUCT                       PRACH_Configuration;
-  bool                                                         PRACH_Configuration_present;
-  LIBLTE_X2AP_MBSFN_SUBFRAME_INFOLIST_STRUCT                   MBSFN_Subframe_Info;
-  bool                                                         MBSFN_Subframe_Info_present;
-  LIBLTE_X2AP_CSG_ID_STRUCT                                    CSG_Id;
-  bool                                                         CSG_Id_presnet;
-  LIBLTE_X2AP_MBMS_SERVICE_AREA_IDENTITY_LIST_STRUCT           MBMS_Service_Area_List;
-  bool                                                         MBMS_Service_Area_List_present;
-  LIBLTE_X2AP_MULTIBANDINFOLIST_STRUCT                         MultibandInfoList;
-  bool                                                         MultibandInfolist_present;
-}LIBLTE_X2AP_MESSAGE_SERVEDCELL_INFORMATION_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_servedcell_information_ext(
-  LIBLTE_X2AP_MESSAGE_SERVEDCELL_INFORMATION_EXT_STRUCT               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcell_information_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_SERVEDCELL_INFORMATION_EXT_STRUCT               *ie);
-
-/*******************************************************************************
-/* ProtocolIE SRVCCOperationPossible ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_POSSIBLE,
-  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_N_ITEMS,
-}LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM;
-static const char liblte_x2ap_srvccoperationpossible_text[LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_N_ITEMS][80] = {
-  "possible",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM e;
-}LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_srvccoperationpossible(
-  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT                  *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_srvccoperationpossible(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT                  *ie);
-
-/*******************************************************************************
-/* ProtocolIE ShortMAC_I STATIC BIT STRING
-********************************************************************************/
-#define LIBLTE_X2AP_SHORTMAC_I_BIT_STRING_LEN 16
-typedef struct{
-  uint8_t  buffer[16];
-}LIBLTE_X2AP_SHORTMAC_I_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_shortmac_i(
-  LIBLTE_X2AP_SHORTMAC_I_STRUCT                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_shortmac_i(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SHORTMAC_I_STRUCT                       *ie);
-
-/*******************************************************************************
-/* ProtocolIE SubframeAssignment ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA0,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA1,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA2,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA3,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA4,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA5,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_SA6,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_N_ITEMS,
-}LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM;
-static const char liblte_x2ap_subframeassignment_text[LIBLTE_X2AP_SUBFRAMEASSIGNMENT_N_ITEMS][80] = {
-  "sa0",
-  "s21",
-  "sa2",
-  "sa3",
-  "sa4",
-  "sa5",
-  "sa6",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM e;
-}LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_subframeassignment(
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM_EXT                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_subframeassignment(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SUBFRAMEASSIGNMENT_ENUM_EXT                  *ie);
-
-/*******************************************************************************
-/* ProtocolIE SpecialSubframe_Info SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM_EXT                 specialSubframePatterns;
-  LIBLTE_X2AP_CYCLICPREFIXDL_ENUM_EXT                          cyclicPrefixDL;
-  LIBLTE_X2AP_CYCLICPREFIXUL_ENUM_EXT                          cyclicPrefixUL;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_SPECIALSUBFRAME_INFO_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_specialsubframe_info(
-  LIBLTE_X2AP_SPECIALSUBFRAME_INFO_STRUCT                           *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_specialsubframe_info(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SPECIALSUBFRAME_INFO_STRUCT                           *ie);
-
-/*******************************************************************************
-/* Protocol Message SpecialSubframe_Info_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_SPECIALSUBFRAME_INFO_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_specialsubframe_info_ext(
-  LIBLTE_X2AP_MESSAGE_SPECIALSUBFRAME_INFO_EXT_STRUCT               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_specialsubframe_info_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_SPECIALSUBFRAME_INFO_EXT_STRUCT               *ie);
-
-/*******************************************************************************
-/* ProtocolIE SpecialSubframePatterns ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP0,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP1,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP2,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP3,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP4,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP5,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP6,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP7,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_SSP8,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_N_ITEMS,
-}LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM;
-static const char liblte_x2ap_specialsubframepatterns_text[LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_N_ITEMS][80] = {
-  "ssp0",
-  "ssp1",
-  "ssp2",
-  "ssp3",
-  "ssp4",
-  "ssp5",
-  "ssp6",
-  "ssp7",
-  "ssp8",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM e;
-}LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNST_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_specialsubframepatterns(
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM_EXT                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_specialsubframepatterns(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SPECIALSUBFRAMEPATTERNS_ENUM_EXT                  *ie);
-
-/*******************************************************************************
-/* ProtocolIE subscriberProfileIDforRFP INTEGER
-********************************************************************************/
-typedef struct{
-uint8_t SubscribeProfileIDforRFP;
-}LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_subscribeprofileidforrfp(
-  LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_subscribeprofileidforrfp(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE SubframeAllocation CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_ONEFRAME,
-  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_FOURFRAMES,
-  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_ENUM;
-static const char liblte_x2ap_subframeallocation_choice_text[LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_N_ITEMS][50] = {
-  "oneframe",
-  "fourframes",
-};
-
-typedef union{
-  LIBLTE_X2AP_ONEFRAME_STRUCT                          oneframe;
-  LIBLTE_X2AP_FOURFRAMES_STRUCT                        fourframes;
-}LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_UNION choice;
-  LIBLTE_X2AP_SUBFRAMEALLOCATION_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_SUBFRAMEALLOCATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_subframeallocation(
-  LIBLTE_X2AP_SUBFRAMEALLOCATION_STRUCT                          *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_subframeallocation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_SUBFRAMEALLOCATION_STRUCT                          *ie);
-
-/* T */
-
-/*******************************************************************************
-/* ProtocolIE TAC STATIC OCTET STRING
-********************************************************************************/
-#define LIBLTE_X2AP_TAC_OCTET_STRING_LEN 2
-typedef struct{
-  uint8_t  buffer[2];
-}LIBLTE_X2AP_TAC_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_tac(
-  LIBLTE_X2AP_TAC_STRUCT                                       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tac(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TAC_STRUCT                                       *ie);
-
-/*******************************************************************************
 /* ProtocolIE TAListforMDT DYNAMIC SEQUENCE OF
 ********************************************************************************/
 // lb:1, ub:8
@@ -4619,84 +4985,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_talistformdt(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_talistformdt(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_TALISTFORMDT_STRUCT                             *ie);
-
-/*******************************************************************************
-/* ProtocolIE TABasedMDT SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_TALISTFORMDT_STRUCT                              tAListforMDT;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_TABASEDMDT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_tabasedmdt(
-  LIBLTE_X2AP_TABASEDMDT_STRUCT                                *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tabasedmdt(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TABASEDMDT_STRUCT                                *ie);
-
-/*******************************************************************************
-/* Protocol Message TABasedMDT_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_TABASEDMDT_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_tabasedmdt_ext(
-  LIBLTE_X2AP_MESSAGE_TABASEDMDT_EXT_STRUCT                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tabasedmdt_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_TABASEDMDT_EXT_STRUCT                    *ie);
-
-/*******************************************************************************
-/* ProtocolIE TAIBasedMDT SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_TAILISTFORMDT_STRUCT                             tAIListforMDT;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_TAIBASEDMDT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_taibasedmdt(
-  LIBLTE_X2AP_TAIBASEDMDT_STRUCT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_taibasedmdt(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TAIBASEDMDT_STRUCT                               *ie);
-
-/*******************************************************************************
-/* Protocol Message TAIBasedMDT_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_TAIBASEDMDT_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_taibasedmdt_ext(
-  LIBLTE_X2AP_MESSAGE_TAIBASEDMDT_EXT_STRUCT                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_taibasedmdt_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_TAIBASEDMDT_EXT_STRUCT                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE TAIListforMDT DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:8
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_TAI_ITEM_STRUCT                                       buffer[32]; //WARNING: Artificial limit to reduce memory footprint
-}LIBLTE_X2AP_TAILISTFORMDT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_tailistformdt(
-  LIBLTE_X2AP_TAILISTFORMDT_STRUCT                             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tailistformdt(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TAILISTFORMDT_STRUCT                             *ie);
 
 /*******************************************************************************
 /* ProtocolIE TAI_Item SEQUENCE
@@ -4731,125 +5019,82 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tai_item_ext(
   LIBLTE_X2AP_MESSAGE_TAI_ITEM_EXT_STRUCT                           *ie);
 
 /*******************************************************************************
-/* ProtocolIE TargetCellInUTRAN DYNAMIC OCTET STRING
+/* ProtocolIE TAIListforMDT DYNAMIC SEQUENCE OF
 ********************************************************************************/
-// lb:0, ub:16318
+// lb:1, ub:8
 typedef struct{
-  uint32_t n_octets;
-  uint8_t  buffer[16318];
-}LIBLTE_X2AP_TARGETCELLINUTRAN_STRUCT;
+  uint32_t                                                     len;
+  LIBLTE_X2AP_TAI_ITEM_STRUCT                                       buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_TAILISTFORMDT_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_targetcellinutran(
-  LIBLTE_X2AP_TARGETCELLINUTRAN_STRUCT                         *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_tailistformdt(
+  LIBLTE_X2AP_TAILISTFORMDT_STRUCT                             *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_targetcellinutran(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tailistformdt(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TARGETCELLINUTRAN_STRUCT                         *ie);
+  LIBLTE_X2AP_TAILISTFORMDT_STRUCT                             *ie);
 
 /*******************************************************************************
-/* ProtocolIE TargeteNBtoSource_eNBTransparentContainer DYNAMIC OCTET STRING
+/* ProtocolIE TAIBasedMDT SEQUENCE
 ********************************************************************************/
-// lb:0, ub:16318
-typedef struct{
-  uint32_t n_octets;
-  uint8_t  buffer[16318];
-}LIBLTE_X2AP_TARGETENBTOSOURCE_ENBTRANSPARENTCONTAINER_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_targetenbtosource_enbtransparentcontainer(
-  LIBLTE_X2AP_TARGETENBTOSOURCE_ENBTRANSPARENTCONTAINER_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_targetenbtosource_enbtransparentcontainer(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TARGETENBTOSOURCE_ENBTRANSPARENTCONTAINER_STRUCT                         *ie);
-
-/*******************************************************************************
-/* ProtocolIE Threshold_RSRP INTEGER
-********************************************************************************/
-typedef struct{
-uint8_t Threshold_RSRP;
-}LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_threshold_rsrp(
-  LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_threshold_rsrp(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_THRESHOLD_RSRP_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE Threshold_RSRQ INTEGER
-********************************************************************************/
-typedef struct{
-uint8_t Threshold_RSRQ;
-}LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_threshold_rsrq(
-  LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_threshold_rsrq(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_THRESHOLD_RSRQ_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE TimeToWait ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_TIMETOWAIT_V1S,
-  LIBLTE_X2AP_TIMETOWAIT_V2S,
-  LIBLTE_X2AP_TIMETOWAIT_V5S,
-  LIBLTE_X2AP_TIMETOWAIT_V10S,
-  LIBLTE_X2AP_TIMETOWAIT_V20S,
-  LIBLTE_X2AP_TIMETOWAIT_V60S,
-  LIBLTE_X2AP_TIMETOWAIT_N_ITEMS,
-}LIBLTE_X2AP_TIMETOWAIT_ENUM;
-static const char liblte_x2ap_timetowait_text[LIBLTE_X2AP_TIMETOWAIT_N_ITEMS][80] = {
-  "v1s",
-  "v2s",
-  "v5s",
-  "v10s",
-  "v20s",
-  "v60s",
-};
-
 typedef struct{
   bool                                                         ext;
-  LIBLTE_X2AP_TIMETOWAIT_ENUM e;
-}LIBLTE_X2AP_TIMETOWAIT_ENUM_EXT;
+  LIBLTE_X2AP_TAILISTFORMDT_STRUCT                             tAIListforMDT;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_TAIBASEDMDT_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_timetowait(
-  LIBLTE_X2AP_TIMETOWAIT_ENUM_EXT                              *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_taibasedmdt(
+  LIBLTE_X2AP_TAIBASEDMDT_STRUCT                               *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_timetowait(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_taibasedmdt(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TIMETOWAIT_ENUM_EXT                              *ie);
+  LIBLTE_X2AP_TAIBASEDMDT_STRUCT                               *ie);
 
 /*******************************************************************************
-/* ProtocolIE Time_UE_StayedInCell INTEGER
+/* Protocol Message TAIBasedMDT_Ext STRUCT
 ********************************************************************************/
 typedef struct{
-uint16_t Time_UE_StayedInCell;
-}LIBLTE_X2AP_TIME_UE_STAYEDINCELL_STRUCT;
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_TAIBASEDMDT_EXT_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_time_ue_stayedincell(
-  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_STRUCT                      *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_taibasedmdt_ext(
+  LIBLTE_X2AP_MESSAGE_TAIBASEDMDT_EXT_STRUCT                   *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_time_ue_stayedincell(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_taibasedmdt_ext(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_STRUCT                      *ie);
+  LIBLTE_X2AP_MESSAGE_TAIBASEDMDT_EXT_STRUCT                   *ie);
 
 /*******************************************************************************
-/* ProtocolIE Time_UE_StayedInCell_EnhancedGranularity INTEGER
+/* ProtocolIE TABasedMDT SEQUENCE
 ********************************************************************************/
 typedef struct{
-uint16_t Time_UE_StayedInCell_EnhancedGranularity;
-}LIBLTE_X2AP_TIME_UE_STAYEDINCELL_ENHANCEDGRANULARITY_STRUCT;
+  bool                                                         ext;
+  LIBLTE_X2AP_TALISTFORMDT_STRUCT                              tAListforMDT;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_TABASEDMDT_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_time_ue_stayedincell_enhancedgranularity(
-  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_ENHANCEDGRANULARITY_STRUCT  *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_tabasedmdt(
+  LIBLTE_X2AP_TABASEDMDT_STRUCT                                *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_time_ue_stayedincell_enhancedgranularity(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tabasedmdt(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TIME_UE_STAYEDINCELL_ENHANCEDGRANULARITY_STRUCT  *ie);
+  LIBLTE_X2AP_TABASEDMDT_STRUCT                                *ie);
+
+/*******************************************************************************
+/* Protocol Message TABasedMDT_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_TABASEDMDT_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_tabasedmdt_ext(
+  LIBLTE_X2AP_MESSAGE_TABASEDMDT_EXT_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tabasedmdt_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_TABASEDMDT_EXT_STRUCT                    *ie);
 
 /*******************************************************************************
 /* ProtocolIE TraceActivation SEQUENCE
@@ -4888,175 +5133,89 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_traceactivation_ext(
   LIBLTE_X2AP_MESSAGE_TRACEACTIVATION_EXT_STRUCT               *ie);
 
 /*******************************************************************************
-/* ProtocolIE TraceCollectionEntityIPAddress DYNAMIC BIT STRING
-********************************************************************************/
-// lb:1, ub:160
-typedef struct{
-  bool     ext;
-  uint32_t n_bits;
-  uint8_t  buffer[160];
-}LIBLTE_X2AP_TRACECOLLECTIONENTITYIPADDRESS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_tracecollectionentityipaddress(
-  LIBLTE_X2AP_TRACECOLLECTIONENTITYIPADDRESS_STRUCT                     *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tracecollectionentityipaddress(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TRACECOLLECTIONENTITYIPADDRESS_STRUCT                     *ie);
-
-/*******************************************************************************
-/* ProtocolIE TraceDepth ENUMERATED
+/* ProtocolIE AreaScopeOfMDT CHOICE
 ********************************************************************************/
 typedef enum{
-  LIBLTE_X2AP_TRACEDEPTH_MINIMUM,
-  LIBLTE_X2AP_TRACEDEPTH_MEDIUM,
-  LIBLTE_X2AP_TRACEDEPTH_MAXIMUM,
-  LIBLTE_X2AP_TRACEDEPTH_MINIMUMWITHOUTVENDORSPECIFICEXTENSION,
-  LIBLTE_X2AP_TRACEDEPTH_MEDIUMWITHOUTVENDORSPECIFICEXTENSION,
-  LIBLTE_X2AP_TRACEDEPTH_MAXIMUMWITHOUTVENDORSPECIFICEXTENSION,
-  LIBLTE_X2AP_TRACEDEPTH_N_ITEMS,
-}LIBLTE_X2AP_TRACEDEPTH_ENUM;
-static const char liblte_x2ap_tracedepth_text[LIBLTE_X2AP_TRACEDEPTH_N_ITEMS][80] = {
-  "minimum",
-  "medium",
-  "maximum",
-  "minimumWithoutVendorSpecificExtension",
-  "mediumWithoutVendorSpecificExtension",
-  "maximumWithoutVendorSpecificExtension",
+  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_CELLBASED,
+  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_TABASED,
+  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_PLMNWIDE,
+  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_TAIBASED,
+  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_ENUM;
+static const char liblte_x2ap_areascopeofmdt_choice_text[LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_N_ITEMS][50] = {
+  "cellBased",
+  "tABased",
+  "pLMNWide",
+  "tAIBased",
 };
 
+typedef union{
+  LIBLTE_X2AP_CELLBASEDMDT_STRUCT                              cellBased;
+  LIBLTE_X2AP_TABASEDMDT_STRUCT                                tABased;
+  //TODO: NULL                                                 pLMNWide;
+  LIBLTE_X2AP_TAIBASEDMDT_STRUCT                               tAIBased;
+}LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_UNION;
+
+typedef struct{
+  bool                            ext;
+  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_UNION choice;
+  LIBLTE_X2AP_AREASCOPEOFMDT_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_areascopeofmdt(
+  LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT                            *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_areascopeofmdt(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT                            *ie);
+
+/*******************************************************************************
+/* ProtocolIE MDT_Configuration SEQUENCE
+********************************************************************************/
 typedef struct{
   bool                                                         ext;
-  LIBLTE_X2AP_TRACEDEPTH_ENUM e;
-}LIBLTE_X2AP_TRACEDEPTH_ENUM_EXT;
+  LIBLTE_X2AP_MDT_ACTIVATION_ENUM_EXT                          mdt_Activation;
+  LIBLTE_X2AP_AREASCOPEOFMDT_STRUCT                            areaScopeOfMDT;
+  LIBLTE_X2AP_MEASUREMENTATOACTIVATE_STRUCT                    measurementsToActivate;
+  LIBLTE_X2AP_M1REPORTINGTRIGGER_ENUM_EXT                      m1reportingTrigger;
+  LIBLTE_X2AP_M1THRESHOLDEVENTA2_STRUCT                        m1thresholdeventA2;
+  bool                                                         m1thresholdeventA2_present;
+  LIBLTE_X2AP_M1PERIODICREPORTING_STRUCT                       m1periodicReporting;
+  bool                                                         m1periodicReporting_present;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_MDT_CONFIGURATION_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_tracedepth(
-  LIBLTE_X2AP_TRACEDEPTH_ENUM_EXT                              *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_configuration(
+  LIBLTE_X2AP_MDT_CONFIGURATION_STRUCT                         *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_tracedepth(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_configuration(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TRACEDEPTH_ENUM_EXT                              *ie);
+  LIBLTE_X2AP_MDT_CONFIGURATION_STRUCT                         *ie);
 
 /*******************************************************************************
-/* ProtocolIE Transmission_Bandwidth ENUMERATED
+/* Protocol Message MDT_Configuration_Ext STRUCT
 ********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW6,
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW15,
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW25,
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW50,
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW75,
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_BW100,
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_N_ITEMS,
-}LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM;
-static const char liblte_x2ap_transmission_bandwidth_text[LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_N_ITEMS][80] = {
-  "bw6",
-  "bw15",
-  "bw25",
-  "bw50",
-  "bw75",
-  "bw100",
-};
-
 typedef struct{
   bool                                                         ext;
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM e;
-}LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM_EXT;
+  LIBLTE_X2AP_M3CONFIGURATION_STRUCT                           M3Configuration;
+  bool                                                         M3Configuration_present;
+  LIBLTE_X2AP_M4CONFIGURATION_STRUCT                           M4Configuration;
+  bool                                                         M4Configuration_present;
+  LIBLTE_X2AP_M5CONFIGURATION_STRUCT                           M5Configuration;
+  bool                                                         M5Configuration_present;
+  LIBLTE_X2AP_MDT_LOCATION_INFO_STRUCT                         MDT_Location_Info;
+  bool                                                         MDT_Location_Info_present;
+  LIBLTE_X2AP_MDTPLMNLIST_STRUCT                               SignallingBasedMDTPLMNList;
+  bool                                                         SignallingBasedMDTPLMNList_present;
+}LIBLTE_X2AP_MESSAGE_MDT_CONFIGURATION_EXT_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_transmission_bandwidth(
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM_EXT                              *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mdt_configuration_ext(
+  LIBLTE_X2AP_MESSAGE_MDT_CONFIGURATION_EXT_STRUCT             *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_transmission_bandwidth(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mdt_configuration_ext(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TRANSMISSION_BANDWIDTH_ENUM_EXT                              *ie);
-
-/*******************************************************************************
-/* ProtocolIE TransportLayerAddress DYNAMIC BIT STRING
-********************************************************************************/
-// lb:1, ub:160
-typedef struct{
-  bool     ext;
-  uint32_t n_bits;
-  uint8_t  buffer[160];
-}LIBLTE_X2AP_TRANSPORTLAYERADDRESS_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_transportlayeraddress(
-  LIBLTE_X2AP_TRANSPORTLAYERADDRESS_STRUCT                     *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_transportlayeraddress(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TRANSPORTLAYERADDRESS_STRUCT                     *ie);
-
-/*******************************************************************************
-/* ProtocolIE TypeOfError ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_TYPEOFERROR_NOT_UNDERSTOOD,
-  LIBLTE_X2AP_TYPEOFERROR_MISSING,
-  LIBLTE_X2AP_TYPEOFERROR_N_ITEMS,
-}LIBLTE_X2AP_TYPEOFERROR_ENUM;
-static const char liblte_x2ap_typeoferror_text[LIBLTE_X2AP_TYPEOFERROR_N_ITEMS][80] = {
-  "not-understood",
-  "missing",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_TYPEOFERROR_ENUM e;
-}LIBLTE_X2AP_TYPEOFERROR_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_typeoferror(
-  LIBLTE_X2AP_TYPEOFERROR_ENUM_EXT                             *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_typeoferror(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_TYPEOFERROR_ENUM_EXT                             *ie);
-
-/* U */
-
-/*******************************************************************************
-/* ProtocolIE UE_HistoryInformation DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:16
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT                      buffer[16]; 
-}LIBLTE_X2AP_UE_HISTORYINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_historyinformation(
-  LIBLTE_X2AP_UE_HISTORYINFORMATION_STRUCT                              *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_historyinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UE_HISTORYINFORMATION_STRUCT                              *ie);
-
-/*******************************************************************************
-/* ProtocolIE UE_S1AP_ID INTEGER
-********************************************************************************/
-typedef struct{
-uint64_t UE_S1AP_ID;
-}LIBLTE_X2AP_UE_S1AP_ID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_s1ap_id(
-  LIBLTE_X2AP_UE_S1AP_ID_STRUCT                  *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_s1ap_id(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UE_S1AP_ID_STRUCT                  *ie);
-
-/*******************************************************************************
-/* ProtocolIE UE_X2AP_ID INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t UE_X2AP_ID;
-}LIBLTE_X2AP_UE_X2AP_ID_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_x2ap_id(
-  LIBLTE_X2AP_UE_X2AP_ID_STRUCT                  *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_x2ap_id(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UE_X2AP_ID_STRUCT                  *ie);
+  LIBLTE_X2AP_MESSAGE_MDT_CONFIGURATION_EXT_STRUCT             *ie);
 
 /*******************************************************************************
 /* ProtocolIE UEAggregateMaximumBitrate SEQUENCE
@@ -5091,6 +5250,22 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ueaggregate_maximumbitrates_ext(
   LIBLTE_X2AP_MESSAGE_UEAGGREGATE_MAXIMUMBITRATES_EXT_STRUCT   *ie);
 
 /*******************************************************************************
+/* ProtocolIE UE_HistoryInformation DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:16
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_LASTVISITEDCELL_ITEM_STRUCT                      buffer[16]; 
+}LIBLTE_X2AP_UE_HISTORYINFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_historyinformation(
+  LIBLTE_X2AP_UE_HISTORYINFORMATION_STRUCT                              *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_historyinformation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UE_HISTORYINFORMATION_STRUCT                              *ie);
+
+/*******************************************************************************
 /* ProtocolIE UESecurityCapabilities SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -5123,48 +5298,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_uesecuritycapabilities_ext(
   LIBLTE_X2AP_MESSAGE_UESECURITYCAPABILITIES_EXT_STRUCT        *ie);
 
 /*******************************************************************************
-/* ProtocolIE UL_GBR_PRB_usage INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t UL_GBR_PRB_usage;
-}LIBLTE_X2AP_UL_GBR_PRB_USAGE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_gbr_prb_usage(
-  LIBLTE_X2AP_UL_GBR_PRB_USAGE_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_gbr_prb_usage(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UL_GBR_PRB_USAGE_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE UL_non_GBR_PRB_usage INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t UL_non_GBR_PRB_usage;
-}LIBLTE_X2AP_UL_NON_GBR_PRB_USAGE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_non_gbr_prb_usage(
-  LIBLTE_X2AP_UL_NON_GBR_PRB_USAGE_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_non_gbr_prb_usage(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UL_NON_GBR_PRB_USAGE_STRUCT                            *ie);
-
-/*******************************************************************************
-/* ProtocolIE UL_Total_PRB_usage INTEGER
-********************************************************************************/
-typedef struct{
-uint16_t UL_Total_PRB_usage;
-}LIBLTE_X2AP_UL_TOTAL_PRB_USAGE_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_total_prb_usage(
-  LIBLTE_X2AP_UL_TOTAL_PRB_USAGE_STRUCT                            *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_total_prb_usage(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UL_TOTAL_PRB_USAGE_STRUCT                            *ie);
-
-/*******************************************************************************
 /* ProtocolIE UL_InterferenceOverloadIndication DYNAMIC SEQUENCE OF
 ********************************************************************************/
 // lb:1, ub:110
@@ -5179,49 +5312,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_interferenceoverloadindication(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_interferenceoverloadindication(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_STRUCT                    *ie);
-
-/*******************************************************************************
-/* ProtocolIE UL_InterferenceOverloadIndication_Item ENUMERATED
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_HIGH_INTERFERENCE,
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_MEDIUM_INTERFERENCE,
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_LOW_INTERFERENCE,
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_N_ITEMS,
-}LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM;
-static const char liblte_x2ap_ul_interferenceoverloadindication_item_text[LIBLTE_X2AP_RELAYNODE_INDICATOR_N_ITEMS][80] = {
-  "high-interference",
-  "medium_interference",
-  "low_interference",
-};
-
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM e;
-}LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM_EXT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_interferenceoverloadindication_item(
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM_EXT                     *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_interferenceoverloadindication_item(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UL_INTERFERENCEOVERLOADINDICATION_ITEM_ENUM_EXT                     *ie);
-
-/*******************************************************************************
-/* ProtocolIE UL_HighInterferenceIndicationInfo DYNAMIC SEQUENCE OF
-********************************************************************************/
-// lb:1, ub:256
-typedef struct{
-  uint32_t                                                     len;
-  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_ITEM_STRUCT     buffer[32]; //WARNING: Artificial limit to reduce memory footprint
-}LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_highinterferenceindicationinfo(
-  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_STRUCT                    *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_highinterferenceindicationinfo(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_STRUCT                    *ie);
 
 /*******************************************************************************
 /* ProtocolIE UL_HighInterferenceIndicationInfo_Item SEQUENCE
@@ -5256,129 +5346,19 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_highinterferenceindicationinfo_item_ext(
   LIBLTE_X2AP_MESSAGE_UL_HIGHINTERFERENCEINDICATIONINFO_ITEM_EXT_STRUCT                   *ie);
 
 /*******************************************************************************
-/* ProtocolIE UL_HighInterferenceIndication DYNAMIC BIT STRING
+/* ProtocolIE UL_HighInterferenceIndicationInfo DYNAMIC SEQUENCE OF
 ********************************************************************************/
-#define LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATION_BIT_STRING_LEN 110
+// lb:1, ub:256
 typedef struct{
-  uint8_t  buffer[120];
-}LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATION_STRUCT;
+  uint32_t                                                     len;
+  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_ITEM_STRUCT     buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_highinterferenceindication(
-  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATION_STRUCT                               *ie,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ul_highinterferenceindicationinfo(
+  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_STRUCT                    *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_highinterferenceindication(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_highinterferenceindicationinfo(
   uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATION_STRUCT                               *ie);
+  LIBLTE_X2AP_UL_HIGHINTERFERENCEINDICATIONINFO_STRUCT                    *ie);
 
-/*******************************************************************************
-/* ProtocolIE UL_RLF_Report_Container DYNAMIC OCTET STRING
-********************************************************************************/
-// lb:0, ub:16318
-typedef struct{
-  uint32_t n_octets;
-  uint8_t  buffer[16318];
-}LIBLTE_X2AP_UE_RLF_REPORT_CONTAINER_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_rlf_report_container(
-  LIBLTE_X2AP_UE_RLF_REPORT_CONTAINER_STRUCT                         *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_rlf_report_container(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UE_RLF_REPORT_CONTAINER_STRUCT                         *ie);
-
-/*******************************************************************************
-/* ProtocolIE UsableABSInformation CHOICE
-********************************************************************************/
-typedef enum{
-  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_FDD,
-  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_TDD,
-  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_N_ITEMS,
-}LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_ENUM;
-static const char liblte_x2ap_overloadresponse_choice_text[LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_N_ITEMS][50] = {
-  "fdd",
-  "tdd",
-};
-
-typedef union{
-  LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT          fdd;
-  LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT          tdd;
-}LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_UNION;
-
-typedef struct{
-  bool                            ext;
-  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_UNION choice;
-  LIBLTE_X2AP_USABLEABSINFORMATION_CHOICE_ENUM  choice_type;
-}LIBLTE_X2AP_USABLEABSINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformation(
-  LIBLTE_X2AP_USABLEABSINFORMATION_STRUCT                          *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_USABLEABSINFORMATION_STRUCT                          *ie);
-
-/*******************************************************************************
-/* ProtocolIE UsableABSInformationFDD SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  uint8_t usable_abs_pattern_info[40];
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationfdd(
-  LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationfdd(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_USABLEABSINFORMATIONFDD_STRUCT                               *ie);
-
-/*******************************************************************************
-/* Protocol Message UsableABSInformationFDD_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONFDD_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationfdd_ext(
-  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONFDD_EXT_STRUCT                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationfdd_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONFDD_EXT_STRUCT                   *ie);
-
-/*******************************************************************************
-/* ProtocolIE UsableABSInformationTDD SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  uint8_t usable_abs_pattern_info[70];
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationtdd(
-  LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT                               *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationtdd(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_USABLEABSINFORMATIONTDD_STRUCT                               *ie);
-
-/*******************************************************************************
-/* Protocol Message UsableABSInformationTDD_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-}LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONTDD_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_usableabsinformationtdd_ext(
-  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONTDD_EXT_STRUCT                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_usableabsinformationtdd_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_USABLEABSINFORMATIONTDD_EXT_STRUCT                   *ie);
-
-/* X2AP-IES.ASN FINISH */
-
-#endif // LIBLTE_X2AP_H
+#endif //LIBLTE_X2AP_h
