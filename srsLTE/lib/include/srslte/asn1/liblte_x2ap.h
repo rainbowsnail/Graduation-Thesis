@@ -7033,5 +7033,244 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellactivationfailure(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellactivationfailure(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_CELLACTIVATIONFAILURE_STRUCT                    *ie);
+
+/* X2AP-PDU-Contents.asn FINISH */
+
+/* X2AP-PDU-Descriptions.asn */
+
+/*******************************************************************************
+/* ProtocolIE-Field
+********************************************************************************/
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_protocolie_header(
+  uint32_t                      len,
+  uint32_t                      ie_id,
+  LIBLTE_X2AP_CRITICALITY_ENUM  crit,
+  uint8_t                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_protocolie_header(
+  uint8_t                     **ptr,
+  uint32_t                     *ie_id,
+  LIBLTE_X2AP_CRITICALITY_ENUM *crit,
+  uint32_t                     *len);
+
+/*******************************************************************************
+/* Procedure code criticality lookups
+********************************************************************************/
+static const LIBLTE_X2AP_CRITICALITY_ENUM liblte_X2AP_procedure_criticality[16] = {
+  LIBLTE_X2AP_CRITICALITY_REJECT,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_REJECT,
+  LIBLTE_X2AP_CRITICALITY_REJECT,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_REJECT,
+  LIBLTE_X2AP_CRITICALITY_REJECT,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_IGNORE,
+  LIBLTE_X2AP_CRITICALITY_REJECT,
+  LIBLTE_X2AP_CRITICALITY_REJECT,
+};
+
+/*******************************************************************************
+/* InitiatingMessage CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_HANDOVERREQUEST,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_SNSSTATUSTRANSFER,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_UECONTEXTRELEASE,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_HANDOVERCANCEL,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_HANDOVERREPORT,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_ERRORINDICATION,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_RESETREQUEST,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_X2SETUPREQUEST,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_LOADINFORMATION,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_ENBCONFIGURATIONUPDATE,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_RESOURCESTATUSREQUEST,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_RESOURCESTATUSUPDATE,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_RLFINDICATION,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_PRIVATEMESSAGE,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_MOBILITYCHANGEREQUEST,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_CELLACTIVATIONREQUEST,
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_ENUM;
+static const char liblte_x2ap_initiatingmessage_choice_text[LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_N_ITEMS][50] = {
+  "HandoverRequest",
+  "SNStatusTransfer",
+  "UEContextRelease",
+  "HandoverCancel",
+  "HandoverReport",
+  "ErrorIndication",
+  "ResetRequest",
+  "X2SetupRequest",
+  "LoadInformation",
+  "ENBConfigurationUpdate",
+  "ResourceStatusRequest",
+  "ResourceStatusUpdate",
+  "RLFIndication",
+  "PrivateMessage",
+  "MobilityChangeRequest",
+  "CellActivationRequest",
+};
+
+typedef union{
+  LIBLTE_X2AP_MESSAGE_HANDOVERREQUEST_STRUCT           HandoverRequest;
+  LIBLTE_X2AP_MESSAGE_SNSTATUSTRANSFER_STRUCT          SNStatusTransfer;
+  LIBLTE_X2AP_MESSAGE_UECONTEXTRELEASE_STRUCT          UEContextRelease;
+  LIBLTE_X2AP_MESSAGE_HANDOVERCANCEL_STRUCT            HandoverCancel;
+  LIBLTE_X2AP_MESSAGE_HANDOVERREPORT_STRUCT            HandoverReport;
+  LIBLTE_X2AP_MESSAGE_ERRORINDICATION_STRUCT           ErrorIndication;
+  LIBLTE_X2AP_MESSAGE_RESETREQUEST_STRUCT              ResetRequest;
+  LIBLTE_X2AP_MESSAGE_X2SETUPREQUEST_STRUCT            X2SetupRequest;
+  LIBLTE_X2AP_MESSAGE_LOADINFORMATION_STRUCT           LoadInformation;
+  LIBLTE_X2AP_MESSAGE_ENBCONFIGURATIONUPDATE_STRUCT    ENBConfigurationUpdate;
+  LIBLTE_X2AP_MESSAGE_RESOURCESTATUSREQUEST_STRUCT     ResourceStatusRequest;
+  LIBLTE_X2AP_MESSAGE_RESOURCESTATUSUPDATE_STRUCT      ResourceStatusUpdate;
+  LIBLTE_X2AP_MESSAGE_RLFINDICATION_STRUCT             RLFIndication;
+  LIBLTE_X2AP_MESSAGE_PRIVATEMESSAGE_STRUCT            PrivateMessage;
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEREQUEST_STRUCT     MobilityChangeRequest;
+  LIBLTE_X2AP_MESSAGE_CELLACTIVATIONREQUEST_STRUCT     CellActivationRequest;
+}LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_UNION;
+
+typedef struct{
+  uint8_t                                               procedureCode;
+  LIBLTE_X2AP_CRITICALITY_ENUM                          criticality;
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_UNION            choice;
+  LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_ENUM             choice_type;
+}LIBLTE_X2AP_INITIATINGMESSAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_initiatingmessage(
+  LIBLTE_X2AP_INITIATINGMESSAGE_STRUCT *msg,
+  uint8_t                             **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_initiatingmessage(
+  uint8_t                             **ptr,
+  LIBLTE_X2AP_INITIATINGMESSAGE_STRUCT *msg);
+
+/*******************************************************************************
+/* UnsuccessfulOutcome CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_HANDOVERPREPARATIONFAILURE,
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_X2SETUPFAILURE,
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_ENBCONFIGURATIONUPDATEFAILURE,
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_RESOURCESTATUSFAILURE,
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_MOBILITYCHANGEFAILURE,
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_CELLACTIVATIONFAILURE,
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_ENUM;
+static const char liblte_x2ap_unsuccessfuloutcome_choice_text[LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_N_ITEMS][50] = {
+  "HandoverPreparationFailure",
+  "X2SetupFailure",
+  "ENBConfigurationUpdateFailure",
+  "ResourceStatusFailure",
+  "MobilityChangeFailure",
+  "CellActivationFailure",
+};
+
+typedef union{
+  LIBLTE_X2AP_MESSAGE_HANDOVERPREPARATIONFAILURE_STRUCT    HandoverPreparationFailure;
+  LIBLTE_X2AP_MESSAGE_X2SETUPFAILURE_STRUCT                X2SetupFailure;
+  LIBLTE_X2AP_MESSAGE_ENBCONFIGURATIONUPDATEFAILURE_STRUCT ENBConfigurationUpdateFailure;
+  LIBLTE_X2AP_MESSAGE_RESOURCESTATUSFAILURE_STRUCT         ResourceStatusFailure;
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEFAILURE_STRUCT         MobilityChangeFailure;
+  LIBLTE_X2AP_MESSAGE_CELLACTIVATIONFAILURE_STRUCT         CellActivationFailure;
+}LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_UNION;
+
+typedef struct{
+  uint8_t                                                 procedureCode;
+  LIBLTE_X2AP_CRITICALITY_ENUM                            criticality;
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_UNION            choice;
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_ENUM             choice_type;
+}LIBLTE_X2AP_UNSUCCESSFULOUTCOME_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_unsuccessfuloutcome(
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_STRUCT *msg,
+  uint8_t                               **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_unsuccessfuloutcome(
+  uint8_t                               **ptr,
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_STRUCT *msg);
+
+/*******************************************************************************
+/* SuccessfulOutcome CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_HANDOVERREQUESTACKNOWLEDGE,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_RESETRESPONSE,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_X2SETUPRESPONSE,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_ENBCONFIGURATIONUPDATEACKNOWLEDGE,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_RESOURCESTATUSRESPONSE,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_MOBILITYCHANGEACKNOWLEDGE,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_CELLACTIVATIONRESPONSE,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_ENUM;
+static const char liblte_x2ap_successfuloutcome_choice_text[LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_N_ITEMS][50] = {
+  "HandoverRequestAcknowledge",
+  "ResetResponse",
+  "X2SetupResponse",
+  "ENBConfigurationUpdateAcknowledge",
+  "ResourceStatusResponse",
+  "MobilityChangeAcknowledge",
+  "CellActivationResponse"
+};
+
+typedef union{
+  LIBLTE_X2AP_MESSAGE_HANDOVERREQUESTACKNOWLEDGE_STRUCT         HandoverRequestAcknowledge;
+  LIBLTE_X2AP_MESSAGE_RESETRESPONSE_STRUCT                      ResetResponse;
+  LIBLTE_X2AP_MESSAGE_X2SETUPRESPONSE_STRUCT                    X2SetupResponse;
+  LIBLTE_X2AP_MESSAGE_ENBCONFIGURATIONUPDATEACKNOWLEDGE_STRUCT  ENBConfigurationUpdateAcknowledge;
+  LIBLTE_X2AP_MESSAGE_RESOURCESTATUSRESPONSE_STRUCT             ResourceStatusResponse;
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEACKNOWLEDGE_STRUCT          MobilityChangeAcknowledge;
+  LIBLTE_X2AP_MESSAGE_CELLACTIVATIONRESPONSE_STRUCT             CellActivationResponse;
+}LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_UNION;
+
+typedef struct{
+  uint8_t                                               procedureCode;
+  LIBLTE_X2AP_CRITICALITY_ENUM                          criticality;
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_UNION            choice;
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_ENUM             choice_type;
+}LIBLTE_X2AP_SUCCESSFULOUTCOME_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_successfuloutcome(
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_STRUCT *msg,
+  uint8_t                             **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_successfuloutcome(
+  uint8_t                             **ptr,
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_STRUCT *msg);
+
+/*******************************************************************************
+/* X2AP_PDU CHOICE
+********************************************************************************/
+typedef enum{
+  LIBLTE_X2AP_X2AP_PDU_CHOICE_INITIATINGMESSAGE,
+  LIBLTE_X2AP_X2AP_PDU_CHOICE_SUCCESSFULOUTCOME,
+  LIBLTE_X2AP_X2AP_PDU_CHOICE_UNSUCCESSFULOUTCOME,
+  LIBLTE_X2AP_X2AP_PDU_CHOICE_N_ITEMS,
+}LIBLTE_X2AP_X2AP_PDU_CHOICE_ENUM;
+static const char liblte_x2ap_X2AP_pdu_choice_text[LIBLTE_X2AP_X2AP_PDU_CHOICE_N_ITEMS][50] = {
+  "initiatingMessage",
+  "successfulOutcome",
+  "unsuccessfulOutcome",
+};
+
+typedef union{
+  LIBLTE_X2AP_INITIATINGMESSAGE_STRUCT                         initiatingMessage;
+  LIBLTE_X2AP_SUCCESSFULOUTCOME_STRUCT                         successfulOutcome;
+  LIBLTE_X2AP_UNSUCCESSFULOUTCOME_STRUCT                       unsuccessfulOutcome;
+}LIBLTE_X2AP_X2AP_PDU_CHOICE_UNION;
+
+typedef struct{
+  bool ext;
+  LIBLTE_X2AP_X2AP_PDU_CHOICE_UNION choice;
+  LIBLTE_X2AP_X2AP_PDU_CHOICE_ENUM  choice_type;
+}LIBLTE_X2AP_X2AP_PDU_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_X2AP_pdu(
+  LIBLTE_X2AP_X2AP_PDU_STRUCT *X2AP_pdu,
+  LIBLTE_BYTE_MSG_STRUCT      *msg);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_X2AP_pdu(
+  LIBLTE_BYTE_MSG_STRUCT      *msg,
+  LIBLTE_X2AP_X2AP_PDU_STRUCT *X2AP_pdu);
   
 #endif //LIBLTE_X2AP_h
