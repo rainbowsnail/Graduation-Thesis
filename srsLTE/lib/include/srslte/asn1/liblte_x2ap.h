@@ -6737,4 +6737,302 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellmeasurementresult_list(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellmeasurementresult_list(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_CELLMEASUREMENTRESULT_LIST_STRUCT                      *ie);
+
+/*-- **************************************************************
+ *--
+ *-- PRIVATE MESSAGE
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message PrivateMessage STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_PRIVATEMESSAGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_privatemessage(
+  LIBLTE_X2AP_MESSAGE_PRIVATEMESSAGE_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_privatemessage(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_PRIVATEMESSAGE_STRUCT                    *ie);
+
+/*-- **************************************************************
+ *--
+ *-- MOBILITY CHANGE REQUEST
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message MobilityChangeRequest STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ENB1_Cell_ID;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ENB2_Cell_ID;
+  LIBLTE_X2AP_MOBILITYPARAMETERSINFORMATION_STRUCT             ENB1_Mobility_Parameters;
+  bool                                                         ENB1_Mobility_Parameters_present;
+  LIBLTE_X2AP_MOBILITYPARAMETERSINFORMATION_STRUCT             ENB2_Proposed_Mobility_Parameters;
+  LIBLTE_X2AP_CAUSE_STRUCT                                     Cause;
+}LIBLTE_X2AP_MESSAGE_X2SETUPFAILURE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mobilitychangerequest(
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEREQUEST_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mobilitychangerequest(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEREQUEST_STRUCT                    *ie);
+
+/*-- **************************************************************
+ *--
+ *-- MOBILITY CHANGE ACKNOWLEDGE
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message MobilityChangeAcknowledge STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ENB1_Cell_ID;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ENB2_Cell_ID;
+  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    CriticalityDiagnostics;
+  bool                                                         CriticalityDiagnostics_present;
+}LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEACKNOWLEDGE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mobilitychangeacknowledge(
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEACKNOWLEDGE_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mobilitychangeacknowledge(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEACKNOWLEDGE_STRUCT                    *ie);
+
+/*-- **************************************************************
+ *--
+ *-- MOBILITY CHANGE FAILURE
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message MobilityChangeFailure STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ENB1_Cell_ID;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ENB2_Cell_ID;
+  LIBLTE_X2AP_CAUSE_STRUCT                                     Cause;
+  LIBLTE-LIBLTE_X2AP_MOBILITYPARAMETERSMODIFICATIONRANGE_STRUCT ENB2_Mobility_Parameters_Modification_Range;
+  bool                                                          ENB2_Mobility_Parameters_Modification_Range_present;
+  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    CriticalityDiagnostics;
+  bool                                                         CriticalityDiagnostics_present;
+}LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEFAILURE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_mobilitychangefailure(
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEFAILURE_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_mobilitychangefailure(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_MOBILITYCHANGEFAILURE_STRUCT                    *ie);
+
+/*-- **************************************************************
+ *--
+ *-- RADIO LINK FAILURE INDICATION
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message RLFIndication STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_PCI_STRUCT                                       FailureCellPCI;
+  LIBLTE_X2AP_ECGI_STRUCT                                      Re_establishmentCellECGI;
+  LIBLTE_X2AP_CRNTI_STRUCT                                     FailureCellCRNTI;
+  LIBLTE_X2AP_SHORTMAC_I_STRUCT                                ShortMAC_I;
+  bool                                                         ShortMAC_I_present;
+  LIBLTE_X2AP_UE_RLF_REPORT_CONTAINER_STRUCT                   UE_RLF_Report_Container;
+  bool                                                         UE_RLF_Report_Container_present;
+  LIBLTE_X2AP_RRCCONNSETUPINDICATOR_ENUM_EXT                   RRCConnSetupIndicator;
+  bool                                                         RRCConnSetupIndicator_present;
+  LIBLTE_X2AP_RRCCONNREESTABINDICATOR_ENUM_EXT                 RRCConnReestabIndicator;
+  bool                                                         RRCConnReestabIndicator_present;
+}LIBLTE_X2AP_MESSAGE_RLFINDICATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_rlfindication(
+  LIBLTE_X2AP_MESSAGE_RLFINDICATION_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_rlfindication(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_RLFINDICATION_STRUCT                    *ie);
+
+/*-- **************************************************************
+ *--
+ *-- CELL ACTIVATION REQUEST
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message CellActivationRequest STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  //LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_STRUCT                     ServedCellsToActivate;
+}LIBLTE_X2AP_MESSAGE_CELLACTIVATIONREQUEST_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellactivationrequest(
+  LIBLTE_X2AP_MESSAGE_CELLACTIVATIONREQUEST_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellactivationrequest(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_RCELLACTIVATIONREQUEST_STRUCT                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE ServedCellsToActivate_Item SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ecgi;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_ITEM_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_servedcellstoactivate_item(
+  LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_ITEM_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcellstoactivate_item(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_ITEM_STRUCT                         *ie);
+
+/*******************************************************************************
+/* Protocol Message ServedCellsToActivate_Item_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_SERVEDCELLSTOACTIVATE_ITEM_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_servedcellstoactivate_item_ext(
+  LIBLTE_X2AP_MESSAGE_SERVEDCELLSTOACTIVATE_ITEM_EXT_STRUCT             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcellstoactivate_item_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_SERVEDCELLSTOACTIVATE_ITEM_EXT_STRUCT             *ie);
+
+/*******************************************************************************
+/* Protocol Container List ServedCellsToActivate DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:256
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_ITEM_STRUCT                buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_servedcellstoactivate(
+  LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_servedcellstoactivate(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_SERVEDCELLSTOACTIVATE_STRUCT                      *ie);
+
+/*-- **************************************************************
+ *--
+ *-- CELL ACTIVATION RESPONSE
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message CellActivationResponse STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  //LIBLTE_X2AP_ACTIVATEDCELLLIST_STRUCT                         ActivatedCellList;
+  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    CriticalityDiagnostics;
+  bool                                                         CriticalityDiagnostics_present;
+}LIBLTE_X2AP_MESSAGE_CELLACTIVATIONRESPONSE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellactivationresponse(
+  LIBLTE_X2AP_MESSAGE_CELLACTIVATIONRESPONSE_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellactivationresponse(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_RCELLACTIVATIONRESPONSE_STRUCT                    *ie);
+
+/*******************************************************************************
+/* ProtocolIE ActivatedCellList_Item SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_ECGI_STRUCT                                      ecgi;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_ACTIVATEDCELLLIST_ITEM_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_activatedcelllist_item(
+  LIBLTE_X2AP_ACTIVATEDCELLLIST_ITEM_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_activatedcelllist_item(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ACTIVATEDCELLLIST_ITEM_STRUCT                         *ie);
+
+/*******************************************************************************
+/* Protocol Message ActivatedCellList_Item_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+}LIBLTE_X2AP_MESSAGE_ACTIVATEDCELLLIST_ITEM_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_activatedcelllist_item_ext(
+  LIBLTE_X2AP_MESSAGE_ACTIVATEDCELLLIST_ITEM_EXT_STRUCT             *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_activatedcelllist_item_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_ACTIVATEDCELLLIST_ITEM_EXT_STRUCT             *ie);
+
+/*******************************************************************************
+/* Protocol Container List ActivatedCellList DYNAMIC SEQUENCE OF
+********************************************************************************/
+// lb:1, ub:256
+typedef struct{
+  uint32_t                                                     len;
+  LIBLTE_X2AP_ACTIVATEDCELLLIST_ITEM_STRUCT                    buffer[32]; //WARNING: Artificial limit to reduce memory footprint
+}LIBLTE_X2AP_ACTIVATEDCELLLIST_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_activatedcelllist(
+  LIBLTE_X2AP_ACTIVATEDCELLLIST_STRUCT                         *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_activatedcelllist(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_ACTIVATEDCELLLIST_STRUCT                      *ie);
+
+/*-- **************************************************************
+ *--
+ *-- CELL ACTIVATION FAILURE
+ *--
+ *-- **************************************************************
+ */
+
+/*******************************************************************************
+/* Protocol Message CellActivationFailure STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_CAUSE_STRUCT                                     Cause;
+  LIBLTE_X2AP_CRITICALITYDIAGNOSTICS_STRUCT                    CriticalityDiagnostics;
+  bool                                                         CriticalityDiagnostics_present;
+}LIBLTE_X2AP_MESSAGE_CELLACTIVATIONFAILURE_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_cellactivationfailure(
+  LIBLTE_X2AP_MESSAGE_CELLACTIVATIONFAILURE_STRUCT                    *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_cellactivationfailure(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_CELLACTIVATIONFAILURE_STRUCT                    *ie);
+  
 #endif //LIBLTE_X2AP_h
