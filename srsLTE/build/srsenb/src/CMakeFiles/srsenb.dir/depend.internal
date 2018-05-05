@@ -150,6 +150,7 @@ srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o
  ../srsenb/hdr/upper/s1ap.h
  ../srsenb/hdr/upper/s1ap_metrics.h
  ../srsenb/hdr/upper/x2ap.h
+ ../srsenb/hdr/upper/x2ap_metrics.h
  ../srsue/hdr/upper/gw_metrics.h
  /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/enb.cc
  lib/include/srslte/version.h
@@ -304,6 +305,7 @@ srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o
  ../srsenb/hdr/upper/s1ap.h
  ../srsenb/hdr/upper/s1ap_metrics.h
  ../srsenb/hdr/upper/x2ap.h
+ ../srsenb/hdr/upper/x2ap_metrics.h
  ../srsue/hdr/upper/gw_metrics.h
  /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/enb_cfg_parser.cc
  /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/enb_cfg_parser.h
@@ -458,6 +460,7 @@ srsenb/src/CMakeFiles/srsenb.dir/main.cc.o
  ../srsenb/hdr/upper/s1ap.h
  ../srsenb/hdr/upper/s1ap_metrics.h
  ../srsenb/hdr/upper/x2ap.h
+ ../srsenb/hdr/upper/x2ap_metrics.h
  ../srsue/hdr/upper/gw_metrics.h
  /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/main.cc
  lib/include/srslte/version.h

@@ -524,8 +524,10 @@ srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/as
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/asn1/liblte_rrc.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/asn1/liblte_s1ap.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/asn1/liblte_x2ap.h
+srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/common/buffer_pool.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/common/common.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/common/interfaces_common.h
+srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/common/log.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/common/security.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/common/threads.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/common/timers.h
@@ -613,7 +615,9 @@ srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/ph
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/phy/utils/vector.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/srslte.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../lib/include/srslte/upper/rlc_interface.h
+srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../srsenb/hdr/upper/x2ap.h
+srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: ../srsenb/src/upper/x2ap.cc
 srsenb/src/upper/CMakeFiles/srsenb_upper.dir/x2ap.cc.o: lib/include/srslte/version.h
 

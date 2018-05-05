@@ -149,6 +149,7 @@ srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: ../srsenb/hdr/upper/s1ap.h
 srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: ../srsenb/hdr/upper/x2ap.h
+srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: ../srsenb/src/enb.cc
 srsenb/src/CMakeFiles/srsenb.dir/enb.cc.o: lib/include/srslte/version.h
@@ -303,6 +304,7 @@ srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsenb/hdr/upper/rrc_me
 srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsenb/hdr/upper/s1ap.h
 srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsenb/hdr/upper/x2ap.h
+srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsenb/src/enb_cfg_parser.cc
 srsenb/src/CMakeFiles/srsenb.dir/enb_cfg_parser.cc.o: ../srsenb/src/enb_cfg_parser.h
@@ -457,6 +459,7 @@ srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: ../srsenb/hdr/upper/s1ap.h
 srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: ../srsenb/hdr/upper/x2ap.h
+srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: ../srsenb/src/main.cc
 srsenb/src/CMakeFiles/srsenb.dir/main.cc.o: lib/include/srslte/version.h

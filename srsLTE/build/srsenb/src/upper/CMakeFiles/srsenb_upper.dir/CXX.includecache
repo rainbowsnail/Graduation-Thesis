@@ -1489,12 +1489,20 @@ s1ap_metrics.h
 ../srsenb/hdr/upper/s1ap_metrics.h
 
 ../srsenb/hdr/upper/x2ap.h
-srslte/asn1/liblte_x2ap.h
-../srsenb/hdr/upper/srslte/asn1/liblte_x2ap.h
 srslte/common/threads.h
 ../srsenb/hdr/upper/srslte/common/threads.h
+srslte/common/log.h
+../srsenb/hdr/upper/srslte/common/log.h
+srslte/common/buffer_pool.h
+../srsenb/hdr/upper/srslte/common/buffer_pool.h
 srslte/interfaces/enb_interfaces.h
 ../srsenb/hdr/upper/srslte/interfaces/enb_interfaces.h
+srslte/asn1/liblte_x2ap.h
+../srsenb/hdr/upper/srslte/asn1/liblte_x2ap.h
+upper/x2ap_metrics.h
+../srsenb/hdr/upper/upper/x2ap_metrics.h
+
+../srsenb/hdr/upper/x2ap_metrics.h
 
 /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/gtpu.cc
 upper/gtpu.h
@@ -1559,6 +1567,8 @@ arpa/inet.h
 /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/x2ap.cc
 upper/x2ap.h
 /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/x2ap.h
+upper/common_enb.h
+/home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/common_enb.h
 
 lib/include/srslte/version.h
 srslte/config.h
