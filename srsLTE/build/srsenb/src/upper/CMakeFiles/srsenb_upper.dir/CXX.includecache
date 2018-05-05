@@ -1569,6 +1569,12 @@ upper/x2ap.h
 /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/x2ap.h
 upper/common_enb.h
 /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/upper/upper/common_enb.h
+sys/socket.h
+-
+netinet/in.h
+-
+netinet/sctp.h
+-
 
 lib/include/srslte/version.h
 srslte/config.h
