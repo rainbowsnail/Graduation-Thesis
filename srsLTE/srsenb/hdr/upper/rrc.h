@@ -100,6 +100,7 @@ class rrc : public rrc_interface_pdcp,
             public rrc_interface_mac, 
             public rrc_interface_rlc,
             public rrc_interface_s1ap,
+            public rrc_interface_x2ap,
             public thread
 {
 public:
@@ -115,6 +116,7 @@ public:
     pdcp = NULL;
     gtpu = NULL;
     s1ap = NULL;
+    x2ap = NULL;
     rrc_log = NULL;
 
     bzero(&sr_sched, sizeof(sr_sched));
@@ -132,6 +134,7 @@ public:
             rlc_interface_rrc *rlc, 
             pdcp_interface_rrc *pdcp,
             s1ap_interface_rrc *s1ap,
+            x2ap_interface_rrc *x2ap,
             gtpu_interface_rrc *gtpu,
             srslte::log *log_rrc);
   
@@ -330,6 +333,7 @@ private:
   pdcp_interface_rrc   *pdcp;
   gtpu_interface_rrc   *gtpu;
   s1ap_interface_rrc   *s1ap;
+  x2ap_interface_rrc   *x2ap;
   srslte::log          *rrc_log;
 
   typedef struct{

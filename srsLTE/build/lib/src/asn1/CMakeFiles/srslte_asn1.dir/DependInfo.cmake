@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_mme.cc" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_mme.cc.o"
   "/home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_rrc.cc" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_rrc.cc.o"
   "/home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_s1ap.cc" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.o"
+  "/home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_x2ap.cc" "/home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

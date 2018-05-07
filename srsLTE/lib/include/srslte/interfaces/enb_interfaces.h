@@ -239,6 +239,11 @@ public:
   virtual void add_paging_id(uint32_t ueid, LIBLTE_S1AP_UEPAGINGID_STRUCT UEPagingID) = 0; 
 };
 
+class rrc_interface_x2ap
+{
+public:
+
+};
 // GTPU interface for PDCP
 class gtpu_interface_pdcp
 {

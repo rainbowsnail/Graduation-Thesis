@@ -44,6 +44,10 @@ liblte_common.h
 liblte_common.h
 ../lib/include/srslte/asn1/liblte_common.h
 
+../lib/include/srslte/asn1/liblte_x2ap.h
+liblte_common.h
+../lib/include/srslte/asn1/liblte_common.h
+
 ../lib/include/srslte/common/common.h
 stdint.h
 -
@@ -1189,6 +1193,16 @@ stdarg.h
 /home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_s1ap.cc
 srslte/asn1/liblte_s1ap.h
 /home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/srslte/asn1/liblte_s1ap.h
+stdio.h
+-
+stdarg.h
+-
+math.h
+-
+
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_x2ap.cc
+srslte/asn1/liblte_x2ap.h
+/home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/srslte/asn1/liblte_x2ap.h
 stdio.h
 -
 stdarg.h

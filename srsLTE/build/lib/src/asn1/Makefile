@@ -58,8 +58,8 @@ CMAKE_BINARY_DIR = /home/wantong/Graduation-Thesis/srsLTE/build
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -337,6 +337,33 @@ liblte_s1ap.cc.s:
 	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/asn1/CMakeFiles/srslte_asn1.dir/build.make lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.s
 .PHONY : liblte_s1ap.cc.s
 
+liblte_x2ap.o: liblte_x2ap.cc.o
+
+.PHONY : liblte_x2ap.o
+
+# target to build an object file
+liblte_x2ap.cc.o:
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/asn1/CMakeFiles/srslte_asn1.dir/build.make lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o
+.PHONY : liblte_x2ap.cc.o
+
+liblte_x2ap.i: liblte_x2ap.cc.i
+
+.PHONY : liblte_x2ap.i
+
+# target to preprocess a source file
+liblte_x2ap.cc.i:
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/asn1/CMakeFiles/srslte_asn1.dir/build.make lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.i
+.PHONY : liblte_x2ap.cc.i
+
+liblte_x2ap.s: liblte_x2ap.cc.s
+
+.PHONY : liblte_x2ap.s
+
+# target to generate assembly for a file
+liblte_x2ap.cc.s:
+	cd /home/wantong/Graduation-Thesis/srsLTE/build && $(MAKE) -f lib/src/asn1/CMakeFiles/srslte_asn1.dir/build.make lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.s
+.PHONY : liblte_x2ap.cc.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -368,6 +395,9 @@ help:
 	@echo "... liblte_s1ap.o"
 	@echo "... liblte_s1ap.i"
 	@echo "... liblte_s1ap.s"
+	@echo "... liblte_x2ap.o"
+	@echo "... liblte_x2ap.i"
+	@echo "... liblte_x2ap.s"
 .PHONY : help
 
 

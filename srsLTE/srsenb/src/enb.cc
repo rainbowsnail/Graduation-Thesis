@@ -214,8 +214,9 @@ bool enb::init(all_args_t *args_)
   mac.init(&args->expert.mac, &cell_cfg, &phy, &rlc, &rrc, &mac_log);
   rlc.init(&pdcp, &rrc, &mac, &mac, &rlc_log);
   pdcp.init(&rlc, &rrc, &gtpu, &pdcp_log);
-  rrc.init(&rrc_cfg, &phy, &mac, &rlc, &pdcp, &s1ap, &gtpu, &rrc_log);
+  rrc.init(&rrc_cfg, &phy, &mac, &rlc, &pdcp, &s1ap, &x2ap, &gtpu, &rrc_log);
   s1ap.init(args->enb.s1ap, &rrc, &s1ap_log);
+  x2ap.init(args->enb.x2ap, &rrc, &x2ap_log);
   gtpu.init(args->enb.s1ap.gtp_bind_addr, args->enb.s1ap.mme_addr, &pdcp, &gtpu_log);
   
   started = true;

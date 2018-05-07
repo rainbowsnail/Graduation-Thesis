@@ -42,6 +42,7 @@ void rrc::init(rrc_cfg_t *cfg_,
                rlc_interface_rrc* rlc_, 
                pdcp_interface_rrc* pdcp_, 
                s1ap_interface_rrc *s1ap_,
+               x2ap_interface_rrc *x2ap_,
                gtpu_interface_rrc* gtpu_,
                srslte::log* log_rrc)
 {
@@ -50,7 +51,8 @@ void rrc::init(rrc_cfg_t *cfg_,
   rlc     = rlc_; 
   pdcp    = pdcp_; 
   gtpu    = gtpu_;
-  s1ap    = s1ap_; 
+  s1ap    = s1ap_;
+  x2ap    = x2ap_; 
   rrc_log = log_rrc;
   cnotifier = NULL; 
 

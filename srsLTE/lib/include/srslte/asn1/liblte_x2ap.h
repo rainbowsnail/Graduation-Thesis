@@ -4913,7 +4913,7 @@ typedef struct{
   LIBLTE_X2AP_PCI_STRUCT                                       pCI;
   LIBLTE_X2AP_ECGI_STRUCT                                      cellId;
   LIBLTE_X2AP_TAC_STRUCT                                       tAC;
-  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                       broadcastPLMS;
+  LIBLTE_X2AP_BROADCASTPLMNS_ITEM_STRUCT                       broadcastPLMNS;
   LIBLTE_X2AP_EUTRA_MODE_INFO_STRUCT                           eUTRA_Mode_Info;
   LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
   bool                                                         iE_Extensions_present;
@@ -5404,52 +5404,6 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ul_highinterferenceindicationinfo(
  */
 
 /*******************************************************************************
-/* ProtocolIE UE_ContextInformation SEQUENCE
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_UE_S1AP_ID_STRUCT                                mME_UE_S1AP_ID;
-  LIBLTE_X2AP_UESECURITYCAPABILITIES_STRUCT                    uESecurityCapabilities;
-  LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT                    aS_SecurityInformation;
-  LIBLTE_X2AP_UEAGGREGATEMAXIMUMBITRATE_STRUCT                 uEaggregateMaximumBitRate;
-  LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT                 subscribeProfileIDforRFP;
-  bool                                                         subscribeProfileIDforRFP_present;
-  //LIBLTE_X2AP_E_RABS_TOBESETUP_LIST_STRUCT                     E_RABS_ToBeSetup_List;
-  LIBLTE_X2AP_RRC_CONTEXT_STRUCT                               rRC_Context;
-  LIBLTE_X2AP_HANDOVERRESTRICTIONLIST_STRUCT                   handoverRestrictionList;
-  bool                                                         handoverRestrictionList_present;
-  LIBLTE_X2AP_LOCATIONREPORTINGINFORMATION_STRUCT              locationReportingInformation;
-  bool                                                         locationReportingInformation_present;
-  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
-  bool                                                         iE_Extensions_present;
-}LIBLTE_X2AP_UE_CONTEXTINFORMATION_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_contextinformation(
-  LIBLTE_X2AP_UE_CONTEXTINFORMATION_STRUCT                   *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_contextinformation(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_UE_CONTEXTINFORMATION_STRUCT                   *ie);
-
-/*******************************************************************************
-/* Protocol Message UE_ContextInformation_Ext STRUCT
-********************************************************************************/
-typedef struct{
-  bool                                                         ext;
-  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT               ManagementBasedMDTallowed;
-  bool                                                         ManagementBasedMDTallowed_present;
-  LIBLTE_X2AP_MDTPLMNLIST_STRUCT                               ManagementBasedMDTPLMNList;
-  bool                                                         ManagementBasedMDTPLMNList_present;
-}LIBLTE_X2AP_MESSAGE_UE_CONTEXTINFORMATION_EXT_STRUCT;
-
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_contextinformation_ext(
-  LIBLTE_X2AP_MESSAGE_UE_CONTEXTINFORMATION_EXT_STRUCT       *ie,
-  uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_contextinformation_ext(
-  uint8_t                                                     **ptr,
-  LIBLTE_X2AP_MESSAGE_UE_CONTEXTINFORMATION_EXT_STRUCT       *ie);
-
-/*******************************************************************************
 /* ProtocolIE E_RABs_ToBeSetup_Item SEQUENCE
 ********************************************************************************/
 typedef struct{
@@ -5513,6 +5467,52 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_e_rabs_tobesetup_list(
 LIBLTE_ERROR_ENUM liblte_x2ap_unpack_e_rabs_tobesetup_list(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_E_RABS_TOBESETUP_LIST_STRUCT                         *ie);
+
+/*******************************************************************************
+/* ProtocolIE UE_ContextInformation SEQUENCE
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_UE_S1AP_ID_STRUCT                                mME_UE_S1AP_ID;
+  LIBLTE_X2AP_UESECURITYCAPABILITIES_STRUCT                    uESecurityCapabilities;
+  LIBLTE_X2AP_AS_SECURITYINFORMATION_STRUCT                    aS_SecurityInformation;
+  LIBLTE_X2AP_UEAGGREGATEMAXIMUMBITRATE_STRUCT                 uEaggregateMaximumBitRate;
+  LIBLTE_X2AP_SUBSCRIBERPROFILEIDFORRFP_STRUCT                 subscribeProfileIDforRFP;
+  bool                                                         subscribeProfileIDforRFP_present;
+  LIBLTE_X2AP_E_RABS_TOBESETUP_LIST_STRUCT                     E_RABS_ToBeSetup_List;
+  LIBLTE_X2AP_RRC_CONTEXT_STRUCT                               rRC_Context;
+  LIBLTE_X2AP_HANDOVERRESTRICTIONLIST_STRUCT                   handoverRestrictionList;
+  bool                                                         handoverRestrictionList_present;
+  LIBLTE_X2AP_LOCATIONREPORTINGINFORMATION_STRUCT              locationReportingInformation;
+  bool                                                         locationReportingInformation_present;
+  LIBLTE_X2AP_PROTOCOLEXTENSIONCONTAINER_STRUCT                iE_Extensions;
+  bool                                                         iE_Extensions_present;
+}LIBLTE_X2AP_UE_CONTEXTINFORMATION_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_contextinformation(
+  LIBLTE_X2AP_UE_CONTEXTINFORMATION_STRUCT                   *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_contextinformation(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_UE_CONTEXTINFORMATION_STRUCT                   *ie);
+
+/*******************************************************************************
+/* Protocol Message UE_ContextInformation_Ext STRUCT
+********************************************************************************/
+typedef struct{
+  bool                                                         ext;
+  LIBLTE_X2AP_MANAGEMENTBASEDMDTALLOWED_ENUM_EXT               ManagementBasedMDTallowed;
+  bool                                                         ManagementBasedMDTallowed_present;
+  LIBLTE_X2AP_MDTPLMNLIST_STRUCT                               ManagementBasedMDTPLMNList;
+  bool                                                         ManagementBasedMDTPLMNList_present;
+}LIBLTE_X2AP_MESSAGE_UE_CONTEXTINFORMATION_EXT_STRUCT;
+
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_ue_contextinformation_ext(
+  LIBLTE_X2AP_MESSAGE_UE_CONTEXTINFORMATION_EXT_STRUCT       *ie,
+  uint8_t                                                     **ptr);
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_ue_contextinformation_ext(
+  uint8_t                                                     **ptr,
+  LIBLTE_X2AP_MESSAGE_UE_CONTEXTINFORMATION_EXT_STRUCT       *ie);
 
 /*******************************************************************************
 /* ProtocolIE MobilityInformation STATIC BIT STRING
@@ -7248,7 +7248,7 @@ typedef enum{
   LIBLTE_X2AP_X2AP_PDU_CHOICE_UNSUCCESSFULOUTCOME,
   LIBLTE_X2AP_X2AP_PDU_CHOICE_N_ITEMS,
 }LIBLTE_X2AP_X2AP_PDU_CHOICE_ENUM;
-static const char liblte_x2ap_X2AP_pdu_choice_text[LIBLTE_X2AP_X2AP_PDU_CHOICE_N_ITEMS][50] = {
+static const char liblte_x2ap_x2ap_pdu_choice_text[LIBLTE_X2AP_X2AP_PDU_CHOICE_N_ITEMS][50] = {
   "initiatingMessage",
   "successfulOutcome",
   "unsuccessfulOutcome",
@@ -7266,11 +7266,11 @@ typedef struct{
   LIBLTE_X2AP_X2AP_PDU_CHOICE_ENUM  choice_type;
 }LIBLTE_X2AP_X2AP_PDU_STRUCT;
 
-LIBLTE_ERROR_ENUM liblte_x2ap_pack_X2AP_pdu(
-  LIBLTE_X2AP_X2AP_PDU_STRUCT *X2AP_pdu,
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_x2ap_pdu(
+  LIBLTE_X2AP_X2AP_PDU_STRUCT *x2ap_pdu,
   LIBLTE_BYTE_MSG_STRUCT      *msg);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_X2AP_pdu(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_x2ap_pdu(
   LIBLTE_BYTE_MSG_STRUCT      *msg,
-  LIBLTE_X2AP_X2AP_PDU_STRUCT *X2AP_pdu);
+  LIBLTE_X2AP_X2AP_PDU_STRUCT *x2ap_pdu);
   
 #endif //LIBLTE_X2AP_h

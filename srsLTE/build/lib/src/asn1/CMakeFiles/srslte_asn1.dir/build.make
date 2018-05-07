@@ -153,9 +153,33 @@ lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.o.provides: lib/src/asn1/
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.o.provides.build: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.o
 
 
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o: lib/src/asn1/CMakeFiles/srslte_asn1.dir/flags.make
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o: ../lib/src/asn1/liblte_x2ap.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o"
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1 && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o -c /home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_x2ap.cc
+
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.i"
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_x2ap.cc > CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.i
+
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.s"
+	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/liblte_x2ap.cc -o CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.s
+
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.requires:
+
+.PHONY : lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.requires
+
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.provides: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.requires
+	$(MAKE) -f lib/src/asn1/CMakeFiles/srslte_asn1.dir/build.make lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.provides.build
+.PHONY : lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.provides
+
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.provides.build: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o
+
+
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/gtpc.cc.o: lib/src/asn1/CMakeFiles/srslte_asn1.dir/flags.make
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/gtpc.cc.o: ../lib/src/asn1/gtpc.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object lib/src/asn1/CMakeFiles/srslte_asn1.dir/gtpc.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object lib/src/asn1/CMakeFiles/srslte_asn1.dir/gtpc.cc.o"
 	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1 && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/srslte_asn1.dir/gtpc.cc.o -c /home/wantong/Graduation-Thesis/srsLTE/lib/src/asn1/gtpc.cc
 
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/gtpc.cc.i: cmake_force
@@ -183,6 +207,7 @@ srslte_asn1_OBJECTS = \
 "CMakeFiles/srslte_asn1.dir/liblte_rrc.cc.o" \
 "CMakeFiles/srslte_asn1.dir/liblte_mme.cc.o" \
 "CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.o" \
+"CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o" \
 "CMakeFiles/srslte_asn1.dir/gtpc.cc.o"
 
 # External object files for target srslte_asn1
@@ -192,10 +217,11 @@ lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_co
 lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_rrc.cc.o
 lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_mme.cc.o
 lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.o
+lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o
 lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/gtpc.cc.o
 lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/build.make
 lib/src/asn1/libsrslte_asn1.a: lib/src/asn1/CMakeFiles/srslte_asn1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX static library libsrslte_asn1.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/wantong/Graduation-Thesis/srsLTE/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libsrslte_asn1.a"
 	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1 && $(CMAKE_COMMAND) -P CMakeFiles/srslte_asn1.dir/cmake_clean_target.cmake
 	cd /home/wantong/Graduation-Thesis/srsLTE/build/lib/src/asn1 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/srslte_asn1.dir/link.txt --verbose=$(VERBOSE)
 
@@ -208,6 +234,7 @@ lib/src/asn1/CMakeFiles/srslte_asn1.dir/requires: lib/src/asn1/CMakeFiles/srslte
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/requires: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_rrc.cc.o.requires
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/requires: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_mme.cc.o.requires
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/requires: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_s1ap.cc.o.requires
+lib/src/asn1/CMakeFiles/srslte_asn1.dir/requires: lib/src/asn1/CMakeFiles/srslte_asn1.dir/liblte_x2ap.cc.o.requires
 lib/src/asn1/CMakeFiles/srslte_asn1.dir/requires: lib/src/asn1/CMakeFiles/srslte_asn1.dir/gtpc.cc.o.requires
 
 .PHONY : lib/src/asn1/CMakeFiles/srslte_asn1.dir/requires
