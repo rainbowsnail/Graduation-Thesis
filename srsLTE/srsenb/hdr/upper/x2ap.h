@@ -58,7 +58,27 @@ private:
 	bool connect_neighbour();
 	bool setup_x2ap();
 
+	// Handle X2AP signaling messages
 	bool handle_x2ap_rx_pdu(srslte::byte_buffer_t *pdu);
+	bool handle_initiatingmessage(LIBLTE_X2AP_INITIATINGMESSAGE_STRUCT *msg);
+	bool handle_successfuloutcome(LIBLTE_X2AP_SUCCESSFULOUTCOME_STRUCT *msg);
+	bool handle_unsuccessfuloutcome(LIBLTE_X2AP_UNSUCCESSFULOUTCOME_STRUCT *msg);
+
+	// X2AP initiatingmessages
+	bool handle_x2setuprequest(LIBLTE_X2AP_MESSAGE_X2SETUPREQUEST_STRUCT *msg);
+	bool handle_handoverrequest(LIBLTE_X2AP_MESSAGE_HANDOVERREQUEST_STRUCT *msg);
+	bool handle_snstatustransfer(LIBLTE_X2AP_MESSAGE_SNSTATUSTRANSFER_STRUCT *msg);
+	bool handle_uecontextrelease(LIBLTE_X2AP_MESSAGE_UECONTEXTRELEASE_STRUCT *msg);
+
+	// X2AP successfuloutcomes
+	bool handle_handoverrequestacknowledge(LIBLTE_X2AP_MESSAGE_HANDOVERREQUESTACKNOWLEDGE_STRUCT *msg);
+	bool handle_x2setupresponse(LIBLTE_X2AP_MESSAGE_X2SETUPRESPONSE_STRUCT *msg);
+
+	// X2AP unsuccessfuloutcomes
+	bool handle_handoverpreparationfailure(LIBLTE_X2AP_MESSAGE_HANDOVERPREPARATIONFAILURE_STRUCT *msg);
+	bool handle_x2setupfailure(LIBLTE_X2AP_MESSAGE_X2SETUPFAILURE_STRUCT *msg);
+
+	std::string get_cause(LIBLTE_X2AP_CAUSE_STRUCT *c);
 };
 
 } // namespace srsenb

@@ -269,7 +269,157 @@ bool x2ap::setup_x2ap()
 
 bool x2ap::handle_x2ap_rx_pdu(srslte::byte_buffer_t *pdu)
 {
-    return false;
+    LIBLTE_X2AP_X2AP_PDU_STRUCT rx_pdu;
+
+    if(liblte_x2ap_unpack_x2ap_pdu((LIBLTE_BYTE_MSG_STRUCT*)pdu, &rx_pdu) != LIBLTE_SUCCESS)
+    {
+        x2ap_log->error("Failed to unpack received PDU\n");
+        return false;
+    }
+
+    switch(rx_pdu.choice_type)
+    {
+        case LIBLTE_X2AP_X2AP_PDU_CHOICE_INITIATINGMESSAGE:
+            return handle_initiatingmessage(&rx_pdu.choice.initiatingMessage);
+            break;
+        case LIBLTE_X2AP_X2AP_PDU_CHOICE_SUCCESSFULOUTCOME:
+            return handle_successfuloutcome(&rx_pdu.choice.successfulOutcome);
+            break;
+        case LIBLTE_X2AP_X2AP_PDU_CHOICE_UNSUCCESSFULOUTCOME:
+            return handle_unsuccessfuloutcome(&rx_pdu.choice.unsuccessfulOutcome);
+            break;
+        default:
+            x2ap_log->error("Unhandled PDU type %d\n", rx_pdu.choice_type);
+            return false;
+    }
+    return true;
+}
+
+bool x2ap::handle_initiatingmessage(LIBLTE_X2AP_INITIATINGMESSAGE_STRUCT *msg)
+{
+    switch(msg->choice_type)
+    {
+        case LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_X2SETUPREQUEST:
+            return handle_x2setuprequest(&msg->choice.X2SetupRequest);
+            break;
+        case LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_HANDOVERREQUEST:
+            return handle_handoverrequest(&msg->choice.HandoverRequest);
+            break;
+        case LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_SNSTATUSTRANSFER:
+            return handle_snstatustransfer(&msg->choice.SNStatusTransfer);
+            break;
+        case LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_UECONTEXTRELEASE:
+            return handle_uecontextrelease(&msg->choice.UEContextRelease);
+            break;
+        default:
+            x2ap_log->error("Unhandled intiating message: %s\n", liblte_x2ap_initiatingmessage_choice_text[msg->choice_type]);
+            return false;
+    }
+    return true;
+}
+
+bool x2ap::handle_successfuloutcome(LIBLTE_X2AP_SUCCESSFULOUTCOME_STRUCT *msg)
+{
+    switch(msg->choice_type)
+    {
+        case LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_HANDOVERREQUESTACKNOWLEDGE:
+            return handle_handoverrequestacknowledge(&msg->choice.HandoverRequestAcknowledge);
+            break;
+        case LIBLTE_X2AP_SUCCESSFULOUTCOME_CHOICE_X2SETUPRESPONSE:
+            return handle_x2setupresponse(&msg->choice.X2SetupResponse);
+            break;
+        default:
+            x2ap_log->error("Unhandled successful outcome message: %s\n", liblte_x2ap_successfuloutcome_choice_text[msg->choice_type]);
+            return false;
+    }
+    return true;
+}
+
+bool x2ap::handle_unsuccessfuloutcome(LIBLTE_X2AP_UNSUCCESSFULOUTCOME_STRUCT *msg)
+{
+    switch(msg->choice_type)
+    {
+        case LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_HANDOVERPREPARATIONFAILURE:
+            return handle_handoverpreparationfailure(&msg->choice.HandoverPreparationFailure);
+            break;
+        case LIBLTE_X2AP_UNSUCCESSFULOUTCOME_CHOICE_X2SETUPFAILURE:
+            return handle_x2setupfailure(&msg->choice.X2SetupFailure);
+            break;
+        default:
+            x2ap_log->error("Unhandled unsuccessful outcome message: %s\n", liblte_x2ap_unsuccessfuloutcome_choice_text[msg->choice_type]);
+            return false;
+    }
+    return true;
+}
+
+bool x2ap::handle_x2setuprequest(LIBLTE_X2AP_MESSAGE_X2SETUPREQUEST_STRUCT *msg)
+{
+    return true;
+}
+
+bool x2ap::handle_handoverrequest(LIBLTE_X2AP_MESSAGE_HANDOVERREQUEST_STRUCT *msg)
+{
+    return true;
+}
+
+bool x2ap::handle_snstatustransfer(LIBLTE_X2AP_MESSAGE_SNSTATUSTRANSFER_STRUCT *msg)
+{
+    return true;
+}
+
+bool x2ap::handle_uecontextrelease(LIBLTE_X2AP_MESSAGE_UECONTEXTRELEASE_STRUCT *msg)
+{
+    return true;
+}
+
+bool x2ap::handle_handoverrequestacknowledge(LIBLTE_X2AP_MESSAGE_HANDOVERREQUESTACKNOWLEDGE_STRUCT *msg)
+{
+    return true;
+}
+
+bool x2ap::handle_x2setupresponse(LIBLTE_X2AP_MESSAGE_X2SETUPRESPONSE_STRUCT *msg)
+{
+    return true;
+}
+
+bool x2ap::handle_handoverpreparationfailure(LIBLTE_X2AP_MESSAGE_HANDOVERPREPARATIONFAILURE_STRUCT *msg)
+{
+    std::string cause = get_cause(&msg->Cause);
+    x2ap_log->error("X2 Handover Preparation Failure. Cause: %s\n", cause.c_str());
+    x2ap_log->console("X2 Handover Preparation Failure. Cause: %s\n", cause.c_str());
+    return true;
+}
+
+bool x2ap::handle_x2setupfailure(LIBLTE_X2AP_MESSAGE_X2SETUPFAILURE_STRUCT *msg)
+{
+    std::string cause = get_cause(&msg->Cause);
+    x2ap_log->error("X2 Setup Failure. Cause: %s\n", cause.c_str());
+    x2ap_log->console("X2 Setup Failure. Cause: %s\n", cause.c_str());
+    return true;
+}
+
+std::string x2ap::get_cause(LIBLTE_X2AP_CAUSE_STRUCT *c)
+{
+  std::string cause = liblte_x2ap_cause_choice_text[c->choice_type];
+  cause += " - ";
+  switch(c->choice_type) {
+  case LIBLTE_X2AP_CAUSE_CHOICE_RADIONETWORK:
+    cause += liblte_x2ap_causeradionetwork_text[c->choice.radioNetwork.e];
+    break;
+  case LIBLTE_X2AP_CAUSE_CHOICE_TRANSPORT:
+    cause += liblte_x2ap_causetransport_text[c->choice.transport.e];
+    break;
+  case LIBLTE_X2AP_CAUSE_CHOICE_PROTOCOL:
+    cause += liblte_x2ap_causeprotocol_text[c->choice.protocol.e];
+    break;
+  case LIBLTE_X2AP_CAUSE_CHOICE_MISC:
+    cause += liblte_x2ap_causemisc_text[c->choice.misc.e];
+    break;
+  default:
+    cause += "unkown";
+    break;
+  }
+  return cause;
 }
 
 }
