@@ -129,6 +129,7 @@ srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: ../srsenb/hdr
 srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: ../srsenb/test/mac/scheduler_test.cc
 srsenb/test/mac/CMakeFiles/scheduler_test.dir/scheduler_test.cc.o: lib/include/srslte/version.h

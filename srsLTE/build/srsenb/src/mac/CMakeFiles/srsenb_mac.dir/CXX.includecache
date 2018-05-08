@@ -183,6 +183,8 @@ upper/common_enb.h
 ../lib/include/srslte/interfaces/upper/common_enb.h
 upper/s1ap_metrics.h
 ../lib/include/srslte/interfaces/upper/s1ap_metrics.h
+upper/x2ap_metrics.h
+../lib/include/srslte/interfaces/upper/x2ap_metrics.h
 upper/rrc_metrics.h
 ../lib/include/srslte/interfaces/upper/rrc_metrics.h
 ../../../../srsue/hdr/upper/gw_metrics.h
@@ -1401,6 +1403,8 @@ upper/common_enb.h
 ../srsenb/hdr/upper/upper/common_enb.h
 
 ../srsenb/hdr/upper/s1ap_metrics.h
+
+../srsenb/hdr/upper/x2ap_metrics.h
 
 ../srsue/hdr/upper/gw_metrics.h
 

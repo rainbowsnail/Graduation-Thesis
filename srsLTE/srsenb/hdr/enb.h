@@ -115,7 +115,7 @@ typedef struct {
   int           rrc_hex_limit;
   int           gtpu_hex_limit;
   int           s1ap_hex_limit;
-  int           x2ap_hew_limit;
+  int           x2ap_hex_limit;
   int           all_hex_limit;
   int           file_max_size;
   std::string   filename;

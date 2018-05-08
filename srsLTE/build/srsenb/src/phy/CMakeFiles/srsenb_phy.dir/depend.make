@@ -109,6 +109,7 @@ srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: ../srsenb/hdr/phy/txr
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: ../srsenb/src/phy/phch_common.cc
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_common.cc.o: lib/include/srslte/version.h
@@ -220,6 +221,7 @@ srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: ../srsenb/hdr/phy/phy
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: ../srsenb/src/phy/phch_worker.cc
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phch_worker.cc.o: lib/include/srslte/version.h
@@ -335,6 +337,7 @@ srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: ../srsenb/hdr/phy/txrx.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: ../srsenb/src/phy/phy.cc
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/phy.cc.o: lib/include/srslte/version.h
@@ -546,6 +549,7 @@ srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: ../srsenb/hdr/phy/txrx.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: ../srsenb/src/phy/txrx.cc
 srsenb/src/phy/CMakeFiles/srsenb_phy.dir/txrx.cc.o: lib/include/srslte/version.h

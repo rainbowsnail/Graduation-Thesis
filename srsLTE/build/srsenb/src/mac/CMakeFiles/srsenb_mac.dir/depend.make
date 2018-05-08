@@ -116,6 +116,7 @@ srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: ../srsenb/hdr/phy/phy_metrics
 srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: ../srsenb/src/mac/mac.cc
 srsenb/src/mac/CMakeFiles/srsenb_mac.dir/mac.cc.o: lib/include/srslte/version.h

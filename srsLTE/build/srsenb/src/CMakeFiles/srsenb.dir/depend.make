@@ -472,6 +472,7 @@ srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o: ../srsenb/hdr/phy/phy_metr
 srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o: ../srsenb/src/metrics_stdout.cc
 

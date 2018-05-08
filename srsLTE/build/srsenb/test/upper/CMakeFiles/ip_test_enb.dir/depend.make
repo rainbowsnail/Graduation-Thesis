@@ -139,6 +139,7 @@ srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: ../srsenb/hdr/phy/txr
 srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: ../srsenb/hdr/upper/common_enb.h
 srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: ../srsenb/hdr/upper/rrc_metrics.h
 srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: ../srsenb/hdr/upper/s1ap_metrics.h
+srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: ../srsenb/hdr/upper/x2ap_metrics.h
 srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: ../srsue/hdr/upper/gw_metrics.h
 srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: ../srsenb/test/upper/ip_test.cc
 srsenb/test/upper/CMakeFiles/ip_test_enb.dir/ip_test.cc.o: lib/include/srslte/version.h

@@ -15,7 +15,7 @@ namespace srsenb
 typedef struct 
 {
 	uint32_t      enb_id;     // 20-bit id (lsb bits)
-	uint32_t      pci;
+	uint32_t      pci;        // 32-bit pci
 	uint8_t       cell_id;    // 8-bit cell id 
 	uint16_t      tac;        // 16-bit tac
 	uint16_t      mcc;        // BCD-coded with 0xF filler

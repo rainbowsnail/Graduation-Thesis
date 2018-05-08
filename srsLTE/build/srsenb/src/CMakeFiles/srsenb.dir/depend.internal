@@ -473,6 +473,7 @@ srsenb/src/CMakeFiles/srsenb.dir/metrics_stdout.cc.o
  ../srsenb/hdr/upper/common_enb.h
  ../srsenb/hdr/upper/rrc_metrics.h
  ../srsenb/hdr/upper/s1ap_metrics.h
+ ../srsenb/hdr/upper/x2ap_metrics.h
  ../srsue/hdr/upper/gw_metrics.h
  /home/wantong/Graduation-Thesis/srsLTE/srsenb/src/metrics_stdout.cc
 srsenb/src/CMakeFiles/srsenb.dir/parser.cc.o

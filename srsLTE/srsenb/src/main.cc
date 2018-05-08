@@ -75,6 +75,8 @@ void parse_args(all_args_t *args, int argc, char* argv[]) {
     ("enb.mnc",           bpo::value<string>(&mnc)->default_value("01"),                           "Mobile Network Code")
     ("enb.mme_addr",      bpo::value<string>(&args->enb.s1ap.mme_addr)->default_value("127.0.0.1"),"IP address of MME for S1 connnection")
     ("enb.gtp_bind_addr", bpo::value<string>(&args->enb.s1ap.gtp_bind_addr)->default_value("192.168.3.1"), "Local IP address to bind for GTP connection")
+    ("enb.active_status", bpo::value<uint8_t>(&args->enb.x2ap.active_status)->default_value(0),  "Connective activity of ENB (0: passive; 1: active)")
+    ("enb.neighbour_addr", bpo::value<string>(&args->enb.x2ap.neighbour_addr)->default_value("127.0.0.1"), "IP address of Neighbour ENB for X2 connection")
     ("enb.phy_cell_id",   bpo::value<uint32_t>(&args->enb.pci)->default_value(0),                  "Physical Cell Identity (PCI)")
     ("enb.n_prb",         bpo::value<uint32_t>(&args->enb.n_prb)->default_value(25),               "Number of PRB")
     ("enb.nof_ports",     bpo::value<uint32_t>(&args->enb.nof_ports)->default_value(1),            "Number of ports")
@@ -117,6 +119,8 @@ void parse_args(all_args_t *args, int argc, char* argv[]) {
     ("log.gtpu_hex_limit",bpo::value<int>(&args->log.gtpu_hex_limit), "GTPU log hex dump limit")
     ("log.s1ap_level",    bpo::value<string>(&args->log.s1ap_level),  "S1AP log level")
     ("log.s1ap_hex_limit",bpo::value<int>(&args->log.s1ap_hex_limit), "S1AP log hex dump limit")
+    ("log.x2ap_level",    bpo::value<string>(&args->log.x2ap_level),  "X2AP log level")
+    ("log.x2ap_hex_limit",bpo::value<int>(&args->log.x2ap_hex_limit), "X2AP log hex dump limit")
 
     ("log.all_level",     bpo::value<string>(&args->log.all_level)->default_value("info"),   "ALL log level")
     ("log.all_hex_limit", bpo::value<int>(&args->log.all_hex_limit)->default_value(32),  "ALL log hex dump limit")
@@ -247,6 +251,7 @@ void parse_args(all_args_t *args, int argc, char* argv[]) {
     std::stringstream sstr;
     sstr << std::hex << vm["enb.enb_id"].as<std::string>();
     sstr >> args->enb.s1ap.enb_id;
+    sstr >> args->enb.x2ap.enb_id;
   }
   {
     std::stringstream sstr;
@@ -254,18 +259,29 @@ void parse_args(all_args_t *args, int argc, char* argv[]) {
     uint16_t tmp; // Need intermediate uint16_t as uint8_t is treated as char
     sstr >> tmp;
     args->enb.s1ap.cell_id = tmp;
+    args->enb.x2ap.cell_id = tmp;
   }
   {
     std::stringstream sstr;
     sstr << std::hex << vm["enb.tac"].as<std::string>();
     sstr >> args->enb.s1ap.tac;
+    sstr >> args->enb.x2ap.tac;
   }
+
+  // X2AP arguments
+  args->enb.x2ap.pci = args->enb.pci;
 
   // Convert MCC/MNC strings
   if(!srslte::string_to_mcc(mcc, &args->enb.s1ap.mcc)) {
     cout << "Error parsing enb.mcc:" << mcc << " - must be a 3-digit string." << endl;
   }
   if(!srslte::string_to_mnc(mnc, &args->enb.s1ap.mnc)) {
+    cout << "Error parsing enb.mnc:" << mnc << " - must be a 2 or 3-digit string." << endl;
+  }
+  if(!srslte::string_to_mcc(mcc, &args->enb.x2ap.mcc)) {
+    cout << "Error parsing enb.mcc:" << mcc << " - must be a 3-digit string." << endl;
+  }
+  if(!srslte::string_to_mnc(mnc, &args->enb.x2ap.mnc)) {
     cout << "Error parsing enb.mnc:" << mnc << " - must be a 2 or 3-digit string." << endl;
   }
 
@@ -296,6 +312,9 @@ void parse_args(all_args_t *args, int argc, char* argv[]) {
     if(!vm.count("log.s1ap_level")) {
       args->log.s1ap_level = args->log.all_level;
     }
+    if(!vm.count("log.x2ap_level")) {
+      args->log.x2ap_level = args->log.all_level;
+    }
   }
 
   // Apply all_hex_limit to any unset layers
@@ -320,6 +339,9 @@ void parse_args(all_args_t *args, int argc, char* argv[]) {
     }
     if(!vm.count("log.s1ap_hex_limit")) {
       args->log.s1ap_hex_limit = args->log.all_hex_limit;
+    }
+    if(!vm.count("log.x2ap_hex_limit")) {
+      args->log.x2ap_hex_limit = args->log.all_hex_limit;
     }
   }
 }
