@@ -55,6 +55,8 @@ private:
 	int socket_fd, conn_fd;
 	struct sockaddr_in neighbour_enb_addr; // Neighbour ENB address
 
+	LIBLTE_X2AP_MESSAGE_X2SETUPRESPONSE_STRUCT x2setupresponse;
+
 	bool connect_neighbour();
 	bool setup_x2ap();
 

@@ -207,6 +207,7 @@ public:
     void send_ue_cap_enquiry();
     void parse_ul_dcch(uint32_t lcid, srslte::byte_buffer_t* pdu);
 
+    void handle_measurement_report(LIBLTE_RRC_MEASUREMENT_REPORT_STRUCT *msg);
     void handle_rrc_con_req(LIBLTE_RRC_CONNECTION_REQUEST_STRUCT *msg);
     void handle_rrc_con_reest_req(LIBLTE_RRC_CONNECTION_REESTABLISHMENT_REQUEST_STRUCT *msg); 
     void handle_rrc_con_setup_complete(LIBLTE_RRC_CONNECTION_SETUP_COMPLETE_STRUCT *msg, srslte::byte_buffer_t *pdu);
