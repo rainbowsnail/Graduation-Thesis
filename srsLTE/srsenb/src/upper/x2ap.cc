@@ -355,7 +355,7 @@ bool x2ap::handle_unsuccessfuloutcome(LIBLTE_X2AP_UNSUCCESSFULOUTCOME_STRUCT *ms
 bool x2ap::handle_x2setuprequest(LIBLTE_X2AP_MESSAGE_X2SETUPREQUEST_STRUCT *msg)
 {
     x2ap_log->info("Received X2setuprequest\n");
-    //TODO: send_x2setuprequest();
+    //TODO: send_x2setupresponse();
     return true;
 }
 
@@ -409,6 +409,40 @@ bool x2ap::handle_x2setupfailure(LIBLTE_X2AP_MESSAGE_X2SETUPFAILURE_STRUCT *msg)
     x2ap_log->error("X2 Setup Failure. Cause: %s\n", cause.c_str());
     x2ap_log->console("X2 Setup Failure. Cause: %s\n", cause.c_str());
     return true;
+}
+
+bool x2ap::send_handoverrequest()
+{
+    if(!neighbour_connected)
+        return false;
+
+    srslte::byte_buffer_t msg;
+
+    LIBLTE_X2AP_X2AP_PDU_STRUCT pdu;
+    bzero(&pdu, sizeof(LIBLTE_X2AP_X2AP_PDU_STRUCT));
+    pdu.ext = false;
+    pdu.choice_type = LIBLTE_X2AP_X2AP_PDU_CHOICE_INITIATINGMESSAGE;
+
+    LIBLTE_X2AP_INITIATINGMESSAGE_STRUCT *init = &pdu.choice.initiatingMessage;
+    init->procedureCode = LIBLTE_X2AP_PROC_ID_HANDOVERPREPARATION;
+    init->choice_type = LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_HANDOVERREQUEST;
+
+    LIBLTE_X2AP_MESSAGE_HANDOVERREQUEST_STRUCT *req = &(init->choice.HandoverRequest);
+    req->ext = false;
+    req->TraceActivation_present = false;
+    req->SRVCCOperationPossible_present = false;
+    req->CSGMembershipStatus_present = false;
+    req->MobilityInformation_present = false;
+    return true;
+}
+
+//RRC Interface
+void x2ap::handover_start(uint16_t rnti)
+{
+    if(send_handoverrequest())
+        x2ap_log->info("Sent X2 handover request\n");
+    else
+        x2ap_log->error("Failed to send X2 handover request\n");
 }
 
 std::string x2ap::get_cause(LIBLTE_X2AP_CAUSE_STRUCT *c)

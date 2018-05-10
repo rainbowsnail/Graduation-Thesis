@@ -872,9 +872,14 @@ void rrc::ue::parse_ul_dcch(uint32_t lcid, byte_buffer_t *pdu)
 
 void rrc::ue::handle_measurement_report(LIBLTE_RRC_MEASUREMENT_REPORT_STRUCT *msg)
 {
-  //TODO: Call X2 Handover
+  if(should_handover())
+    parent->x2ap->handover_start(rnti);
 }
 
+bool rrc::ue::should_handover()
+{
+  return true; // TODO: decide whether to handover, handover now.
+}
 void rrc::ue::handle_rrc_con_req(LIBLTE_RRC_CONNECTION_REQUEST_STRUCT *msg)
 {
   set_activity();

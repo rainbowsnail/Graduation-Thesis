@@ -278,7 +278,8 @@ public:
 
 class x2ap_interface_rrc
 {
-
+public:
+  virtual void handover_start(uint16_t rnti) = 0;
 };
 
 }

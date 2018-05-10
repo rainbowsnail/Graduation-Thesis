@@ -241,6 +241,8 @@ public:
     void send_dl_ccch(LIBLTE_RRC_DL_CCCH_MSG_STRUCT *dl_ccch_msg);
     void send_dl_dcch(LIBLTE_RRC_DL_DCCH_MSG_STRUCT *dl_dcch_msg, srslte::byte_buffer_t *pdu = NULL);
     
+    bool should_handover();
+    
     uint16_t rnti; 
     rrc *parent; 
     

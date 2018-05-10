@@ -36,6 +36,10 @@ public:
 
 	void run_thread();
 
+
+	//RRC Interface
+	void handover_start(uint16_t rnti);
+
 private:
 	static const int X2AP_THREAD_PRIO = 65;
 	static const int X2AP_PORT        = 12901;
@@ -80,6 +84,9 @@ private:
 	bool handle_handoverpreparationfailure(LIBLTE_X2AP_MESSAGE_HANDOVERPREPARATIONFAILURE_STRUCT *msg);
 	bool handle_x2setupfailure(LIBLTE_X2AP_MESSAGE_X2SETUPFAILURE_STRUCT *msg);
 
+	// X2AP send messages
+	bool send_handoverrequest();
+	
 	std::string get_cause(LIBLTE_X2AP_CAUSE_STRUCT *c);
 };
 
