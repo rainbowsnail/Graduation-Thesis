@@ -14,7 +14,7 @@
 
 typedef void (*log_handler_t)(void *ctx, char *str);
 
-void liblte_log_register_handler(void *ctx, log_handler_t handler);
+void liblte_x2ap_log_register_handler(void *ctx, log_handler_t handler);
 
 
 /*******************************************************************************
@@ -5804,7 +5804,7 @@ typedef struct{
 LIBLTE_ERROR_ENUM liblte_x2ap_pack_snstatustransfer(
   LIBLTE_X2AP_MESSAGE_SNSTATUSTRANSFER_STRUCT                    *ie,
   uint8_t                                                     **ptr);
-LIBLTE_ERROR_ENUM liblte_x2ap_unpack_hsnstatustransfer(
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_snstatustransfer(
   uint8_t                                                     **ptr,
   LIBLTE_X2AP_MESSAGE_SNSTATUSTRANSFER_STRUCT                    *ie);
 
@@ -7055,7 +7055,7 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_protocolie_header(
 /*******************************************************************************
 /* Procedure code criticality lookups
 ********************************************************************************/
-static const LIBLTE_X2AP_CRITICALITY_ENUM liblte_X2AP_procedure_criticality[16] = {
+static const LIBLTE_X2AP_CRITICALITY_ENUM liblte_x2ap_procedure_criticality[16] = {
   LIBLTE_X2AP_CRITICALITY_REJECT,
   LIBLTE_X2AP_CRITICALITY_IGNORE,
   LIBLTE_X2AP_CRITICALITY_IGNORE,

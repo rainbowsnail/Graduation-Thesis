@@ -27,10 +27,11 @@ typedef struct
 
 class x2ap
 	: public x2ap_interface_rrc
+	, public x2ap_interface_s1ap
 	, public thread
 {
 public:
-	bool init(x2ap_args_t args_, rrc_interface_x2ap *rrc_, srslte::log *x2ap_log_);
+	bool init(x2ap_args_t args_, rrc_interface_x2ap *rrc_, s1ap_interface_x2ap *s1ap_, srslte::log *x2ap_log_);
 	void stop();
 	void get_metrics(x2ap_metrics_t &m);
 
@@ -50,6 +51,7 @@ private:
 	static const int NONUE_STREAM_ID  = 0;
 
 	rrc_interface_x2ap         *rrc;
+	s1ap_interface_x2ap        *s1ap;
 	x2ap_args_t                args;
 	srslte::log                *x2ap_log;
 	srslte::byte_buffer_pool   *pool;
@@ -86,7 +88,7 @@ private:
 
 	// X2AP send messages
 	bool send_handoverrequest();
-	
+
 	std::string get_cause(LIBLTE_X2AP_CAUSE_STRUCT *c);
 };
 

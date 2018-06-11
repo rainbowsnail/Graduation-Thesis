@@ -276,10 +276,22 @@ public:
   // virtual void ue_capabilities(uint16_t rnti, LIBLTE_RRC_UE_EUTRA_CAPABILITY_STRUCT *caps) = 0;
 };
 
+class s1ap_interface_x2ap
+{
+public:
+
+};
+
 class x2ap_interface_rrc
 {
 public:
   virtual void handover_start(uint16_t rnti) = 0;
+};
+
+class x2ap_interface_s1ap
+{
+public:
+
 };
 
 }

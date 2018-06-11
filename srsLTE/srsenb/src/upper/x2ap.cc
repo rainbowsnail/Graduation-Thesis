@@ -8,9 +8,10 @@
 namespace srsenb
 {
 
-bool x2ap::init(x2ap_args_t args_, rrc_interface_x2ap *rrc_, srslte::log *x2ap_log_)
+bool x2ap::init(x2ap_args_t args_, rrc_interface_x2ap *rrc_, s1ap_interface_x2ap *s1ap_, srslte::log *x2ap_log_)
 {
     rrc = rrc_;
+    s1ap = s1ap_;
     args = args_;
     x2ap_log = x2ap_log_;
 
