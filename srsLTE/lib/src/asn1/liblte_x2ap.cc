@@ -81,6 +81,589 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_protocolie_header(
 }
 
 /*******************************************************************************
+/* Protocol Message UEContextRelease STRUCT
+********************************************************************************/
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_uecontextrelease(
+  LIBLTE_X2AP_MESSAGE_UECONTEXTRELEASE_STRUCT                        *msg,
+  uint8_t                                                           **ptr)
+{
+  LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
+
+  if(msg != NULL &&
+     ptr != NULL)
+  {
+
+    // Extension
+    liblte_value_2_bits(msg->ext?1:0, ptr, 1);
+    liblte_align_up_zero(ptr, 8);
+    if(msg->ext) {
+      liblte_x2ap_log_print("UEContextRelease-IEs error: X2AP ASN extensions not currently supported\n");
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+
+    // No. of ProtocolIE
+    uint32_t n_ie = 2;
+    liblte_value_2_bits(n_ie, ptr, 16);
+
+    // Temp container for IEs
+    LIBLTE_BIT_MSG_STRUCT tmp_msg;
+    uint8_t              *tmp_ptr;
+
+    // ProtocolIE - Old_eNB_UE_X2AP_ID
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ue_x2ap_id(&msg->Old_eNB_UE_X2AP_ID, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_UE_X2AP_ID,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - New_eNB_UE_X2AP_ID
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ue_x2ap_id(&msg->New_eNB_UE_X2AP_ID, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_UE_X2AP_ID,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    err = LIBLTE_SUCCESS;
+  }
+  return err;
+}
+
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_uecontextrelease(
+  uint8_t                                                           **ptr,
+  LIBLTE_X2AP_MESSAGE_UECONTEXTRELEASE_STRUCT                 *msg)
+{
+  LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
+
+  if(msg != NULL &&
+     ptr != NULL)
+  {
+    LIBLTE_X2AP_CRITICALITY_ENUM crit;
+    uint32_t ie_id;
+    uint32_t len;
+    uint32_t n_ie;
+    uint32_t i;
+
+    // Set booleans
+
+    // Extension
+    msg->ext  = liblte_bits_2_value(ptr, 1);
+    liblte_align_up(ptr, 8);
+    if(msg->ext) {
+      liblte_x2ap_log_print("UEContextRelease-IEs error: X2AP ASN extensions not currently supported\n");
+      return LIBLTE_ERROR_DECODE_FAIL;
+    }
+
+    // No. of ProtocolIE-Container
+    n_ie = liblte_bits_2_value(ptr, 16);
+    bool old = false;
+
+    // Unpack ProtocolIE Fields
+    for(i=0;i<n_ie;i++) {
+      if(liblte_x2ap_unpack_protocolie_header(ptr, &ie_id, &crit, &len) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_DECODE_FAIL;
+      }
+      if(LIBLTE_X2AP_IE_ID_UE_X2AP_ID == ie_id && !old) {
+        /*if(liblte_x2ap_unpack_ue_x2ap_id(ptr, &msg->Old_eNB_UE_X2AP_ID) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+        old = true;
+      } else      if(LIBLTE_X2AP_IE_ID_UE_X2AP_ID == ie_id) {
+        /*if(liblte_x2ap_unpack_ue_x2ap_id(ptr, &msg->New_eNB_UE_X2AP_ID) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } 
+    }
+
+    err = LIBLTE_SUCCESS;
+  }
+  return err;
+}
+
+/*******************************************************************************
+/* Protocol Message SNStatusTransfer STRUCT
+********************************************************************************/
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_snstatustransfer(
+  LIBLTE_X2AP_MESSAGE_SNSTATUSTRANSFER_STRUCT                       *msg,
+  uint8_t                                                           **ptr)
+{
+  LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
+
+  if(msg != NULL &&
+     ptr != NULL)
+  {
+
+    // Extension
+    liblte_value_2_bits(msg->ext?1:0, ptr, 1);
+    liblte_align_up_zero(ptr, 8);
+    if(msg->ext) {
+      liblte_x2ap_log_print("SNStatusTransferIEs error: X2AP ASN extensions not currently supported\n");
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+
+    // No. of ProtocolIE
+    uint32_t n_ie = 3;
+    liblte_value_2_bits(n_ie, ptr, 16);
+
+    // Temp container for IEs
+    LIBLTE_BIT_MSG_STRUCT tmp_msg;
+    uint8_t              *tmp_ptr;
+
+    // ProtocolIE - Old_eNB_UE_X2AP_ID
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ue_x2ap_id(&msg->Old_eNB_UE_X2AP_ID, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_UE_X2AP_ID,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - New_eNB_UE_X2AP_ID
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ue_x2ap_id(&msg->New_eNB_UE_X2AP_ID, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_UE_X2AP_ID,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - E_RABs_SubjectToStatusTransfer_List
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_e_rabs_subjecttostatustransfer_list(&msg->E_RABs_SubjectToStatusTransfer_List, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_E_RABS_SUBJECTTOSTATUSTRANSFER_LIST,
+                                          LIBLTE_X2AP_CRITICALITY_IGNORE,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    err = LIBLTE_SUCCESS;
+  }
+  return err;
+}
+
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_snstatustransfer(
+  uint8_t                                                           **ptr,
+  LIBLTE_X2AP_MESSAGE_SNSTATUSTRANSFER_STRUCT                       *msg)
+{
+  LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
+
+  if(msg != NULL &&
+     ptr != NULL)
+  {
+    LIBLTE_X2AP_CRITICALITY_ENUM crit;
+    uint32_t ie_id;
+    uint32_t len;
+    uint32_t n_ie;
+    uint32_t i;
+
+    // Set booleans
+
+    // Extension
+    msg->ext  = liblte_bits_2_value(ptr, 1);
+    liblte_align_up(ptr, 8);
+    if(msg->ext) {
+      liblte_x2ap_log_print("SNStatusTransferIEs error: X2AP ASN extensions not currently supported\n");
+      return LIBLTE_ERROR_DECODE_FAIL;
+    }
+
+    // No. of ProtocolIE-Container
+    n_ie = liblte_bits_2_value(ptr, 16);
+    bool old = false;
+
+    // Unpack ProtocolIE Fields
+    for(i=0;i<n_ie;i++) {
+      if(liblte_x2ap_unpack_protocolie_header(ptr, &ie_id, &crit, &len) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_DECODE_FAIL;
+      }
+      if(LIBLTE_X2AP_IE_ID_UE_X2AP_ID == ie_id && !old) {
+        /*if(liblte_x2ap_unpack_ue_x2ap_id(ptr, &msg->Old_eNB_UE_X2AP_ID) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+        old = true;
+      } else      if(LIBLTE_X2AP_IE_ID_UE_X2AP_ID == ie_id && old) {
+        /*if(liblte_x2ap_unpack_ue_x2ap_id(ptr, &msg->New_eNB_UE_X2AP_ID) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } else      if(LIBLTE_X2AP_IE_ID_E_RABS_SUBJECTTOSTATUSTRANSFER_LIST == ie_id) {
+        /*if(liblte_x2ap_unpack_e_rabs_subjecttostatustransfer_list(ptr, &msg->E_RABs_SubjectToStatusTransfer_List) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } 
+    }
+
+    err = LIBLTE_SUCCESS;
+  }
+  return err;
+}
+
+/*******************************************************************************
+/* Protocol Message HandoverRequest STRUCT
+********************************************************************************/
+LIBLTE_ERROR_ENUM liblte_x2ap_pack_handoverrequest(
+  LIBLTE_X2AP_MESSAGE_HANDOVERREQUEST_STRUCT                         *msg,
+  uint8_t                                                           **ptr)
+{
+  LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
+
+  if(msg != NULL &&
+     ptr != NULL)
+  {
+
+    // Extension
+    liblte_value_2_bits(msg->ext?1:0, ptr, 1);
+    liblte_align_up_zero(ptr, 8);
+    if(msg->ext) {
+      liblte_x2ap_log_print("HandoverRequestIEs error: X2AP ASN extensions not currently supported\n");
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+
+    // No. of ProtocolIE
+    uint32_t n_ie = 10;
+    if(!msg->TraceActivation_present)
+      n_ie--;
+    if(!msg->SRVCCOperationPossible_present)
+      n_ie--;
+    if(!msg->CSGMembershipStatus_present)
+      n_ie--;
+    if(!msg->MobilityInformation_present)
+      n_ie--;
+    liblte_value_2_bits(n_ie, ptr, 16);
+
+    // Temp container for IEs
+    LIBLTE_BIT_MSG_STRUCT tmp_msg;
+    uint8_t              *tmp_ptr;
+
+    // ProtocolIE - Old_eNB_UE_X2AP_ID
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ue_x2ap_id(&msg->Old_eNB_UE_X2AP_ID, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_UE_X2AP_ID,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - Cause
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_cause(&msg->Cause, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_CAUSE,
+                                          LIBLTE_X2AP_CRITICALITY_IGNORE,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - TargetCell_ID
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ecgi(&msg->TargetCell_ID, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_TARGETCELL_ID,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - GUMMEI_ID
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_gummei(&msg->GUMMEI_ID, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_GUMMEI_ID,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - UE_ContextInformation
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ue_contextinformation(&msg->UE_ContextInformation, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_UE_CONTEXTINFORMATION,
+                                          LIBLTE_X2AP_CRITICALITY_REJECT,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - UE_HistoryInformation
+    tmp_msg.reset();
+    tmp_ptr = tmp_msg.msg;
+    /*if(liblte_x2ap_pack_ue_historyinformation(&msg->UE_HistoryInformation, &tmp_ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }*/
+    liblte_align_up_zero(&tmp_ptr, 8);
+    tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+    if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                          LIBLTE_X2AP_IE_ID_UE_HISTORYINFORMATION,
+                                          LIBLTE_X2AP_CRITICALITY_IGNORE,
+                                          ptr) != LIBLTE_SUCCESS) {
+      return LIBLTE_ERROR_ENCODE_FAIL;
+    }
+    memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+    *ptr += tmp_msg.N_bits;
+
+    // ProtocolIE - TraceActivation
+    if(msg->TraceActivation_present) {
+      tmp_msg.reset();
+      tmp_ptr = tmp_msg.msg;
+      /*if(liblte_x2ap_pack_traceactivation(&msg->TraceActivation, &tmp_ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }*/
+      liblte_align_up_zero(&tmp_ptr, 8);
+      tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+      if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                            LIBLTE_X2AP_IE_ID_TRACEACTIVATION,
+                                            LIBLTE_X2AP_CRITICALITY_IGNORE,
+                                            ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }
+      memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+      *ptr += tmp_msg.N_bits;
+    }
+
+    // ProtocolIE - SRVCCOperationPossible
+    if(msg->SRVCCOperationPossible_present) {
+      tmp_msg.reset();
+      tmp_ptr = tmp_msg.msg;
+      /*if(liblte_x2ap_pack_srvccoperationpossible(&msg->SRVCCOperationPossible, &tmp_ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }*/
+      liblte_align_up_zero(&tmp_ptr, 8);
+      tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+      if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                            LIBLTE_X2AP_IE_ID_SRVCCOPERATIONPOSSIBLE,
+                                            LIBLTE_X2AP_CRITICALITY_IGNORE,
+                                            ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }
+      memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+      *ptr += tmp_msg.N_bits;
+    }
+
+    // ProtocolIE - CSGMembershipStatus
+    if(msg->CSGMembershipStatus_present) {
+      tmp_msg.reset();
+      tmp_ptr = tmp_msg.msg;
+      /*if(liblte_x2ap_pack_csgmembershipstatus(&msg->CSGMembershipStatus, &tmp_ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }*/
+      liblte_align_up_zero(&tmp_ptr, 8);
+      tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+      if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                            LIBLTE_X2AP_IE_ID_CSGMEMBERSHIPSTATUS,
+                                            LIBLTE_X2AP_CRITICALITY_REJECT,
+                                            ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }
+      memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+      *ptr += tmp_msg.N_bits;
+    }
+
+    // ProtocolIE - MobilityInformation
+    if(msg->MobilityInformation_present) {
+      tmp_msg.reset();
+      tmp_ptr = tmp_msg.msg;
+      /*if(liblte_x2ap_pack_mobilityinformation(&msg->MobilityInformation, &tmp_ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }*/
+      liblte_align_up_zero(&tmp_ptr, 8);
+      tmp_msg.N_bits = tmp_ptr - tmp_msg.msg;
+      if(liblte_x2ap_pack_protocolie_header(tmp_msg.N_bits / 8,
+                                            LIBLTE_X2AP_IE_ID_MOBILITYINFORMATION,
+                                            LIBLTE_X2AP_CRITICALITY_IGNORE,
+                                            ptr) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_ENCODE_FAIL;
+      }
+      memcpy(*ptr, tmp_msg.msg, tmp_msg.N_bits);
+      *ptr += tmp_msg.N_bits;
+    }
+
+    err = LIBLTE_SUCCESS;
+  }
+  return err;
+}
+
+LIBLTE_ERROR_ENUM liblte_x2ap_unpack_handoverrequest(
+  uint8_t                                                           **ptr,
+  LIBLTE_X2AP_MESSAGE_HANDOVERREQUEST_STRUCT                         *msg)
+{
+  LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
+
+  if(msg != NULL &&
+     ptr != NULL)
+  {
+    LIBLTE_X2AP_CRITICALITY_ENUM crit;
+    uint32_t ie_id;
+    uint32_t len;
+    uint32_t n_ie;
+    uint32_t i;
+
+    // Set booleans
+    msg->TraceActivation_present = false;
+    msg->SRVCCOperationPossible_present = false;
+    msg->CSGMembershipStatus_present = false;
+    msg->MobilityInformation_present = false;
+
+    // Extension
+    msg->ext  = liblte_bits_2_value(ptr, 1);
+    liblte_align_up(ptr, 8);
+    if(msg->ext) {
+      liblte_x2ap_log_print("HandoverRequestIEs error: X2AP ASN extensions not currently supported\n");
+      return LIBLTE_ERROR_DECODE_FAIL;
+    }
+
+    // No. of ProtocolIE-Container
+    n_ie = liblte_bits_2_value(ptr, 16);
+
+    // Unpack ProtocolIE Fields
+    for(i=0;i<n_ie;i++) {
+      if(liblte_x2ap_unpack_protocolie_header(ptr, &ie_id, &crit, &len) != LIBLTE_SUCCESS) {
+        return LIBLTE_ERROR_DECODE_FAIL;
+      }
+      if(LIBLTE_X2AP_IE_ID_UE_X2AP_ID == ie_id) {
+        /*if(liblte_x2ap_unpack_ue_x2ap_id(ptr, &msg->Old_eNB_UE_X2AP_ID) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } else      if(LIBLTE_X2AP_IE_ID_CAUSE == ie_id) {
+        /*if(liblte_x2ap_unpack_cause(ptr, &msg->Cause) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } else      if(LIBLTE_X2AP_IE_ID_TARGETCELL_ID == ie_id) {
+        /*if(liblte_x2ap_unpack_ecgi(ptr, &msg->TargetCell_ID) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } else      if(LIBLTE_X2AP_IE_ID_GUMMEI_ID == ie_id) {
+        /*if(liblte_x2ap_unpack_gummei(ptr, &msg->GUMMEI_ID) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } else      if(LIBLTE_X2AP_IE_ID_UE_CONTEXTINFORMATION == ie_id) {
+        /*if(liblte_x2ap_unpack_ue_contextinformation(ptr, &msg->UE_ContextInformation) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } else      if(LIBLTE_X2AP_IE_ID_UE_HISTORYINFORMATION == ie_id) {
+        /*if(liblte_x2ap_unpack_ue_historyinformation(ptr, &msg->UE_HistoryInformation) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+      } else      if(LIBLTE_X2AP_IE_ID_TRACEACTIVATION == ie_id) {
+        /*if(liblte_x2ap_unpack_traceactivation(ptr, &msg->TraceActivation) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+        msg->TraceActivation_present = true;
+      } else      if(LIBLTE_X2AP_IE_ID_SRVCCOPERATIONPOSSIBLE == ie_id) {
+        /*if(liblte_x2ap_unpack_srvccoperationpossible(ptr, &msg->SRVCCOperationPossible) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+        msg->SRVCCOperationPossible_present = true;
+      } else      if(LIBLTE_X2AP_IE_ID_CSGMEMBERSHIPSTATUS == ie_id) {
+        /*if(liblte_x2ap_unpack_csgmembershipstatus(ptr, &msg->CSGMembershipStatus) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+        msg->CSGMembershipStatus_present = true;
+      } else      if(LIBLTE_X2AP_IE_ID_MOBILITYINFORMATION == ie_id) {
+        /*if(liblte_x2ap_unpack_mobilityinformation(ptr, &msg->MobilityInformation) != LIBLTE_SUCCESS) {
+          return LIBLTE_ERROR_DECODE_FAIL;
+        }*/
+        liblte_align_up(ptr, 8);
+        msg->MobilityInformation_present = true;
+      } 
+    }
+
+    err = LIBLTE_SUCCESS;
+  }
+  return err;
+}
+
+/*******************************************************************************
 /* Protocol Message X2SetupRequest STRUCT
 ********************************************************************************/
 LIBLTE_ERROR_ENUM liblte_x2ap_pack_x2setuprequest(
@@ -945,18 +1528,15 @@ LIBLTE_ERROR_ENUM liblte_x2ap_pack_initiatingmessage(
         return LIBLTE_ERROR_ENCODE_FAIL;
       }
     } else    if(msg->choice_type == LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_HANDOVERREQUEST) {
-      //if(liblte_x2ap_pack_handoverrequest(&msg->choice.HandoverRequest, &tmp_ptr) != LIBLTE_SUCCESS) 
-    	{
+      if(liblte_x2ap_pack_handoverrequest(&msg->choice.HandoverRequest, &tmp_ptr) != LIBLTE_SUCCESS) {
         return LIBLTE_ERROR_ENCODE_FAIL;
       }
     } else    if(msg->choice_type == LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_SNSTATUSTRANSFER) {
-      //if(liblte_x2ap_pack_snstatustransfer(&msg->choice.SNStatusTransfer, &tmp_ptr) != LIBLTE_SUCCESS) 
-    	{
+      if(liblte_x2ap_pack_snstatustransfer(&msg->choice.SNStatusTransfer, &tmp_ptr) != LIBLTE_SUCCESS) {
         return LIBLTE_ERROR_ENCODE_FAIL;
       }
     } else    if(msg->choice_type == LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_UECONTEXTRELEASE) {
-      //if(liblte_x2ap_pack_uecontextrelease(&msg->choice.UEContextRelease, &tmp_ptr) != LIBLTE_SUCCESS) 
-    	{
+      if(liblte_x2ap_pack_uecontextrelease(&msg->choice.UEContextRelease, &tmp_ptr) != LIBLTE_SUCCESS) {
         return LIBLTE_ERROR_ENCODE_FAIL;
       }
     } 
@@ -1026,19 +1606,19 @@ LIBLTE_ERROR_ENUM liblte_x2ap_unpack_initiatingmessage(
       }
     } else    if(msg->procedureCode == LIBLTE_X2AP_PROC_ID_HANDOVERPREPARATION) {
       msg->choice_type = LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_HANDOVERREQUEST;
-      //if(liblte_x2ap_unpack_handoverrequest(ptr, &msg->choice.HandoverRequest) != LIBLTE_SUCCESS) 
+      if(liblte_x2ap_unpack_handoverrequest(ptr, &msg->choice.HandoverRequest) != LIBLTE_SUCCESS) 
       {
         return LIBLTE_ERROR_DECODE_FAIL;
       }
     } else    if(msg->procedureCode == LIBLTE_X2AP_PROC_ID_SNSTATUSTRANSFER) {
       msg->choice_type = LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_SNSTATUSTRANSFER;
-      //if(liblte_x2ap_unpack_snstatustransfer(ptr, &msg->choice.SNStatusTransfer) != LIBLTE_SUCCESS) 
+      if(liblte_x2ap_unpack_snstatustransfer(ptr, &msg->choice.SNStatusTransfer) != LIBLTE_SUCCESS) 
       {
         return LIBLTE_ERROR_DECODE_FAIL;
       }
     } else    if(msg->procedureCode == LIBLTE_X2AP_PROC_ID_UECONTEXTRELEASE) {
       msg->choice_type = LIBLTE_X2AP_INITIATINGMESSAGE_CHOICE_UECONTEXTRELEASE;
-      //if(liblte_x2ap_unpack_uecontextrelease(ptr, &msg->choice.UEContextRelease) != LIBLTE_SUCCESS) 
+      if(liblte_x2ap_unpack_uecontextrelease(ptr, &msg->choice.UEContextRelease) != LIBLTE_SUCCESS) 
       {
         return LIBLTE_ERROR_DECODE_FAIL;
       }

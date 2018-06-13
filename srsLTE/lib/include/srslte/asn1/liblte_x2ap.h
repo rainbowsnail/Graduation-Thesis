@@ -5542,7 +5542,7 @@ typedef struct{
   LIBLTE_X2AP_UE_HISTORYINFORMATION_STRUCT                     UE_HistoryInformation;
   LIBLTE_X2AP_TRACEACTIVATION_STRUCT                           TraceActivation;
   bool                                                         TraceActivation_present;
-  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT                  SRVCCOpernationPossible;
+  LIBLTE_X2AP_SRVCCOPERATIONPOSSIBLE_ENUM_EXT                  SRVCCOperationPossible;
   bool                                                         SRVCCOperationPossible_present;
   LIBLTE_X2AP_CSGMEMBERSHIPSTATUS_ENUM                         CSGMembershipStatus;
   bool                                                         CSGMembershipStatus_present;
